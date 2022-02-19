@@ -1,0 +1,34 @@
+{
+    "name": "普普通通的勇者故事",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
+        "pxt-lantern": "github:felixtsu/pxt-lantern#v0.2.0",
+        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "tilemap.g.jres",
+        "tilemap.g.ts",
+        "room.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.8.20",
+        "tag": "v1.8.20",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/dd914bb70406150e2d737c738b763f1145833e1b",
+        "target": "1.8.20",
+        "pxt": "7.4.24",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
