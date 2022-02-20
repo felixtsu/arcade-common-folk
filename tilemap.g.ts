@@ -1,4 +1,4 @@
-// 自动生成的代码。请勿编辑。
+// Auto-generated code. Do not edit.
 namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const transparency16 = image.ofBuffer(hex``);
@@ -53,4 +53,4 @@ namespace myTiles {
     })
 
 }
-// 自动生成的代码。请勿编辑。
+// Auto-generated code. Do not edit.
