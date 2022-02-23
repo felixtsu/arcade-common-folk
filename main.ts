@@ -1,14 +1,8 @@
-namespace SpriteKind {
-    export const SWORD_IN_STONE_KIND = SpriteKind.create()
-}
 
-let houseRoom = new room.HouseRoom()
-let caveRoom = new room.CaveRoom()
+let willingToBind = false
+let houseRoom = new house.HouseRoom()
+let caveRoom = new cave.CaveRoom()
 caveRoom.addExit(houseRoom, "DEFAULT")
-
-let willingToBind = false;
-
-// tiles.setTilemap(tilemap`cave`)
 let heroSprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
