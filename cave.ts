@@ -4,6 +4,8 @@ namespace SpriteKind {
 }
 namespace cave {
 
+    export const ROOM_NAME = "CAVE"
+
     export class CaveRoom extends room.AbstractRoom {
 
         private swordInStone: Sprite
@@ -11,8 +13,11 @@ namespace cave {
         protected roomTilemap(): tiles.TileMapData {
             return tilemap`cave`
         }
+        constructor() {
+            super(ROOM_NAME)
+        }
 
-        didEnterRoom(): void {
+        didEnterRoom(entrance?:string): void {
             this.heroSprite.setImage(img`
                 . . . . . . f f f f . . . . . .
                 . . . . f f e e e e f f . . . .
@@ -77,7 +82,7 @@ namespace cave {
             while (notFinished) {
                 pause(1)
             }
-            this.leaveRoom("DEFAULT")
+            this.leaveRoom(house.ROOM_NAME)
         }
 
         willLeaveRoom(): void {

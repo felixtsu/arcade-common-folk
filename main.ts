@@ -1,8 +1,11 @@
-
 let willingToBind = false
 let houseRoom = new house.HouseRoom()
 let caveRoom = new cave.CaveRoom()
-caveRoom.addExit(houseRoom, "DEFAULT")
+let villageRoom = new village.VillageRoom()
+caveRoom.addExit(houseRoom)
+houseRoom.addExit(villageRoom)
+villageRoom.addExit(houseRoom)
+
 let heroSprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -21,4 +24,6 @@ let heroSprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
+heroSprite.z = 100
 caveRoom.enterRoom(heroSprite)
+// villageRoom.enterRoom(heroSprite)

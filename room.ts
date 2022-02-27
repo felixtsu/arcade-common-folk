@@ -1,8 +1,9 @@
 // 在此处添加您的代码
 namespace room {
     export interface Room {
-        enterRoom(heroSprite: Sprite): void
+        enterRoom(heroSprite: Sprite, entrance?:string): void
         leaveRoom(name: string): void
+        getRoomName():string
     }
 
     export abstract class AbstractRoom implements Room {
@@ -10,14 +11,27 @@ namespace room {
         protected exits: { [key: string]: Room }
         protected heroSprite: Sprite
 
-        addExit(nextRoom: Room, name: string) {
+        protected name:string
+        
+        constructor(name:string) {
+            this.name = name
+        }
+
+        getRoomName():string {
+            return this.name
+        }
+ 
+        addExit(nextRoom: Room, name?: string) {
             if (this.exits == undefined) {
                 this.exits = {}
+            }
+            if (!name) {
+                name = nextRoom.getRoomName()
             }
             this.exits[name] = nextRoom
         }
 
-        protected didEnterRoom(): void {
+        protected didEnterRoom(entrance:string): void {
         }
 
         protected willLeaveRoom(): void {
@@ -25,15 +39,17 @@ namespace room {
 
         protected roomTilemap(): tiles.TileMapData{return null}
 
-        public enterRoom(heroSprite: Sprite): void {
+        public enterRoom(heroSprite: Sprite,entrance?:string): void {
+            info.changeScoreBy(1)
             this.heroSprite = heroSprite
             tiles.setTilemap(this.roomTilemap())
-            this.didEnterRoom()
+            this.didEnterRoom(entrance)
         }
         public leaveRoom(name: string = "DEFAULT"): void {
+            info.changeScoreBy(-1)
             this.willLeaveRoom()
             let nextRoom = this.exits[name] as Room;
-            nextRoom.enterRoom(this.heroSprite);
+            nextRoom.enterRoom(this.heroSprite, this.getRoomName());
         }
 
     }

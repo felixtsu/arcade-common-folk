@@ -16,7 +16,10 @@
         "tilemap.g.ts",
         "room.ts",
         "cave.ts",
-        "house.ts"
+        "house.ts",
+        "images.g.jres",
+        "images.g.ts",
+        "village.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -25,7 +28,7 @@
         "branch": "v1.8.20",
         "tag": "v1.8.20",
         "commits": "https://github.com/microsoft/pxt-arcade/commits/dd914bb70406150e2d737c738b763f1145833e1b",
-        "target": "1.8.20",
+        "target": "1.8.22",
         "pxt": "7.4.24",
         "targetId": "arcade"
     },
