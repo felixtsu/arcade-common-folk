@@ -40,13 +40,11 @@ namespace room {
         protected roomTilemap(): tiles.TileMapData{return null}
 
         public enterRoom(heroSprite: Sprite,entrance?:string): void {
-            info.changeScoreBy(1)
             this.heroSprite = heroSprite
             tiles.setTilemap(this.roomTilemap())
             this.didEnterRoom(entrance)
         }
         public leaveRoom(name: string = "DEFAULT"): void {
-            info.changeScoreBy(-1)
             this.willLeaveRoom()
             let nextRoom = this.exits[name] as Room;
             nextRoom.enterRoom(this.heroSprite, this.getRoomName());

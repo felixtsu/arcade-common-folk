@@ -5,7 +5,8 @@
         "device": "*",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
         "pxt-lantern": "github:felixtsu/pxt-lantern#v0.2.0",
-        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0"
+        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
+        "storyboard": "*"
     },
     "files": [
         "main.blocks",

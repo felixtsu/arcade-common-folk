@@ -1,5 +1,6 @@
 namespace SpriteKind {
     export const House = SpriteKind.create()
+    export const PlayMate = SpriteKind.create()
 }
 
 namespace village{
@@ -14,15 +15,22 @@ namespace village{
  
         constructor() {
             super(ROOM_NAME)
+
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.House, (sprite: Sprite, otherSprite: Sprite) => {
+                this.leaveRoom(house.ROOM_NAME)
+            })
         }
         
         private houseSprite:Sprite
+        private playmateSprite:Sprite
 
         willLeaveRoom() {
             this.houseSprite.destroy()
+            scene.setBackgroundImage(img`.`)
         }
 
         didEnterRoom(entrance?:string) {
+            scene.setBackgroundImage(assets.image`villageView`)
             this.houseSprite = sprites.create(img`
                 ....................e2e22e2e....................
                 .................222eee22e2e222.................
@@ -73,15 +81,39 @@ namespace village{
                 .....64eee444c66f4e44e44e44e44ee66c444eee46.....
                 ......6ccc666c66e4e44e44e44e44ee66c666ccc6......
             `, SpriteKind.House)
-            tiles.placeOnTile(this.houseSprite, tiles.getTileLocation(2, 2))                
+            tiles.placeOnTile(this.houseSprite, tiles.getTileLocation(2, 2))     
+
+            this.playmateSprite = sprites.create(img`
+                . f f f . f f f f . f f f .
+                f f f f f c c c c f f f f f
+                f f f f b c c c c b f f f f
+                f f f c 3 c c c c 3 c f f f
+                . f 3 3 c c c c c c 3 3 f .
+                . f c c c c c c c c c c f .
+                . f f c c c c c c c c f f .
+                . f f f c c c c c c f f f .
+                . f f f f f f f f f f f f .
+                . . f f f f f f f f f f . .
+                . . e f f f f f f f f e . .
+                . e 4 f f f f f f f f 4 e .
+                . 4 d f 3 3 3 3 3 3 c d 4 .
+                . 4 4 f 6 6 6 6 6 6 f 4 4 .
+                . . . . f f f f f f . . . .
+                . . . . f f . . f f . . . .
+            `, SpriteKind.PlayMate) 
+            tiles.placeOnTile(this.playmateSprite, tiles.getTileLocation(13,6))
 
             if (entrance == house.ROOM_NAME) {
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(2, 4))
             }
 
-            sprites.onOverlap(SpriteKind.Player, SpriteKind.House, (sprite:Sprite, otherSprite:Sprite) => {
-                this.leaveRoom(house.ROOM_NAME)
+            story.startCutscene(() => {
+                story.printText("马克", 150, 110)
+                story.printText("马克...", 150, 110)
+                story.printText("你快过来看", 150, 110)
             })
+
+            this.playmateSprite.sayText("雪融了")
         }
 
     }
