@@ -1,6 +1,7 @@
 namespace SpriteKind {
     export const House = SpriteKind.create()
     export const PlayMate = SpriteKind.create()
+    export const PlayMateCutsceneTrigger = SpriteKind.create()
 }
 
 namespace village{
@@ -23,6 +24,8 @@ namespace village{
         
         private houseSprite:Sprite
         private playmateSprite:Sprite
+
+        private playmateCutSceneShow = false
 
         willLeaveRoom() {
             this.houseSprite.destroy()
@@ -101,7 +104,7 @@ namespace village{
                 . . . . f f f f f f . . . .
                 . . . . f f . . f f . . . .
             `, SpriteKind.PlayMate) 
-            tiles.placeOnTile(this.playmateSprite, tiles.getTileLocation(13,6))
+            tiles.placeOnTile(this.playmateSprite, tiles.getTileLocation(13,8))
 
             if (entrance == house.ROOM_NAME) {
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(2, 4))
@@ -113,7 +116,183 @@ namespace village{
                 story.printText("你快过来看", 150, 110)
             })
 
-            this.playmateSprite.sayText("雪融了")
+            if (!this.playmateCutSceneShow) {
+                let playmateCutSceneTriggerSprite = sprites.create(img`
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                `, SpriteKind.PlayMateCutsceneTrigger)
+                tiles.placeOnTile(playmateCutSceneTriggerSprite, tiles.getTileLocation(12, 8))
+                playmateCutSceneTriggerSprite.setFlag(SpriteFlag.Invisible, true)
+
+                sprites.onOverlap(SpriteKind.Player, SpriteKind.PlayMateCutsceneTrigger, (sprite:Sprite, otherSprite:Sprite) => {
+                    otherSprite.destroy()
+                    this.playmateCutSceneShow = true
+                    controller.moveSprite(this.heroSprite, 0, 0)
+                    story.startCutscene(()=> {
+                        this.playmateSprite.setImage(img`
+                            . f f f . f f f f . f f f .
+                            f f f f f c c c c f f f f f
+                            f f f f b c c c c b f f f f
+                            f f f c 3 c c c c 3 c f f f
+                            . f 3 3 c c c c c c 3 3 f .
+                            . f c c c c 4 4 c c c c f .
+                            . f f c c 4 4 4 4 c c f f .
+                            . f f f b f 4 4 f b f f f .
+                            . f f 4 1 f d d f 1 4 f f .
+                            . . f f d d d d d d f f . .
+                            . . e f e 4 4 4 4 e f e . .
+                            . e 4 f b 3 3 3 3 b f 4 e .
+                            . 4 d f 3 3 3 3 3 3 c d 4 .
+                            . 4 4 f 6 6 6 6 6 6 f 4 4 .
+                            . . . . f f f f f f . . . .
+                            . . . . f f . . f f . . . .
+                        `)
+                        pause(500)
+                        story.spriteSayText(this.playmateSprite, "马克,你看")
+                        pause(500)
+                        this.playmateSprite.setImage(img`
+                            . f f f . f f f f . f f f .
+                            f f f f f c c c c f f f f f
+                            f f f f b c c c c b f f f f
+                            f f f c 3 c c c c 3 c f f f
+                            . f 3 3 c c c c c c 3 3 f .
+                            . f c c c c c c c c c c f .
+                            . f f c c c c c c c c f f .
+                            . f f f c c c c c c f f f .
+                            . f f f f f f f f f f f f .
+                            . . f f f f f f f f f f . .
+                            . . e f f f f f f f f e . .
+                            . e 4 f f f f f f f f 4 e .
+                            . 4 d f 3 3 3 3 3 3 c d 4 .
+                            . 4 4 f 6 6 6 6 6 6 f 4 4 .
+                            . . . . f f f f f f . . . .
+                            . . . . f f . . f f . . . .
+                        `)
+                        story.spriteSayText(this.playmateSprite, "雪融了")
+                        pause(500)
+                        let edgeLoaction = tiles.getTileLocation(13,6)
+                        story.spriteMoveToLocation(this.playmateSprite, edgeLoaction.x, edgeLoaction.y, 16)
+
+                        story.spriteSayText(this.playmateSprite, "啊!!!!!!!!!!!")
+
+                        let batSprite = sprites.create(img`
+                            . . f f f . . . . . . . . f f f
+                            . f f c c . . . . . . f c b b c
+                            f f c c . . . . . . f c b b c .
+                            f c f c . . . . . . f b c c c .
+                            f f f c c . c c . f c b b c c .
+                            f f c 3 c c 3 c c f b c b b c .
+                            f f b 3 b c 3 b c f b c c b c .
+                            . c b b b b b b c b b c c c . .
+                            . c 1 b b b 1 b b c c c c . . .
+                            c b b b b b b b b b c c . . . .
+                            c b c b b b c b b b b f . . . .
+                            f b 1 f f f 1 b b b b f c . . .
+                            f b b b b b b b b b b f c c . .
+                            . f b b b b b b b b c f . . . .
+                            . . f b b b b b b c f . . . . .
+                            . . . f f f f f f f . . . . . .
+                        `) 
+                        scene.cameraFollowSprite(batSprite)
+                        tiles.placeOnTile(batSprite, tiles.getTileLocation(13, 4))
+                        animation.runImageAnimation(batSprite, [img`
+    . . f f f . . . . . . . . f f f 
+    . f f c c . . . . . . f c b b c 
+    f f c c . . . . . . f c b b c . 
+    f c f c . . . . . . f b c c c . 
+    f f f c c . c c . f c b b c c . 
+    f f c 3 c c 3 c c f b c b b c . 
+    f f b 3 b c 3 b c f b c c b c . 
+    . c 1 b b b 1 b c b b c c c . . 
+    . c 1 b b b 1 b b c c c c . . . 
+    c b b b b b b b b b c c . . . . 
+    c b 1 f f 1 c b b b b f . . . . 
+    f f 1 f f 1 f b b b b f c . . . 
+    f f 2 2 2 2 f b b b b f c c . . 
+    . f 2 2 2 2 b b b b c f . . . . 
+    . . f b b b b b b c f . . . . . 
+    . . . f f f f f f f . . . . . . 
+                                                `, img`
+                                                . . f f f . . . . . . . . . . . 
+                                                f f f c c . . . . . . . . f f f 
+                                                f f c c c . c c . . . f c b b c 
+                                                f f c 3 c c 3 c c f f b b b c . 
+                                                f f c 3 b c 3 b c f b b c c c . 
+                                                f c b b b b b b c f b c b c c . 
+                                                c c 1 b b b 1 b c b b c b b c . 
+                                                c b b b b b b b b b c c c b c . 
+                                                c b 1 f f 1 c b b c c c c c . . 
+                                                c f 1 f f 1 f b b b b f c . . . 
+                                                f f f f f f f b b b b f c . . . 
+                                                f f 2 2 2 2 f b b b b f c c . . 
+                                                . f 2 2 2 2 2 b b b c f . . . . 
+                                                . . f 2 2 2 b b b c f . . . . . 
+                                                . . . f f f f f f f . . . . . . 
+                                                . . . . . . . . . . . . . . . . 
+                                                `, img`
+                                                . . . . . . . . . . . . . . . . 
+                                                . . . . . . . . . . . . . . . . 
+                                                . . . c c . c c . . . . . . . . 
+                                                . . f 3 c c 3 c c c . . . . . . 
+                                                . f c 3 b c 3 b c c c . . . . . 
+                                                f c b b b b b b b b f f . . . . 
+                                                c c 1 b b b 1 b b b f f . . . . 
+                                                c b b b b b b b b c f f f . . . 
+                                                c b 1 f f 1 c b b f f f f . . . 
+                                                f f 1 f f 1 f b c c b b b . . . 
+                                                f f f f f f f b f c c c c . . . 
+                                                f f 2 2 2 2 f b f b b c c c . . 
+                                                . f 2 2 2 2 2 b c c b b c . . . 
+                                                . . f 2 2 2 b f f c c b b c . . 
+                                                . . . f f f f f f f c c c c c . 
+                                                . . . . . . . . . . . . c c c c 
+                                                `, img`
+                                                . f f f . . . . . . . . f f f . 
+                                                f f c . . . . . . . f c b b c . 
+                                                f c c . . . . . . f c b b c . . 
+                                                c f . . . . . . . f b c c c . . 
+                                                c f f . . . . . f f b b c c . . 
+                                                f f f c c . c c f b c b b c . . 
+                                                f f f c c c c c f b c c b c . . 
+                                                . f c 3 c c 3 b c b c c c . . . 
+                                                . c b 3 b c 3 b b c c c c . . . 
+                                                c c b b b b b b b b c c . . . . 
+                                                c 1 1 b b b 1 1 b b b f c . . . 
+                                                f b b b b b b b b b b f c c . . 
+                                                f b c b b b c b b b b f . . . . 
+                                                . f 1 f f f 1 b b b c f . . . . 
+                                                . . f b b b b b b c f . . . . . 
+                                                . . . f f f f f f f . . . . . . 
+                                                `], 200, true)
+
+                        story.spriteMoveToLocation(batSprite, edgeLoaction.x, edgeLoaction.y, 32)
+
+                        this.playmateSprite.destroy()
+                        batSprite.setFlag(SpriteFlag.Ghost, true)
+                        story.spriteMoveToLocation(batSprite, 13*16+8, 0, 64)
+
+                        scene.cameraFollowSprite(this.heroSprite)
+                        controller.moveSprite(this.heroSprite)
+                    })
+                })
+            }
+            
+
+            
         }
 
     }
