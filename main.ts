@@ -28,5 +28,5 @@ let heroSprite = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
 heroSprite.z = scene.HUD_Z - 5
-// villageRoom.enterRoom(heroSprite, houseRoom.getRoomName())
-caveRoom.enterRoom(heroSprite)
+villageRoom.enterRoom(heroSprite, houseRoom.getRoomName())
+// caveRoom.enterRoom(heroSprite)
