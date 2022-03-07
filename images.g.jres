@@ -9,6 +9,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "villageView"
     },
+    "image3": {
+        "data": "hwQQABAAAAAAEO7u7u4AAADhu7u7uw4AAOHbu7u97u4A4du7u73+/wDhu7u9vQ4AAOG7u727DgAA4b3bvbsOAADhvdu72w4AAOG927vbDgAA4bu7u7sOAADhu7u7vQ4AAOHb27u9DgAA4dvbu73u7gDhu9u7u/7/AOG7u7u9DgAAEO7u7u4AAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "路牌"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

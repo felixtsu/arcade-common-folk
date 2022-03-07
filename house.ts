@@ -16,10 +16,6 @@ namespace house {
 
         constructor() {
             super(ROOM_NAME)
-
-            scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, (sprite: Sprite, location: tiles.Location) => {
-                this.leaveRoom(village.ROOM_NAME)
-            })
         }
 
         placeFurniture() {
@@ -82,11 +78,15 @@ namespace house {
                     . . . . . f f f f f f . . . . .
                     . . . . . f f . . f f . . . . .
                 `)
-                controller.moveSprite(this.heroSprite)
             })
         }
 
         didEnterRoom(entrance?:string): void {
+
+            scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, (sprite: Sprite, location: tiles.Location) => {
+                this.leaveRoom(village.ROOM_NAME)
+            })
+
             this.placeFurniture()
             if (entrance == cave.ROOM_NAME) { 
                 this.fromCave()
@@ -94,6 +94,7 @@ namespace house {
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(5,4))
             }
 
+            controller.moveSprite(this.heroSprite)
             
         }
 

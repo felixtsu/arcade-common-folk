@@ -15,6 +15,7 @@ namespace room {
         
         constructor(name:string) {
             this.name = name
+            this.createdSprites = []
         }
 
         getRoomName():string {
@@ -37,9 +38,26 @@ namespace room {
         protected willLeaveRoom(): void {
         }
 
+        protected createdSprites :Sprite[]
+
+        protected createSprite(image:Image, spriteKind?:number):Sprite {
+
+            let result = sprites.create(image, spriteKind)
+            // game.currentScene().addSprite(result)
+            // game.currentScene().physicsEngine.addSprite(result)
+
+            this.createdSprites.push(result)
+
+            return result;
+        }
+
         protected roomTilemap(): tiles.TileMapData{return null}
 
         public enterRoom(heroSprite: Sprite,entrance?:string): void {
+            game.pushScene()
+            game.currentScene().addSprite(heroSprite)
+            game.currentScene().physicsEngine.addSprite(heroSprite)
+            heroSprite.vx = 0, heroSprite.vy = 0
             this.heroSprite = heroSprite
             tiles.setTilemap(this.roomTilemap())
             this.didEnterRoom(entrance)
@@ -47,6 +65,10 @@ namespace room {
         public leaveRoom(name: string = "DEFAULT"): void {
             this.willLeaveRoom()
             let nextRoom = this.exits[name] as Room;
+            for(let createdSprite of this.createdSprites) {
+                createdSprite.destroy()
+            }
+            game.popScene()
             nextRoom.enterRoom(this.heroSprite, this.getRoomName());
         }
 

@@ -161,6 +161,25 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 `;
+            case "image3":
+            case "路牌":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . 
+1 e e e e e e e e e e e e e e 1 
+e b b b b b d d d b b b b b b e 
+e b d d b b b b b b b d d b b e 
+e b b b b b b b b b b b b b b e 
+e b b b b b d d d b b d d d b e 
+e b b b d d d b b b b b b b b e 
+e b b b b b b b b b b b b b b e 
+e b d d d b b b b b d d d b d e 
+e b b b b b b d d b b b b b b e 
+. e e e e e e e e e e e e e e . 
+. . e f . . . . . . . . e f . . 
+. . e f . . . . . . . . e f . . 
+. . e f . . . . . . . . e f . . 
+`;
         }
         return null;
     })

@@ -1,6 +1,7 @@
 /**
  * villageRoom.enterRoom(heroSprite)
  */
+game.pushScene()
 let willingToBind = false
 let houseRoom = new house.HouseRoom()
 let caveRoom = new cave.CaveRoom()
@@ -27,4 +28,5 @@ let heroSprite = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
 heroSprite.z = scene.HUD_Z - 5
+// villageRoom.enterRoom(heroSprite, houseRoom.getRoomName())
 caveRoom.enterRoom(heroSprite)

@@ -2,6 +2,7 @@ namespace SpriteKind {
     export const House = SpriteKind.create()
     export const PlayMate = SpriteKind.create()
     export const PlayMateCutsceneTrigger = SpriteKind.create()
+    export const GuidBoard = SpriteKind.create()
 }
 
 namespace village{
@@ -16,25 +17,17 @@ namespace village{
  
         constructor() {
             super(ROOM_NAME)
-
-            sprites.onOverlap(SpriteKind.Player, SpriteKind.House, (sprite: Sprite, otherSprite: Sprite) => {
-                this.leaveRoom(house.ROOM_NAME)
-            })
         }
         
-        private houseSprite:Sprite
-        private playmateSprite:Sprite
 
         private playmateCutSceneShow = false
 
         willLeaveRoom() {
-            this.houseSprite.destroy()
             scene.setBackgroundImage(img`.`)
         }
 
-        didEnterRoom(entrance?:string) {
-            scene.setBackgroundImage(assets.image`villageView`)
-            this.houseSprite = sprites.create(img`
+        preparesceneSprites() {
+            let houseSprite = this.createSprite(img`
                 ....................e2e22e2e....................
                 .................222eee22e2e222.................
                 ..............222e22e2e22eee22e222..............
@@ -84,9 +77,45 @@ namespace village{
                 .....64eee444c66f4e44e44e44e44ee66c444eee46.....
                 ......6ccc666c66e4e44e44e44e44ee66c666ccc6......
             `, SpriteKind.House)
-            tiles.placeOnTile(this.houseSprite, tiles.getTileLocation(2, 2))     
+            tiles.placeOnTile(houseSprite, tiles.getTileLocation(2, 5))
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.House, (sprite: Sprite, otherSprite: Sprite) => {
+                this.leaveRoom(house.ROOM_NAME)
+            })
 
-            this.playmateSprite = sprites.create(img`
+            let guideboardSprite = this.createSprite(assets.image`路牌`, SpriteKind.GuidBoard)
+            tiles.placeOnTile(guideboardSprite, tiles.getTileLocation(10,12))
+
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.GuidBoard, (sprite: Sprite, otherSprite: Sprite) => {
+                otherSprite.sayText("A", 500)
+                if (controller.A.isPressed()) {
+                    story.printCharacterText("左:观景台\n右:下山")
+                }
+            })
+        }
+
+        didEnterRoom(entrance?:string) {
+            scene.setBackgroundImage(assets.image`villageView`)
+
+            this.preparesceneSprites()
+            
+            scene.cameraFollowSprite(this.heroSprite)
+            controller.moveSprite(this.heroSprite)
+
+            if (entrance == house.ROOM_NAME) {
+                tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(2, 8))
+            }
+
+            if (!this.playmateCutSceneShow) {
+                controller.moveSprite(this.heroSprite, 0, 0)
+
+                story.startCutscene(() => {
+                    story.printText("马克", 150, 110)
+                    story.printText("马克...", 150, 110)
+                    story.printText("你快过来看", 150, 110)
+                    controller.moveSprite(this.heroSprite)
+                })
+
+                let playmateSprite = this.createSprite(img`
                 . f f f . f f f f . f f f .
                 f f f f f c c c c f f f f f
                 f f f f b c c c c b f f f f
@@ -103,21 +132,11 @@ namespace village{
                 . 4 4 f 6 6 6 6 6 6 f 4 4 .
                 . . . . f f f f f f . . . .
                 . . . . f f . . f f . . . .
-            `, SpriteKind.PlayMate) 
-            tiles.placeOnTile(this.playmateSprite, tiles.getTileLocation(13,8))
+            `, SpriteKind.PlayMate)
+                tiles.placeOnTile(playmateSprite, tiles.getTileLocation(13, 6))
 
-            if (entrance == house.ROOM_NAME) {
-                tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(2, 4))
-            }
 
-            story.startCutscene(() => {
-                story.printText("马克", 150, 110)
-                story.printText("马克...", 150, 110)
-                story.printText("你快过来看", 150, 110)
-            })
-
-            if (!this.playmateCutSceneShow) {
-                let playmateCutSceneTriggerSprite = sprites.create(img`
+                let playmateCutSceneTriggerSprite = this.createSprite(img`
                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
@@ -135,7 +154,7 @@ namespace village{
                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
                 `, SpriteKind.PlayMateCutsceneTrigger)
-                tiles.placeOnTile(playmateCutSceneTriggerSprite, tiles.getTileLocation(12, 8))
+                tiles.placeOnTile(playmateCutSceneTriggerSprite, tiles.getTileLocation(13, 7))
                 playmateCutSceneTriggerSprite.setFlag(SpriteFlag.Invisible, true)
 
                 sprites.onOverlap(SpriteKind.Player, SpriteKind.PlayMateCutsceneTrigger, (sprite:Sprite, otherSprite:Sprite) => {
@@ -143,7 +162,7 @@ namespace village{
                     this.playmateCutSceneShow = true
                     controller.moveSprite(this.heroSprite, 0, 0)
                     story.startCutscene(()=> {
-                        this.playmateSprite.setImage(img`
+                        playmateSprite.setImage(img`
                             . f f f . f f f f . f f f .
                             f f f f f c c c c f f f f f
                             f f f f b c c c c b f f f f
@@ -162,9 +181,9 @@ namespace village{
                             . . . . f f . . f f . . . .
                         `)
                         pause(500)
-                        story.spriteSayText(this.playmateSprite, "马克,你看")
+                        story.spriteSayText(playmateSprite, "马克,你看")
                         pause(500)
-                        this.playmateSprite.setImage(img`
+                        playmateSprite.setImage(img`
                             . f f f . f f f f . f f f .
                             f f f f f c c c c f f f f f
                             f f f f b c c c c b f f f f
@@ -182,14 +201,16 @@ namespace village{
                             . . . . f f f f f f . . . .
                             . . . . f f . . f f . . . .
                         `)
-                        story.spriteSayText(this.playmateSprite, "雪融了")
+                        story.spriteSayText(playmateSprite, "雪融了")
                         pause(500)
-                        let edgeLoaction = tiles.getTileLocation(13,6)
-                        story.spriteMoveToLocation(this.playmateSprite, edgeLoaction.x, edgeLoaction.y, 16)
 
-                        story.spriteSayText(this.playmateSprite, "啊!!!!!!!!!!!")
+                        scene.cameraFollowSprite(playmateSprite)
+                        let edgeLoaction = tiles.getTileLocation(13,3)
+                        story.spriteMoveToLocation(playmateSprite, edgeLoaction.x, edgeLoaction.y, 16)
 
-                        let batSprite = sprites.create(img`
+                        story.spriteSayText(playmateSprite, "啊!!!!!!!!!!!")
+
+                        let batSprite = this.createSprite(img`
                             . . f f f . . . . . . . . f f f
                             . f f c c . . . . . . f c b b c
                             f f c c . . . . . . f c b b c .
@@ -208,7 +229,7 @@ namespace village{
                             . . . f f f f f f f . . . . . .
                         `) 
                         scene.cameraFollowSprite(batSprite)
-                        tiles.placeOnTile(batSprite, tiles.getTileLocation(13, 4))
+                        tiles.placeOnTile(batSprite, tiles.getTileLocation(13, 1))
                         animation.runImageAnimation(batSprite, [img`
     . . f f f . . . . . . . . f f f 
     . f f c c . . . . . . f c b b c 
@@ -281,18 +302,17 @@ namespace village{
 
                         story.spriteMoveToLocation(batSprite, edgeLoaction.x, edgeLoaction.y, 32)
 
-                        this.playmateSprite.destroy()
+                        playmateSprite.destroy()
                         batSprite.setFlag(SpriteFlag.Ghost, true)
-                        story.spriteMoveToLocation(batSprite, 13*16+8, 0, 64)
+                        story.spriteSayText(batSprite, "sss...")
+                        story.spriteMoveToLocation(batSprite, 16*16+8, 3*16, 32)
 
                         scene.cameraFollowSprite(this.heroSprite)
                         controller.moveSprite(this.heroSprite)
                     })
                 })
             }
-            
-
-            
+               
         }
 
     }
