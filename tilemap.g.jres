@@ -116,6 +116,25 @@
         ],
         "displayName": "village"
     },
+    "trail1": {
+        "id": "trail1",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAxMDAwMTQwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDYwNTAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMjAyMDUwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAzMDcwMjA1MDAwMDAwMDgwNjA1MDAwMDAwMDAwMDAwMDEwMTAzMDIwNjA2MDYwMjAyMDIwNjA2MDYwNTAwMDAwMTAxMDEwMzA3MDcwMjAyMDIwMjA3MDcwMjAyMDUwMDAxMDEwMTAxMDEwMTAzMDcwNzA0MDEwMTAzMDIwYTAwMDEwMTA4MDUwMTAxMDEwMTAxMDEwMTAxMDEwOTBhMDAwMTA4MDIwMjA1MDEwMTAxMDEwMTAxMDEwODAyMDQwMDAxMDMwNzAyMDIwNjA2MDYwNjA2MDYwNjAyMDQwMTAwMDEwMTAxMDMwNzAyMDIwNzA3MDcwNzA3MDQwMTAxMDAwMTAxMDEwMTAxMDkwYTAxMDEwMTAxMDEwMTAxMDEwMDAxMDEwMTA4MDYwMjA0MDEwMTAxMDEwMTAxMDEwMTAwMDEwMTA4MDIwNzA0MDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDkwYTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMzAyMDYwNjA1MDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDMwNzA3MDIwNjA2MDYwNTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMzA3MDcwNzAyMDYwNTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDMwNzAyMDUwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDkwYTAxMDEyMjIyMjIyMjIyMjIyMjIyMDAyMjIyMjIyMjIyMjIyMjAwMjAyMjIyMjIyMjIyMjIwMDAwMjIwMjAwMjIyMjIyMjIwMDAwMDAwMDAwMDAyMjIyMDIwMDAwMDAwMDAwMjAyMjIyMjIwMDAwMjIwMDIwMjIwMDIyMjIyMjIyMDIyMDAyMDAyMDIyMjIyMjAwMjAwMjAwMDAwMDAwMDAwMDIyMjIwMjAwMDAwMDAwMjAyMjIyMjIwMjIwMjIyMjIyMjIyMjAyMDAyMDIyMjIyMjIyMjIwMDAwMjIyMjIyMjIyMjIyMDAyMjIyMjIyMjIyMjIyMjAwMDAyMDIyMjIyMjIyMjIwMjAwMDAwMDIwMjIyMjIyMjIyMjAwMDAwMDIwMjIyMjIyMjIyMjIyMDAwMDIyMjIyMjIyMjIyMjIyMDAyMg==",
+        "tileset": [
+            "myTiles.transparency16",
+            "myTiles.tile5",
+            "sprites.castle.tilePath5",
+            "sprites.castle.tilePath7",
+            "sprites.castle.tilePath9",
+            "sprites.castle.tilePath3",
+            "sprites.castle.tilePath2",
+            "sprites.castle.tilePath8",
+            "sprites.castle.tilePath1",
+            "sprites.castle.tilePath4",
+            "sprites.castle.tilePath6"
+        ],
+        "displayName": "trail"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

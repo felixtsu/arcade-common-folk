@@ -1,14 +1,14 @@
-/**
- * villageRoom.enterRoom(heroSprite)
- */
-game.pushScene()
+
 let willingToBind = false
 let houseRoom = new house.HouseRoom()
 let caveRoom = new cave.CaveRoom()
 let villageRoom = new village.VillageRoom()
+let trailRoom = new trail.TrailRoom()
 caveRoom.addExit(houseRoom)
 houseRoom.addExit(villageRoom)
 villageRoom.addExit(houseRoom)
+villageRoom.addExitOnLocation(trailRoom, 15, 14)
+trailRoom.addExitOnLocation(villageRoom, 0, 1)
 let heroSprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -28,5 +28,4 @@ let heroSprite = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
 heroSprite.z = scene.HUD_Z - 5
-villageRoom.enterRoom(heroSprite, houseRoom.getRoomName())
-// caveRoom.enterRoom(heroSprite)
+caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())

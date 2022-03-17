@@ -3,6 +3,7 @@ namespace SpriteKind {
     export const PlayMate = SpriteKind.create()
     export const PlayMateCutsceneTrigger = SpriteKind.create()
     export const GuidBoard = SpriteKind.create()
+    export const TrailEntranceFromVillage = SpriteKind.create()
 }
 
 namespace village{
@@ -91,6 +92,31 @@ namespace village{
                     story.printCharacterText("左:观景台\n右:下山")
                 }
             })
+
+            let trailEntranceFromVillageSprite = this.createSprite(img`
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+                f f f f f f f f f f f f f f f f
+            `, SpriteKind.TrailEntranceFromVillage)
+            trailEntranceFromVillageSprite.setFlag(SpriteFlag.Invisible, true)
+            tiles.placeOnTile(trailEntranceFromVillageSprite, tiles.getTileLocation(15, 14))
+
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.TrailEntranceFromVillage, (sprite: Sprite, otherSprite: Sprite) => {
+                this.leaveRoom(trail.ROOM_NAME)
+            })
         }
 
         didEnterRoom(entrance?:string) {
@@ -103,6 +129,8 @@ namespace village{
 
             if (entrance == house.ROOM_NAME) {
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(2, 8))
+            } else {
+                tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(14, 14))
             }
 
             if (!this.playmateCutSceneShow) {

@@ -6,7 +6,8 @@
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
         "pxt-lantern": "github:felixtsu/pxt-lantern#v0.2.0",
         "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
-        "storyboard": "*"
+        "storyboard": "*",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0"
     },
     "files": [
         "main.blocks",
@@ -20,7 +21,9 @@
         "house.ts",
         "images.g.jres",
         "images.g.ts",
-        "village.ts"
+        "village.ts",
+        "state.ts",
+        "trail.ts"
     ],
     "testFiles": [
         "test.ts"

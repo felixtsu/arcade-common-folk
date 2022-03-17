@@ -1,14 +1,37 @@
-// 在此处添加您的代码
+namespace SpriteKind {
+    export const ExitWaypoint = SpriteKind.create()
+}
 namespace room {
+
+
+    class Exit {
+        room: Room;
+        col: number;
+        row: number;
+        waypointImage:Image;
+
+        constructor(room:Room, col?:number, row?:number, waypointImage?:Image) {
+            this.room = room
+            this.col =col
+            this.row = row
+            this.waypointImage = waypointImage
+        }
+    }
+
+
     export interface Room {
         enterRoom(heroSprite: Sprite, entrance?:string): void
         leaveRoom(name: string): void
         getRoomName():string
     }
 
+    const EXIT_NAME_SD_KEY = "EXIT_NAME_SD_KEY"
+
     export abstract class AbstractRoom implements Room {
 
-        protected exits: { [key: string]: Room }
+        protected exits: { 
+            [key: string]: Exit
+         }
         protected heroSprite: Sprite
 
         protected name:string
@@ -21,7 +44,22 @@ namespace room {
         getRoomName():string {
             return this.name
         }
- 
+
+        addExitOnLocation(nextRoom: Room, col: number, row: number, name?:string, waypointSignImage?:Image)  {
+            if (!name) {
+                name = nextRoom.getRoomName()
+            }
+            this.addExit(nextRoom, name)
+
+            if (!waypointSignImage ){
+                waypointSignImage = assets.image`waypoint_default_E`
+            }
+            
+            this.exits[name].col = col
+            this.exits[name].row = row
+            this.exits[name].waypointImage = waypointSignImage
+        }
+  
         addExit(nextRoom: Room, name?: string) {
             if (this.exits == undefined) {
                 this.exits = {}
@@ -29,7 +67,7 @@ namespace room {
             if (!name) {
                 name = nextRoom.getRoomName()
             }
-            this.exits[name] = nextRoom
+            this.exits[name] = new Exit(nextRoom)
         }
 
         protected didEnterRoom(entrance:string): void {
@@ -60,11 +98,25 @@ namespace room {
             heroSprite.vx = 0, heroSprite.vy = 0
             this.heroSprite = heroSprite
             tiles.setTilemap(this.roomTilemap())
+
+            for (let exitName of Object.keys(this.exits)) {
+                let exit = this.exits[exitName]
+                if (exit.col != undefined) {
+                    let exitWayppointSprite = this.createSprite(exit.waypointImage, SpriteKind.ExitWaypoint)
+                    sprites.setDataString(exitWayppointSprite, EXIT_NAME_SD_KEY, exitName)
+                    tiles.placeOnTile(exitWayppointSprite, tiles.getTileLocation(exit.col, exit.row))
+                }
+            }
+            
+            sprites.onOverlap(this.heroSprite.kind(), SpriteKind.ExitWaypoint, (sprite:Sprite, otherSprite:Sprite) => {
+                this.leaveRoom(sprites.readDataString(otherSprite, EXIT_NAME_SD_KEY))
+            })
+
             this.didEnterRoom(entrance)
         }
         public leaveRoom(name: string = "DEFAULT"): void {
             this.willLeaveRoom()
-            let nextRoom = this.exits[name] as Room;
+            let nextRoom = this.exits[name].room;
             for(let createdSprite of this.createdSprites) {
                 createdSprite.destroy()
             }

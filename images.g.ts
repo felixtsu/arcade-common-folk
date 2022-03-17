@@ -3,41 +3,6 @@ namespace myImages {
 
     helpers._registerFactory("image", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "image1":
-            case "衣柜":return img`
-...dddddddddddddddddddddddddddd.
-..dffeeeeeeccceeeecceeeeeeeedff.
-.dffeeecccceeecceeeeeeeeccedfcf.
-dffeeeeeeeeeeeeeeeeccceeeedfcef.
-ddddddddddddddddddddddddddfceef.
-ffccccccccccccccccccccccccfeeef.
-ffceeeeeeeeeeceeeeeeeeeeecfeeef.
-ffceeeeeeeeeeceeeeeeeeeeecfeeef.
-ffceeeeeeeedecedeeeeeeeeecfecef.
-ffceeeeeeeefecefeeeeeeeeecfecef.
-ffceeeeeeeefecefeeeeeeeeecfecef.
-ffceeeeeeeefecefeeeeeeeeecfecef.
-ffceeeeeeeefecefeeeeeeeeecfeeef.
-ffceeeeeeeefecefeeeeeeeeecfeeef.
-ffceeeeeedefecefedeeeeeeecfeecf.
-ffceeeeedfefecefefdeeeeeecfeecf.
-ffceeeeeffefecefeffeeeeeecfceef.
-ffceeeeeffefecefeffeeeeeecfceef.
-ffceeeeeefefecefefeeeeeeecfeeef.
-ffceeeeeeeefecefeeeeeeeeecfeeef.
-ffceeeeeeeefecefeeeeeeeeecfeeef.
-ffceeeeeeeefecefeeeeeeeeecfecef.
-ffceeeeeeeefecefeeeeeeeeecfecef.
-ffceeeeeeeeeeceeeeeeeeeeecfeeff.
-ffceeeeeeeeeeceeeeeeeeeeecfeffe.
-ffccccccccccccccccccccccccffffe.
-ffffffffffffffffffffffffffffefe.
-fffffffffffffffffffffffffffeefe.
-effe.efe...............effe.efe.
-effe.efe...............effe.efe.
-effe.eee...............effe.eee.
-eeee...................eeee.....
-`;
             case "image2":
             case "villageView":return img`
 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -179,6 +144,60 @@ e b b b b b b d d b b b b b b e
 . . e f . . . . . . . . e f . . 
 . . e f . . . . . . . . e f . . 
 . . e f . . . . . . . . e f . . 
+`;
+            case "image1":
+            case "衣柜":return img`
+...dddddddddddddddddddddddddddd.
+..dffeeeeeeccceeeecceeeeeeeedff.
+.dffeeecccceeecceeeeeeeeccedfcf.
+dffeeeeeeeeeeeeeeeeccceeeedfcef.
+ddddddddddddddddddddddddddfceef.
+ffccccccccccccccccccccccccfeeef.
+ffceeeeeeeeeeceeeeeeeeeeecfeeef.
+ffceeeeeeeeeeceeeeeeeeeeecfeeef.
+ffceeeeeeeedecedeeeeeeeeecfecef.
+ffceeeeeeeefecefeeeeeeeeecfecef.
+ffceeeeeeeefecefeeeeeeeeecfecef.
+ffceeeeeeeefecefeeeeeeeeecfecef.
+ffceeeeeeeefecefeeeeeeeeecfeeef.
+ffceeeeeeeefecefeeeeeeeeecfeeef.
+ffceeeeeedefecefedeeeeeeecfeecf.
+ffceeeeedfefecefefdeeeeeecfeecf.
+ffceeeeeffefecefeffeeeeeecfceef.
+ffceeeeeffefecefeffeeeeeecfceef.
+ffceeeeeefefecefefeeeeeeecfeeef.
+ffceeeeeeeefecefeeeeeeeeecfeeef.
+ffceeeeeeeefecefeeeeeeeeecfeeef.
+ffceeeeeeeefecefeeeeeeeeecfecef.
+ffceeeeeeeefecefeeeeeeeeecfecef.
+ffceeeeeeeeeeceeeeeeeeeeecfeeff.
+ffceeeeeeeeeeceeeeeeeeeeecfefff.
+ffccccccccccccccccccccccccfffff.
+fffffffffffffffffffffffffffffef.
+fffffffffffffffffffffffffff.fef.
+feef.fef...............feef.fef.
+feef.fff...............feef.fff.
+feef...................feef.....
+ffff...................ffff.....
+`;
+            case "image4":
+            case "waypoint_default_E":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . 1 1 1 1 1 1 . . . . . 
+. . . . 1 9 9 9 9 9 9 1 . . . . 
+. . . 1 9 9 9 9 9 9 9 9 1 . . . 
+. . 1 9 9 9 9 9 9 b b 9 9 1 . . 
+. 1 9 9 9 9 9 9 9 c b b 9 9 1 . 
+. 9 9 9 9 9 9 9 9 9 c b b 9 9 . 
+. 9 9 b b b b b b b b b b b 9 . 
+. 9 9 b b b b b b b b b b b 9 . 
+. 9 9 c c c c c c c c b b c 9 . 
+. 8 9 9 9 9 9 9 9 9 b b c 9 8 . 
+. . 8 9 9 9 9 9 9 b b c 9 8 . . 
+. . . 8 9 9 9 9 9 c c 9 8 . . . 
+. . . . 8 9 9 9 9 9 9 8 . . . . 
+. . . . . 8 8 8 8 8 8 . . . . . 
+. . . . . . . . . . . . . . . . 
 `;
         }
         return null;
