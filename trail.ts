@@ -1,4 +1,7 @@
-// 在此处添加您的代码
+namespace SpriteKind {
+    export const SwordGhost = SpriteKind.create()
+}
+
 namespace trail {
 
     export const ROOM_NAME = "TRAIL"
@@ -7,7 +10,7 @@ namespace trail {
 
         private enterTimes = 0
 
-        private monsterLocations: number[][] = [[8,4], [12,9], [10,17]]
+        private monsterLocations: number[][] = [[8, 4], [12, 9], [10, 17]]
 
         protected roomTilemap(): tiles.TileMapData {
             return tilemap`trail`
@@ -42,60 +45,125 @@ namespace trail {
 `, SpriteKind.Enemy);
                 tiles.placeOnTile(monsterSprite, tiles.getTileLocation(monsterLocation[0], monsterLocation[1]))
             }
-            
-            sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, (sprite:Sprite, otherSprite:Sprite)=>{
-                story.startCutscene(() => {
-                    controller.moveSprite(sprite, 0, 0)
-                    story.spriteSayText(otherSprite, "手无寸铁的小子")
-                    story.spriteSayText(otherSprite, "去死吧")
-                    let attackSprite = this.createSprite(img`
+
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, (sprite: Sprite, otherSprite: Sprite) => {
+
+                if (state.soulBound) {
+                    sprite.sayText("A", 50)
+                    if (controller.A.isPressed()) {
+                        story.startCutscene(()=>{
+                            controller.moveSprite(sprite, 0, 0)
+                            
+                            music.smallCrash.playUntilDone()
+                            music.smallCrash.playUntilDone()
+                            music.smallCrash.playUntilDone()
+
+                            otherSprite.destroy()
+
+                            info.changeLifeBy(-1)
+
+                            sprite.setImage(img`
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . f f f . . . . . .
+                                . . . . . . f e f f f f f f . .
+                                . . . . . f e e e f e f e f f .
+                                . . f e 4 f e 4 4 f 2 f e e f .
+                                . f e d d e e d 4 f 2 f e e e f
+                                f f e d d e 4 4 e f 2 e f e e f
+                                f f f e e 4 d 1 b f f e f e e f
+                                f f 4 2 2 4 d f f e f 2 e f e f
+                                . f 5 2 2 4 d d 4 e f 2 e 2 f f
+                                . f 5 2 2 e d d 4 e f 2 e 2 2 f
+                                . . f f f f f e e f e 2 e 2 f .
+                                . . . . . . . f e f 2 e f f . .
+                                . . . . . . . . f f f f . . . .
+                                . . . . . . . . . . . . . . . .
+                            `)
+
+
+                        })
+                    }
+                } else {
+                    story.startCutscene(() => {
+                        controller.moveSprite(sprite, 0, 0)
+                        info.setLife(8)
+                        profilelife.setMaxLife(8)
+
+                        story.spriteSayText(otherSprite, "手无寸铁的小子")
+                        story.spriteSayText(otherSprite, "去死吧")
+                        let attackSprite = this.createSprite(img`
                         . . . . . . . . . . . . . . . .
-                        . . . . . . . 4 c . . . . . . .
-                        . . . . . . . 2 c . . . . . . .
-                        . . . . . . 2 5 2 c . . . . . .
-                        . . . . . . e e e c . . . . . .
-                        . . . . . . d d d 1 . . . . . .
-                        . . . . . . d b d 1 . . . . . .
-                        . . . . . d d b d 1 1 . . . . .
-                        . . . . . d d b d d 1 . . . . .
-                        . . . . . d d b d d 1 . . . . .
-                        . . . . d d d b d d d 1 . . . .
-                        . . . . d d d b d d d 1 . . . .
-                        . . . . . d d b d d 1 . . . . .
-                        . . . . . . d d d 1 . . . . . .
-                        . . . . . . . . . . . . . . . .
+                        . . . . . . f 4 c . . . . . . .
+                        . . . . . . f 2 c . . . . . . .
+                        . . . . . f 2 5 2 c . . . . . .
+                        . . . . . f e e e c . . . . . .
+                        . . . . . f d d d 1 . . . . . .
+                        . . . . . f d b d 1 . . . . . .
+                        . . . . f d d b d 1 1 . . . . .
+                        . . . . f d d b d d 1 . . . . .
+                        . . . . f d d b d d 1 . . . . .
+                        . . . f d d d b d d d 1 . . . .
+                        . . . f d d d b d d d 1 . . . .
+                        . . . . f d d b d d 1 . . . . .
+                        . . . . . f d d d 1 . . . . . .
+                        . . . . . . f f f . . . . . . .
                         . . . . . . . . . . . . . . . .
                     `)
-                    attackSprite.x = sprite.x
-                    attackSprite.y = sprite.y - 32
-                    story.spriteMoveToLocation(attackSprite, heroSprite.x, heroSprite.y, 32)
-                    
-                    if (!willingToBind) {
-                        story.spriteSayText(sprite, "啊...")
-                        multilights.toggleLighting(true)
-                        multilights.addLightSource(heroSprite, 20)
-                        for (let i = 20; i >= 0; i -= 5) {
-                            multilights.bandWidthOf(heroSprite, i)
-                            pause(1000)
+                        attackSprite.x = sprite.x
+                        attackSprite.y = sprite.y - 48
+
+
+                        if (!willingToBind) {
+
+                            story.spriteMoveToLocation(attackSprite, heroSprite.x, heroSprite.y, 32)
+                            for (; info.life() > 0; info.changeLifeBy(-1)) {
+                                pause(500)
+                            }
+                            story.spriteSayText(sprite, "啊...")
+                            multilights.toggleLighting(true)
+                            multilights.addLightSource(heroSprite, 20)
+                            for (let i = 20; i >= 0; i -= 5) {
+                                multilights.bandWidthOf(heroSprite, i)
+                                pause(1000)
+                            }
+                            story.printCharacterText("谁让你那时候说不愿意", "???")
+                            story.printCharacterText("你有能力对抗魔王吗", "???")
+                            story.printCharacterText("不自量力的家伙", "???")
+                            story.printCharacterText("只能等待下一个天选之人了", "???")
+                            pause(2000)
+                            game.reset()
+                        } else {
+                            story.spriteMoveToLocation(attackSprite, heroSprite.x, heroSprite.y - 8, 32)
+                            for (; info.life() > 1; info.changeLifeBy(-1)) {
+                                pause(500)
+                            }
+                            multilights.toggleLighting(true)
+                            multilights.addLightSource(heroSprite, 20)
+                            for (let i = 20; i >= 4; i -= 5) {
+                                multilights.bandWidthOf(heroSprite, i)
+                                pause(1000)
+                            }
+                            story.printCharacterText("就在马克即将失去意识之际")
+                            story.printCharacterText("包里的锈剑闪出光芒")
+                            story.printCharacterText("时候到了...", "???")
+                            story.printCharacterText("和我建立链接吧...", "???")
+                            game.splash("获得了A的攻击能力")
+                            multilights.toggleLighting(false)
+                            state.soulBound = true
+
+                            story.cancelAllCutscenes()
+
+                            controller.moveSprite(sprite)
                         }
-                        story.printCharacterText("谁让你那时候说不愿意", "???")
-                        story.printCharacterText("你有能力对抗魔王吗", "???")
-                        story.printCharacterText("不自量力的家伙", "???")
-                        story.printCharacterText("只能等待下一个天选之人了", "???")
-                        pause(2000)
-                        game.reset()
-                    } else {
-                        story.printCharacterText("时候到了...", "???")
-                        story.printCharacterText("和我建立连接吧...", "???")
-                        game.splash("获得了A的攻击能力")
-                        controller.moveSprite(sprite)
-                    }
-                })
+                    })
+                }
             })
-            
+
+
             // first time
             if (this.enterTimes == 0) {
-                story.startCutscene(function() {
+                story.startCutscene(function () {
                     let batSprite = this.createSprite(img`
                         . . f f f . . . . . . . . f f f
                         . f f c c . . . . . . f c b b c

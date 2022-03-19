@@ -70,27 +70,6 @@
         ],
         "displayName": "级别2"
     },
-    "level1": {
-        "id": "level1",
-        "mimeType": "application/mkcd-tilemap",
-        "data": "MTAwYTAwMDgwMDAxMDIwMjAyMDIwMjAyMDIwMjAzMDQwYTBiMDkwOTA5MDkwOTA5MDcwNDA5MDkwOTA5MDkwOTA5MDkwNzA0MDkwOTA5MDkwOTA5MDkwOTA3MDQwOTA5MDkwOTA5MDkwOTA5MDcwNDA5MDkwOTA5MDkwOTA5MDkwNzA1MDYwNjA2MGMwYzA2MDYwNjA4MDAwMDAwMDAwMDAwMDAwMDAwMDAyMjIyMjIyMjIyMDIwMDAwMDAyMDAyMDAwMDAwMjAwMjAwMDAwMDIwMDIwMDAwMDAyMDAyMDAwMDAwMjAyMjIyMDAyMjIyMDAwMDAwMDAwMA==",
-        "tileset": [
-            "myTiles.transparency16",
-            "sprites.dungeon.greenOuterNorthWest",
-            "sprites.dungeon.greenOuterNorth0",
-            "sprites.dungeon.greenOuterNorthEast",
-            "sprites.dungeon.greenOuterWest0",
-            "sprites.dungeon.greenOuterSouthEast",
-            "sprites.dungeon.greenOuterSouth1",
-            "sprites.dungeon.greenOuterEast0",
-            "sprites.dungeon.greenOuterSouthWest",
-            "sprites.dungeon.floorLight2",
-            "myTiles.tile1",
-            "myTiles.tile2",
-            "sprites.dungeon.collectibleInsignia"
-        ],
-        "displayName": "house"
-    },
     "village1": {
         "id": "village1",
         "mimeType": "application/mkcd-tilemap",
@@ -134,6 +113,27 @@
             "sprites.castle.tilePath6"
         ],
         "displayName": "trail"
+    },
+    "level1": {
+        "id": "level1",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAwYTAwMDgwMDAxMDIwMjAyMDIwMjAyMDIwMjAzMDQwYTBiMDkwOTA5MDkwOTA5MDcwNDA5MDkwOTA5MDkwOTA5MDkwNzA0MDkwOTA5MDkwOTA5MDkwOTA3MDQwOTA5MDkwOTA5MDkwOTA5MDcwNDA5MDkwOTA5MDkwOTA5MDkwNzA1MDYwNjA2MGMwYzA2MDYwNjA4MDAwMDAwMDAwMDAwMDAwMDAwMDAyMjIyMjIyMjIyMDIwMDAwMDAyMDAyMDAwMDAwMjAwMjAwMDAwMDIwMDIwMDAwMDAyMDAyMDAwMDAwMjAyMjIyMDAyMjIyMDAwMDAwMDAwMA==",
+        "tileset": [
+            "myTiles.transparency16",
+            "sprites.dungeon.greenOuterNorthWest",
+            "sprites.dungeon.greenOuterNorth0",
+            "sprites.dungeon.greenOuterNorthEast",
+            "sprites.dungeon.greenOuterWest0",
+            "sprites.dungeon.greenOuterSouthEast",
+            "sprites.dungeon.greenOuterSouth1",
+            "sprites.dungeon.greenOuterEast0",
+            "sprites.dungeon.greenOuterSouthWest",
+            "sprites.dungeon.floorLight2",
+            "myTiles.tile1",
+            "myTiles.tile2",
+            "sprites.dungeon.collectibleInsignia"
+        ],
+        "displayName": "house"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

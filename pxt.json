@@ -7,7 +7,8 @@
         "pxt-lantern": "github:felixtsu/pxt-lantern#v0.2.0",
         "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
         "storyboard": "*",
-        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0"
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0",
+        "arcade-premium-life": "github:jwunderl/arcade-premium-life#v0.2.1"
     },
     "files": [
         "main.blocks",

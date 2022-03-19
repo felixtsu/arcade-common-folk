@@ -199,6 +199,41 @@ ffff...................ffff.....
 . . . . . 8 8 8 8 8 8 . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image5":
+            case "衣柜打开":return img`
+...dddddddddddddddddddddddddddd.
+..dffeeeeeeccceeeecceeeeeeeedff.
+.dffeeecccceeecceeeeeeeeccedfcf.
+dffeeeeeeeeeeeeeeeeccceeeedfcef.
+ddddddddddddddddddddddddddfceef.
+fffffffffffffffffffffffffffeeef.
+ffeeeeeeeeeeeeefeeeeeeeeeffeeef.
+feffeeefeefeefefeeefeeeffefeeef.
+feeefeefeeeeeeefeeefeefeeefecef.
+feeefeeeeeeeeeeeeeeeeefeeefecef.
+feeefbbbbbbbbbbbbbbbbbfeeefecef.
+feeefbbbbbbbbbbbbbbbbbfeeefecef.
+feeefbbbbbbbbbbbbbbbbbfeeefeeef.
+fefefdddddddddddddddddfefefeeef.
+fefefcccccccccccccccccfefefeecf.
+fefefcccccccccccccccccfefefeecf.
+fefefeeeeeeeeeeeeeeeeefefefceef.
+fefefeeeeeeeeeeeeeeeeefefefceef.
+fefefbbbbbbbbbbbbbbbbbfefefeeef.
+fefefbbbbbbbbbbbbbbbbbfefefeeef.
+fefefbbbbbbbbbbbbbbbbbfefefeeef.
+feeefdddddddddddddddddfefefecef.
+feeefcccccccccccccccccfeeefecef.
+feeefcccccccccccccccccfeeefeeff.
+feeefeeeeeeeeeeeeeeeeefeeefefff.
+feeefeeefffffeeffffeeefeeefffff.
+feeefeeeeeeeeeeeeeeeeefeeefffef.
+fffffffffffffffffffffffffff.fef.
+feefffef..............ffeef.fef.
+feef.fff...............feef.fff.
+feef...................feef.....
+ffff...................ffff.....
+`;
         }
         return null;
     })

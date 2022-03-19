@@ -55,17 +55,6 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, [myTiles.transparency16], TileScale.Sixteen);
-            case "house":
-            case "level1":return tiles.createTilemap(hex`0a00080001020202020202020203040a0b0909090909090704090909090909090907040909090909090909070409090909090909090704090909090909090907050606060c0c0606060800000000000000000000`, img`
-2 2 2 2 2 2 2 2 2 2 
-2 . . . . . . . . 2 
-2 . . . . . . . . 2 
-2 . . . . . . . . 2 
-2 . . . . . . . . 2 
-2 . . . . . . . . 2 
-2 2 2 2 . . 2 2 2 2 
-. . . . . . . . . . 
-`, [myTiles.transparency16,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterSouth1,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.floorLight2,myTiles.tile1,myTiles.tile2,sprites.dungeon.collectibleInsignia], TileScale.Sixteen);
             case "village":
             case "village1":return tiles.createTilemap(hex`10001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b0000000000000000000000000000030a0400000000000000000000000000080a0600030505050505050400000000080a0600080a0a0a0a0a0a0a04000000080a0600080a0a0a0a0a0a0a0a0400030a0a0600080a0a0a0a0a0a0a0a0a050a0a0a0c00080a0a0a0a0a0a0a0a0a0a090a0c0e00080a0a0a0a0a0a0a0a0a0c02100e0e0e070909090909090a0a060202080f0e0e020202020102020709090d0506020202020202020202020202020207090d0d0d02020202020202020202020202020202`, img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
@@ -108,6 +97,17 @@ namespace myTiles {
 2222222222....22
 222222222222..22
 `, [myTiles.transparency16,myTiles.tile5,sprites.castle.tilePath5,sprites.castle.tilePath7,sprites.castle.tilePath9,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath8,sprites.castle.tilePath1,sprites.castle.tilePath4,sprites.castle.tilePath6], TileScale.Sixteen);
+            case "house":
+            case "level1":return tiles.createTilemap(hex`0a00080001020202020202020203040a0b0909090909090704090909090909090907040909090909090909070409090909090909090704090909090909090907050606060c0c0606060800000000000000000000`, img`
+2 2 2 2 2 2 2 2 2 2 
+2 . . . . . . . . 2 
+2 . . . . . . . . 2 
+2 . . . . . . . . 2 
+2 . . . . . . . . 2 
+2 . . . . . . . . 2 
+2 2 2 2 . . 2 2 2 2 
+. . . . . . . . . . 
+`, [myTiles.transparency16,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterSouth1,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.floorLight2,myTiles.tile1,myTiles.tile2,sprites.dungeon.collectibleInsignia], TileScale.Sixteen);
         }
         return null;
     })

@@ -19,6 +19,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "waypoint_default_E"
     },
+    "image5": {
+        "data": "hwQgACAAAAAA0P3/////////////////AP397+7u7u7u7u7u7v7u/tD//f7u7v7////v7u7+7v797/3+7u7u7u7u7u7u/v///e797v////////////8PAO3u/e7uu9vM7rvbzO7+/wDt7v3u7rvbzO6728zu/v4A7ez9/u+728zuu9vM7v7/AO3s/e7uu9vM7rvbzP7+AADt7P3u7rvbzO6728z+/gAA7ez9/u6728zuu9vM/v4AAM3u/e7uu9vM7rvbzP7+AADN7v3u7rvbzO6728z+/gAAze79/u6728zuu9vM7v4AAO3s/e7uu9vM7rvbzO7+AADt7P3/77vbzO6728z+/gAA7e797u6728zuu9vM/v4AAO3u/e7uu9vM7rvbzP7+AADN7v3u7rvbzO6728z+/gAAzc79/u+728zuu9vM7v4AAO3O/e7uu9vM7rvbzO7+AADtzv3u7rvbzO6728zu/gAA7e797v////////////8PAO3u/f7u7u7u7u7u7u7+///t7P3+7u7+/////+7u/u7+7ez97+7u7u7u7u7u7v7u/u3e///////////////////t/ezu7u7u7szu7u7+DwAA3c/u7szM7u7u7s7s////AP3s7u7u7u7M7u7u/v/u/gD9//////////////////8AAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "衣柜打开"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

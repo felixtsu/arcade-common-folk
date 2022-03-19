@@ -19,9 +19,7 @@ namespace village{
         constructor() {
             super(ROOM_NAME)
         }
-        
-
-        private playmateCutSceneShow = false
+    
 
         willLeaveRoom() {
             scene.setBackgroundImage(img`.`)
@@ -115,11 +113,20 @@ namespace village{
             tiles.placeOnTile(trailEntranceFromVillageSprite, tiles.getTileLocation(15, 14))
 
             sprites.onOverlap(SpriteKind.Player, SpriteKind.TrailEntranceFromVillage, (sprite: Sprite, otherSprite: Sprite) => {
-                if (!this.playmateCutSceneShow) {
+                if (!state.playmateCapturedByBat) {
                     let backToLocation = tiles.getTileLocation(13, 14)
                     story.startCutscene(()=>{
                         controller.moveSprite(this.heroSprite, 0, 0)
                         story.spriteSayText(this.heroSprite, "现在还是先别下山吧")
+                        story.spriteMoveToLocation(this.heroSprite, backToLocation.x, backToLocation.y, 32)
+                        controller.moveSprite(this.heroSprite)
+                        story.cancelAllCutscenes()
+                    })
+                } else if (!state.rustySwordGet) {
+                    let backToLocation = tiles.getTileLocation(13, 14)
+                    story.startCutscene(() => {
+                        controller.moveSprite(this.heroSprite, 0, 0)
+                        story.spriteSayText(this.heroSprite, "把衣柜里的武器带上吧")
                         story.spriteMoveToLocation(this.heroSprite, backToLocation.x, backToLocation.y, 32)
                         controller.moveSprite(this.heroSprite)
                         story.cancelAllCutscenes()
@@ -145,7 +152,7 @@ namespace village{
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(14, 14))
             }
 
-            if (!this.playmateCutSceneShow) {
+            if (!state.playmateCapturedByBat) {
                 controller.moveSprite(this.heroSprite, 0, 0)
 
                 story.startCutscene(() => {
@@ -199,7 +206,7 @@ namespace village{
 
                 sprites.onOverlap(SpriteKind.Player, SpriteKind.PlayMateCutsceneTrigger, (sprite:Sprite, otherSprite:Sprite) => {
                     otherSprite.destroy()
-                    this.playmateCutSceneShow = true
+                    state.playmateCapturedByBat = true
                     controller.moveSprite(this.heroSprite, 0, 0)
                     story.startCutscene(()=> {
                         playmateSprite.setImage(img`
@@ -248,7 +255,10 @@ namespace village{
                         let edgeLoaction = tiles.getTileLocation(13,3)
                         story.spriteMoveToLocation(playmateSprite, edgeLoaction.x, edgeLoaction.y, 16)
 
+                        pause(500)
                         story.spriteSayText(playmateSprite, "啊!!!!!!!!!!!")
+
+                        playmateSprite.vy = 16
 
                         let batSprite = this.createSprite(img`
                             . . f f f . . . . . . . . f f f
@@ -340,7 +350,7 @@ namespace village{
                                                 . . . f f f f f f f . . . . . . 
                                                 `], 200, true)
 
-                        story.spriteMoveToLocation(batSprite, edgeLoaction.x, edgeLoaction.y, 32)
+                        story.spriteMoveToLocation(batSprite, edgeLoaction.x, edgeLoaction.y + 16, 48)
 
                         playmateSprite.destroy()
                         batSprite.setFlag(SpriteFlag.Ghost, true)

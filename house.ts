@@ -1,16 +1,20 @@
-// Add your code here
+namespace SpriteKind {
+
+    export const Closet = SpriteKind.create()
+
+}
 namespace house {
 
     export const ROOM_NAME = "HOUSE"
 
     export class HouseRoom extends room.AbstractRoom {
         protected roomTilemap(): tiles.TileMapData {
-           return tilemap`house`
+            return tilemap`house`
         }
 
-        private closetSprite:Sprite
+        private closetSprite: Sprite
 
-        willLeaveRoom() :void{
+        willLeaveRoom(): void {
             this.closetSprite.destroy()
         }
 
@@ -19,10 +23,34 @@ namespace house {
         }
 
         placeFurniture() {
-            this.closetSprite = sprites.create(assets.image`衣柜`, SpriteKind.Enemy)
+            this.closetSprite = this.createSprite(assets.image`衣柜`, SpriteKind.Closet)
             tiles.placeOnTile(this.closetSprite, tiles.getTileLocation(7, 1))
             this.closetSprite.x += 8
             this.closetSprite.y -= 8
+
+            sprites.onOverlap(SpriteKind.Player, SpriteKind.Closet, (sprite: Sprite, otherSprite: Sprite) => {
+                otherSprite.sayText("A", 50)
+                if (controller.A.isPressed()) {
+                    story.startCutscene(() => {
+                        controller.moveSprite(this.heroSprite, 0, 0)
+                        otherSprite.setImage(assets.image`衣柜打开`)
+                        if (state.playmateCapturedByBat && !state.rustySwordGet) {
+                            story.printCharacterText("取得锈剑")
+                            state.rustySwordGet = true
+                        } else if (!state.playmateCapturedByBat){
+                            story.printCharacterText("都是些不值钱的东西")
+                            story.printCharacterText("几件衣服")
+                            story.printCharacterText("锈迹斑斑的老剑")
+                            story.printCharacterText("好久没有练习了", "???")
+                        } else {
+                            story.printCharacterText("剩下的真的没用了")
+                        }
+                        otherSprite.setImage(assets.image`衣柜`)
+                        controller.moveSprite(this.heroSprite)
+                        story.cancelAllCutscenes()
+                    })
+                }
+            })
         }
 
         fromCave() {
@@ -30,8 +58,9 @@ namespace house {
             multilights.removeLightSource(this.heroSprite)
             tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(2, 2))
             this.heroSprite.x -= 8 // move left a little bit to center of the bed
-            
+
             story.startCutscene(function () {
+                controller.moveSprite(this.heroSprite, 0, 0)
                 this.heroSprite.setImage(img`
                     . . . . . . . . . . . . . . . .
                     . . . . f f f f . . . . . . . .
@@ -78,24 +107,25 @@ namespace house {
                     . . . . . f f f f f f . . . . .
                     . . . . . f f . . f f . . . . .
                 `)
+                controller.moveSprite(this.heroSprite)
             })
         }
 
-        didEnterRoom(entrance?:string): void {
+        didEnterRoom(entrance?: string): void {
 
             scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, (sprite: Sprite, location: tiles.Location) => {
                 this.leaveRoom(village.ROOM_NAME)
             })
 
             this.placeFurniture()
-            if (entrance == cave.ROOM_NAME) { 
+            if (entrance == cave.ROOM_NAME) {
                 this.fromCave()
             } else if (entrance == village.ROOM_NAME) {
-                tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(5,4))
+                tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(5, 4))
             }
 
             controller.moveSprite(this.heroSprite)
-            
+
         }
 
     }

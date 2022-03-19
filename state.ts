@@ -1,8 +1,8 @@
 // 在此处添加您的代码
 namespace state {
 
-    export let c1_equipment_get = false;
-
-
+    export let playmateCapturedByBat = false
+    export let rustySwordGet = false
+    export let soulBound = false
 
 }
