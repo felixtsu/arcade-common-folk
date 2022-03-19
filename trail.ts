@@ -71,6 +71,7 @@ namespace trail {
                     story.spriteMoveToLocation(attackSprite, heroSprite.x, heroSprite.y, 32)
                     
                     if (!willingToBind) {
+                        story.spriteSayText(sprite, "啊...")
                         multilights.toggleLighting(true)
                         multilights.addLightSource(heroSprite, 20)
                         for (let i = 20; i >= 0; i -= 5) {

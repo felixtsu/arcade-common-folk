@@ -115,7 +115,19 @@ namespace village{
             tiles.placeOnTile(trailEntranceFromVillageSprite, tiles.getTileLocation(15, 14))
 
             sprites.onOverlap(SpriteKind.Player, SpriteKind.TrailEntranceFromVillage, (sprite: Sprite, otherSprite: Sprite) => {
-                this.leaveRoom(trail.ROOM_NAME)
+                if (!this.playmateCutSceneShow) {
+                    let backToLocation = tiles.getTileLocation(13, 14)
+                    story.startCutscene(()=>{
+                        controller.moveSprite(this.heroSprite, 0, 0)
+                        story.spriteSayText(this.heroSprite, "现在还是先别下山吧")
+                        story.spriteMoveToLocation(this.heroSprite, backToLocation.x, backToLocation.y, 32)
+                        controller.moveSprite(this.heroSprite)
+                        story.cancelAllCutscenes()
+                    })
+                } else {
+                    this.leaveRoom(trail.ROOM_NAME)
+                }
+                
             })
         }
 
