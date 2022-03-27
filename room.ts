@@ -3,6 +3,12 @@ namespace SpriteKind {
 }
 namespace room {
 
+    let _currentRoom:Room = null
+
+    export function currentRoom():Room {
+        return _currentRoom;
+    }
+
 
     class Exit {
         room: Room;
@@ -23,6 +29,7 @@ namespace room {
         enterRoom(heroSprite: Sprite, entrance?:string): void
         leaveRoom(name: string): void
         getRoomName():string
+        createSprite(image: Image, spriteKind?: number): Sprite
     }
 
     const EXIT_NAME_SD_KEY = "EXIT_NAME_SD_KEY"
@@ -73,16 +80,15 @@ namespace room {
         protected didEnterRoom(entrance:string): void {
         }
 
-        protected willLeaveRoom(): void {
+        protected willLeaveRoom(exit:string): boolean {
+            return true
         }
 
         protected createdSprites :Sprite[]
 
-        protected createSprite(image:Image, spriteKind?:number):Sprite {
+        createSprite(image:Image, spriteKind?:number):Sprite {
 
             let result = sprites.create(image, spriteKind)
-            // game.currentScene().addSprite(result)
-            // game.currentScene().physicsEngine.addSprite(result)
 
             this.createdSprites.push(result)
 
@@ -97,6 +103,9 @@ namespace room {
             game.currentScene().physicsEngine.addSprite(heroSprite)
             heroSprite.vx = 0, heroSprite.vy = 0
             this.heroSprite = heroSprite
+
+            _currentRoom = this;
+
             tiles.setTilemap(this.roomTilemap())
 
             for (let exitName of Object.keys(this.exits)) {
@@ -112,10 +121,15 @@ namespace room {
                 this.leaveRoom(sprites.readDataString(otherSprite, EXIT_NAME_SD_KEY))
             })
 
+
+
             this.didEnterRoom(entrance)
         }
         public leaveRoom(name: string = "DEFAULT"): void {
-            this.willLeaveRoom()
+            let result = this.willLeaveRoom(name)
+            if (!result) {
+                return
+            }
             let nextRoom = this.exits[name].room;
             for(let createdSprite of this.createdSprites) {
                 createdSprite.destroy()

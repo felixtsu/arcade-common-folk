@@ -14,10 +14,6 @@ namespace house {
 
         private closetSprite: Sprite
 
-        willLeaveRoom(): void {
-            this.closetSprite.destroy()
-        }
-
         constructor() {
             super(ROOM_NAME)
         }
@@ -82,7 +78,7 @@ namespace house {
                 scene.cameraShake(4, 500)
                 music.knock.playUntilDone()
                 story.printCharacterText("又是这个梦", "???")
-                if (willingToBind) {
+                if (state.willingToBind) {
                     story.printCharacterText("每次说了愿意又要我等", "???")
                     story.printCharacterText("下次就说不愿意好了", "???")
                 } else {
@@ -122,6 +118,46 @@ namespace house {
                 this.fromCave()
             } else if (entrance == village.ROOM_NAME) {
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(5, 4))
+            } else if (entrance == trail.ROOM_NAME) {
+                // 倒下以后被老头送回家
+                tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(2,1))
+                let oldmanSprite = this.createSprite(img`
+                    . . . . f f f f . . . .
+                    . . f f e e e e f f . .
+                    . f f e e e e e e f f .
+                    f f f f 4 e e e f f f f
+                    f f f 4 4 4 e e f f f f
+                    f f f 4 4 4 4 e e f f f
+                    f 4 e 4 4 4 4 4 4 e 4 f
+                    f 4 4 f f 4 4 f f 4 4 f
+                    f e 4 d d d d d d 4 e f
+                    . f e d d b b d d e f .
+                    . f f e 4 4 4 4 e f f .
+                    e 4 f b 1 1 1 1 b f 4 e
+                    4 d f 1 1 1 1 1 1 f d 4
+                    4 4 f 6 6 6 6 6 6 f 4 4
+                    . . . f f f f f f . . .
+                    . . . f f . . f f . . .
+                `)
+                tiles.placeOnTile(oldmanSprite, tiles.getTileLocation(4,1))
+                this.heroSprite.setImage(img`
+                    . . . . . . f f f f . . . . . .
+                    . . . . f f f 2 2 f f f . . . .
+                    . . . f f f 2 2 2 2 f f f . . .
+                    . . f f f e e e e e e f f f . .
+                    . . f f e 2 2 2 2 2 2 e e f . .
+                    . . f e 2 f f f f f f 2 e f . .
+                    . . f f f f e e e e f f f f . .
+                    . f f e f b f 4 4 f b f e f f .
+                    . f e e 4 1 f d d f 1 4 e e f .
+                    . . f e e d d d d d d e e f . .
+                    . . . f e e 4 4 4 4 e e f . . .
+                    . . e 4 f 2 2 2 2 2 2 f 4 e . .
+                    . . 4 d f 2 2 2 2 2 2 f d 4 . .
+                    . . 4 4 f 4 4 5 5 4 4 f 4 4 . .
+                    . . . . . f f f f f f . . . . .
+                    . . . . . f f . . f f . . . . .
+                `)
             }
 
             controller.moveSprite(this.heroSprite)

@@ -21,8 +21,32 @@ namespace village{
         }
     
 
-        willLeaveRoom() {
+        willLeaveRoom(exit: string) :boolean{
+            if (exit == trail.ROOM_NAME) {
+                if (!state.playmateCapturedByBat) {
+                    let backToLocation = tiles.getTileLocation(13, 14)
+                    story.startCutscene(() => {
+                        controller.moveSprite(this.heroSprite, 0, 0)
+                        story.spriteSayText(this.heroSprite, "现在还是先别下山吧")
+                        story.spriteMoveToLocation(this.heroSprite, backToLocation.x, backToLocation.y, 32)
+                        controller.moveSprite(this.heroSprite)
+                        story.cancelAllCutscenes()
+                    })
+                    return false
+                } else if (!state.rustySwordGet) {
+                    let backToLocation = tiles.getTileLocation(13, 14)
+                    story.startCutscene(() => {
+                        controller.moveSprite(this.heroSprite, 0, 0)
+                        story.spriteSayText(this.heroSprite, "把衣柜里的武器带上吧")
+                        story.spriteMoveToLocation(this.heroSprite, backToLocation.x, backToLocation.y, 32)
+                        controller.moveSprite(this.heroSprite)
+                        story.cancelAllCutscenes()
+                    })
+                    return false
+                }
+            }
             scene.setBackgroundImage(img`.`)
+            return true
         }
 
         preparesceneSprites() {
@@ -91,49 +115,8 @@ namespace village{
                 }
             })
 
-            let trailEntranceFromVillageSprite = this.createSprite(img`
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-                f f f f f f f f f f f f f f f f
-            `, SpriteKind.TrailEntranceFromVillage)
-            trailEntranceFromVillageSprite.setFlag(SpriteFlag.Invisible, true)
-            tiles.placeOnTile(trailEntranceFromVillageSprite, tiles.getTileLocation(15, 14))
-
             sprites.onOverlap(SpriteKind.Player, SpriteKind.TrailEntranceFromVillage, (sprite: Sprite, otherSprite: Sprite) => {
-                if (!state.playmateCapturedByBat) {
-                    let backToLocation = tiles.getTileLocation(13, 14)
-                    story.startCutscene(()=>{
-                        controller.moveSprite(this.heroSprite, 0, 0)
-                        story.spriteSayText(this.heroSprite, "现在还是先别下山吧")
-                        story.spriteMoveToLocation(this.heroSprite, backToLocation.x, backToLocation.y, 32)
-                        controller.moveSprite(this.heroSprite)
-                        story.cancelAllCutscenes()
-                    })
-                } else if (!state.rustySwordGet) {
-                    let backToLocation = tiles.getTileLocation(13, 14)
-                    story.startCutscene(() => {
-                        controller.moveSprite(this.heroSprite, 0, 0)
-                        story.spriteSayText(this.heroSprite, "把衣柜里的武器带上吧")
-                        story.spriteMoveToLocation(this.heroSprite, backToLocation.x, backToLocation.y, 32)
-                        controller.moveSprite(this.heroSprite)
-                        story.cancelAllCutscenes()
-                    })
-                } else {
-                    this.leaveRoom(trail.ROOM_NAME)
-                }
+                
                 
             })
         }

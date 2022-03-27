@@ -1,15 +1,17 @@
-
+/**
+ * trailRoom.enterRoom(heroSprite, villageRoom.getRoomName())
+ */
 let willingToBind = false
 let houseRoom = new house.HouseRoom()
 let caveRoom = new cave.CaveRoom()
 let villageRoom = new village.VillageRoom()
 let trailRoom = new trail.TrailRoom()
-info.onLifeZero(() => { })
 caveRoom.addExit(houseRoom)
 houseRoom.addExit(villageRoom)
 villageRoom.addExit(houseRoom)
 villageRoom.addExitOnLocation(trailRoom, 15, 14)
 trailRoom.addExitOnLocation(villageRoom, 0, 1)
+trailRoom.addExit(houseRoom)
 let heroSprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -30,4 +32,3 @@ let heroSprite = sprites.create(img`
     `, SpriteKind.Player)
 heroSprite.z = scene.HUD_Z - 5
 caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())
-// trailRoom.enterRoom(heroSprite, villageRoom.getRoomName())

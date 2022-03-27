@@ -4,5 +4,6 @@ namespace state {
     export let playmateCapturedByBat = false
     export let rustySwordGet = false
     export let soulBound = false
+    export let willingToBind = false
 
 }

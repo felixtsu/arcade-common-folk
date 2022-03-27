@@ -4,11 +4,14 @@
     "dependencies": {
         "device": "*",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
-        "pxt-lantern": "github:felixtsu/pxt-lantern#v0.2.0",
         "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
         "storyboard": "*",
         "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0",
-        "arcade-premium-life": "github:jwunderl/arcade-premium-life#v0.2.1"
+        "arcade-premium-life": "github:jwunderl/arcade-premium-life#v0.2.1",
+        "pxt-lantern": "github:felixtsu/pxt-lantern#v0.2.1",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.2.5",
+        "pxt-meteoroid": "github:felixtsu/pxt-meteoroid#v0.1.1"
     },
     "files": [
         "main.blocks",
@@ -24,7 +27,9 @@
         "images.g.ts",
         "village.ts",
         "state.ts",
-        "trail.ts"
+        "trail.ts",
+        "effect.ts",
+        "monster.ts"
     ],
     "testFiles": [
         "test.ts"

@@ -39,7 +39,7 @@ namespace cave {
             multilights.addLightSource(heroSprite, 6)
             scene.cameraFollowSprite(heroSprite)
             tiles.placeOnTile(heroSprite, tiles.getTileLocation(5, 12))
-            this.swordInStone = sprites.create(img`  
+            this.swordInStone = this.createSprite(img`  
     c c c c c c c c c 5 b b b c c c 
     c c c c c c b b b 5 d d d b c c 
     c c c c c c b d 5 8 5 d d b c c 
@@ -71,7 +71,7 @@ namespace cave {
                 story.printCharacterText("你愿意和我建立灵魂链接吗？", "???")
                 story.showPlayerChoices("愿意", "不愿意")
                 if (story.getLastAnswer() == "愿意") {
-                    willingToBind = true
+                    state.willingToBind = true
                     story.printCharacterText("等待合适的时机吧", "???")
                 } else {
                     story.printCharacterText("...", "???")
@@ -85,9 +85,9 @@ namespace cave {
             this.leaveRoom(house.ROOM_NAME)
         }
 
-        willLeaveRoom(): void {
-            this.swordInStone.destroy()
+        willLeaveRoom(exit: string): boolean {
             multilights.removeLightSource(this.heroSprite)
+            return true
         }
     }
 }
