@@ -11,7 +11,7 @@
         "pxt-lantern": "github:felixtsu/pxt-lantern#v0.2.1",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
         "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.2.5",
-        "pxt-meteoroid": "github:felixtsu/pxt-meteoroid#v0.1.1"
+        "pxt-meteoroid": "github:felixtsu/pxt-meteoroid#v0.1.3"
     },
     "files": [
         "main.blocks",
@@ -29,7 +29,9 @@
         "state.ts",
         "trail.ts",
         "effect.ts",
-        "monster.ts"
+        "monster.ts",
+        "dungeon.ts",
+        "aiming.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -38,7 +40,7 @@
         "branch": "v1.8.20",
         "tag": "v1.8.20",
         "commits": "https://github.com/microsoft/pxt-arcade/commits/dd914bb70406150e2d737c738b763f1145833e1b",
-        "target": "1.8.22",
+        "target": "1.8.23",
         "pxt": "7.4.24",
         "targetId": "arcade"
     },

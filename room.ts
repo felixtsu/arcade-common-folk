@@ -52,6 +52,21 @@ namespace room {
             return this.name
         }
 
+        protected createExitInRoom(nextRoom: Room, col: number, row: number, name?: string, waypointSignImage?: Image) {
+            if (!name) {
+                name = nextRoom.getRoomName()
+            }
+
+            this.addExitOnLocation(nextRoom, col, row, name, waypointSignImage)
+
+            let exit = this.exits[name]
+
+            let exitWayppointSprite = this.createSprite(exit.waypointImage, SpriteKind.ExitWaypoint)
+            sprites.setDataString(exitWayppointSprite, EXIT_NAME_SD_KEY, name)
+            tiles.placeOnTile(exitWayppointSprite, tiles.getTileLocation(exit.col, exit.row))
+
+        }
+
         addExitOnLocation(nextRoom: Room, col: number, row: number, name?:string, waypointSignImage?:Image)  {
             if (!name) {
                 name = nextRoom.getRoomName()

@@ -116,8 +116,10 @@ namespace house {
             this.placeFurniture()
             if (entrance == cave.ROOM_NAME) {
                 this.fromCave()
+                controller.moveSprite(this.heroSprite)
             } else if (entrance == village.ROOM_NAME) {
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(5, 4))
+                controller.moveSprite(this.heroSprite)
             } else if (entrance == trail.ROOM_NAME) {
                 // 倒下以后被老头送回家
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(2,1))
@@ -158,9 +160,21 @@ namespace house {
                     . . . . . f f f f f f . . . . .
                     . . . . . f f . . f f . . . . .
                 `)
-            }
+                story.startCutscene(()=>{
+                    story.spriteSayText(oldmanSprite, "马克...")
+                    story.spriteSayText(oldmanSprite, "你还记得你的玩伴叫什么名字吗？")
+                    story.showPlayerChoices("小红", "阿芳", "静宜", "路西")
+                    state.playmateName = story.getLastAnswer()
+                    story.spriteSayText(oldmanSprite, "对！就是" + story.getLastAnswer() + "...")
+                    story.spriteSayText(oldmanSprite, "她被怪物抓走了...")
+                    story.spriteSayText(oldmanSprite, "一直都没有回来...")
+                    story.spriteSayText(oldmanSprite, "你去救救她吧...")
 
-            controller.moveSprite(this.heroSprite)
+                    state.doomed = true
+                    
+                    controller.moveSprite(this.heroSprite)
+                })
+            }
 
         }
 

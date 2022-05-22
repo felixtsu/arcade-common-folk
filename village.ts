@@ -122,7 +122,12 @@ namespace village{
         }
 
         didEnterRoom(entrance?:string) {
-            scene.setBackgroundImage(assets.image`villageView`)
+            if (state.doomed) {
+                scene.setBackgroundImage(assets.image`villageViewDoomed`)
+            } else {
+                scene.setBackgroundImage(assets.image`villageView`)
+            }
+            
 
             this.preparesceneSprites()
             

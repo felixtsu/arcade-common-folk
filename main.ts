@@ -1,11 +1,11 @@
-/**
- * trailRoom.enterRoom(heroSprite, villageRoom.getRoomName())
- */
+
+ 
 let willingToBind = false
 let houseRoom = new house.HouseRoom()
 let caveRoom = new cave.CaveRoom()
 let villageRoom = new village.VillageRoom()
 let trailRoom = new trail.TrailRoom()
+let dungeonRoom = new dungeon.DungeonRoom()
 caveRoom.addExit(houseRoom)
 houseRoom.addExit(villageRoom)
 villageRoom.addExit(houseRoom)
@@ -32,3 +32,9 @@ let heroSprite = sprites.create(img`
     `, SpriteKind.Player)
 heroSprite.z = scene.HUD_Z - 5
 caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())
+// state.soulBound = true
+// state.rustySwordGet = true
+// trailRoom.enterTimes = 1
+// trailRoom.enterRoom(heroSprite, villageRoom.getRoomName())
+// dungeonRoom.enterRoom(heroSprite, trailRoom.getRoomName())
+

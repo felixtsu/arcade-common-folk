@@ -20,6 +20,10 @@ namespace monster {
 
     let _init = false
 
+    export function currentMonsters() :Sprite []{
+        return sprites.allOfKind(SpriteKind.Monster)
+    }
+
     function createMonster(image:Image, location:tiles.Location, triggerLocations:tiles.Location[]) :Sprite {
         let createdMonster = room.currentRoom().createSprite(image, SpriteKind.Monster)
         tiles.placeOnTile(createdMonster, location)
@@ -115,10 +119,11 @@ namespace monster {
                 clearInterval(attackInterval)
                 return
             }
-            wizard.sayText("sudilawa.kan")
+            wizard.sayText("sudilawa.kan", 500)
             let attackSprite = room.currentRoom().createSprite(assets.image`wizardMeteoroid`, SpriteKind.EnemyProjectile)
+            makeSpriteAboveOf(attackSprite, heroSprite)
             sprites.setDataSprite(attackSprite, FROM_MONSTER, wizard)
-            meteoroid.launchMeteoroidToPosition(attackSprite, player.x, player.y, 32, 2000)       
+            meteoroid.launchMeteoroidToPosition(attackSprite, player.x, player.y, 32, 2000, 16)       
 
             wizard.onDestroyed(()=>{
                 clearInterval(attackInterval)
@@ -142,13 +147,16 @@ namespace monster {
 
                 enemyProjectile.vx = 0
                 enemyProjectile.vy = 0
-                info.startCountdown(2)
-
+                
+                info.startCountdown(1)
+                info.onCountdownEnd(() => {
+                })
                 let ret = false
                 pauseUntil(() => {
                     ret = controller.A.isPressed()
                     return ret
-                }, 2000)
+                }, 1000)
+                info.stopCountdown()
                 if (!ret) {
                     scene.cameraShake(4, 500)
                     info.changeLifeBy(-1)
@@ -160,7 +168,6 @@ namespace monster {
                     meteoroid.redirectTo(enemyProjectile, projectileLaunchingEnemy.x, projectileLaunchingEnemy.y, 2000)
                     sprites.setDataBoolean(enemyProjectile, COUNTERED_BY_PLAYER, true)
                 }
-                info.stopCountdown()
                 controller.moveSprite(player)
             })
 
@@ -175,6 +182,7 @@ namespace monster {
                             story.spriteSayText(monster, "魔王大人...")
                             monster.destroy()  
                             story.printText("+1 exp", monster.x, monster.y)
+                            state.exp += 1
                             story.cancelAllCutscenes()
                         })
                     }
@@ -185,6 +193,10 @@ namespace monster {
         }
         
 
+    }
+
+    function makeSpriteAboveOf(sprite:Sprite, otherSprite:Sprite) {
+        sprite.z = otherSprite.z + 1
     }
 
     function firstEncounter(player:Sprite, wizard:Sprite) {
@@ -200,6 +212,7 @@ namespace monster {
             let attackSprite = room.currentRoom().createSprite(assets.image`wizardMeteoroid`, SpriteKind.EnemyProjectile)
             attackSprite.x = player.x
             attackSprite.y = player.y - 48
+            makeSpriteAboveOf(attackSprite, heroSprite)
 
             let shaderSprite = shader.createImageShaderSprite(assets.image`wizardMeteoroid`, shader.ShadeLevel.One)
             shaderSprite.x = player.x
@@ -253,21 +266,21 @@ namespace monster {
 
                 info.onCountdownEnd(()=>{  
                 })
-                info.startCountdown(2)
+                info.startCountdown(1)
 
                 let ret = false
                 while(!ret) {
                     pauseUntil(() => {
                         ret = controller.A.isPressed()
                         return ret
-                    }, 2000)
+                    }, 1000)
                     if(!ret) {
                         music.bigCrash.playUntilDone()
                         story.printCharacterText("这届勇者好难带", "???")
                         story.printCharacterText("不是说了按A吗？", "???")
                         story.printCharacterText("按啊!!!", "???")
                         story.printCharacterText("按了你就无敌了", "???")
-                        info.startCountdown(2)
+                        info.startCountdown(1)
                     }
                 }
                 info.stopCountdown()

@@ -20,6 +20,7 @@ namespace trail {
             return this;
         }
 
+
         getLocation() :tiles.Location {
             return tiles.getTileLocation(this.location[0], this.location[1])
         }
@@ -33,7 +34,7 @@ namespace trail {
 
     export class TrailRoom extends room.AbstractRoom {
 
-        private enterTimes = 1
+        enterTimes = 1
 
         private monsterLocations: MonsterLocation[] = [
             MonsterLocation.on([8,4]).addTrigger([6,4]).addTrigger([6,5]),
@@ -50,7 +51,12 @@ namespace trail {
 
         didEnterRoom(entrance?: string): void {
 
-            scene.setBackgroundImage(assets.image`villageView`)
+            if (state.doomed) {
+                scene.setBackgroundImage(assets.image`villageViewDoomed`)
+            } else {
+                scene.setBackgroundImage(assets.image`villageView`)
+            }
+
             if (entrance == villageRoom.getRoomName()) {
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(1, 1))
             }
@@ -58,50 +64,6 @@ namespace trail {
             this.monsterLocations.forEach(monsterLocation => {
                 monster.createWizard(monsterLocation.getLocation(), monsterLocation.getTriggerLocations())
             })
-
-            sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, (sprite: Sprite, otherSprite: Sprite) => {
-
-                if (state.soulBound) {
-                    sprite.sayText("A", 50)
-                    if (controller.A.isPressed()) {
-                        story.startCutscene(()=>{
-                            controller.moveSprite(sprite, 0, 0)
-                            
-                            music.smallCrash.playUntilDone()
-                            music.smallCrash.playUntilDone()
-                            music.smallCrash.playUntilDone()
-
-                            otherSprite.destroy()
-
-                            info.changeLifeBy(-1)
-
-                            sprite.setImage(img`
-                                . . . . . . . . . . . . . . . .
-                                . . . . . . . . . . . . . . . .
-                                . . . . . . . f f f . . . . . .
-                                . . . . . . f e f f f f f f . .
-                                . . . . . f e e e f e f e f f .
-                                . . f e 4 f e 4 4 f 2 f e e f .
-                                . f e d d e e d 4 f 2 f e e e f
-                                f f e d d e 4 4 e f 2 e f e e f
-                                f f f e e 4 d 1 b f f e f e e f
-                                f f 4 2 2 4 d f f e f 2 e f e f
-                                . f 5 2 2 4 d d 4 e f 2 e 2 f f
-                                . f 5 2 2 e d d 4 e f 2 e 2 2 f
-                                . . f f f f f e e f e 2 e 2 f .
-                                . . . . . . . f e f 2 e f f . .
-                                . . . . . . . . f f f f . . . .
-                                . . . . . . . . . . . . . . . .
-                            `)
-
-                        })
-                    }
-                } else {
-
-                    
-                }
-            })
-
 
             // first time
             if (this.enterTimes == 0) {
@@ -212,10 +174,19 @@ f f 2 2 2 2 f b b b b f c c . .
             } else {
                 controller.moveSprite(this.heroSprite)
                 scene.cameraFollowSprite(this.heroSprite)
+
+                let roomFinished = false
+                game.onUpdateInterval(1000, () => {
+                    console.log(monster.currentMonsters().length)
+                    if (!roomFinished && monster.currentMonsters().length == 0) {
+                        roomFinished = true
+                        this.createExitInRoom(dungeonRoom, 13, 19)
+                    }
+                })
             }
 
-
             this.enterTimes += 1
+
         }
 
     }
