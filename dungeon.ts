@@ -105,8 +105,8 @@ namespace dungeon {
         didEnterRoom(entrance?: string): void {
             story.startCutscene(()=> {
                 pause(500)
-                story.printCharacterText("与此同时...")
-                story.printCharacterText("被带走的" + state.playmateName)
+                story.printCharacterText("与此同时...", '旁白')
+                story.printCharacterText("被带走的" + state.playmateName, '旁白')
                 let batSprite = this.createSprite(img`
                             . . f f f . . . . . . . . f f f
                             . f f c c . . . . . . f c b b c
