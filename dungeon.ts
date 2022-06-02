@@ -266,7 +266,6 @@ namespace dungeon {
                     orbSprite.setFlag(SpriteFlag.GhostThroughWalls, true)
                     orbSprite.setPosition(this.heroSprite.x, this.heroSprite.y)
                     spriteutils.setVelocityAtAngle(orbSprite, spriteutils.angleFrom(orbSprite, orbBase), 80)
-                    // moveTowards(orbSprite, orbBase, 80)
                     aiming.destroy(aimingLine)
                     aimingOrb = false
                 }
@@ -368,6 +367,14 @@ namespace dungeon {
             orbBase = sprites.create(assets.image`fireAlter`, SpriteKind.OrbBase)
             multilights.addLightSource(orbBase, 16)
             tiles.placeOnTile(orbBase, tiles.getTileLocation(34, 7))
+
+            game.onUpdateInterval(2000, function () {
+                if (currentRoomNumber != 1 && !(torchOn)) {
+                    if (!(torchIndicatorShown)) {
+                        game.splash("B使用火把")
+                    }
+                }
+            })
 
         }
         
