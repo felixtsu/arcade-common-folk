@@ -120,6 +120,25 @@ namespace myTiles {
 ...............2.........2..............
 ...............22.22222222..............
 `, [myTiles.transparency16,sprites.dungeon.buttonOrangeDepressed,sprites.dungeon.darkGroundNorthWest0,sprites.dungeon.darkGroundWest,sprites.dungeon.darkGroundSouthWest0,sprites.dungeon.buttonTealDepressed,myTiles.tile8,sprites.dungeon.darkGroundNorth,sprites.dungeon.darkGroundCenter,sprites.dungeon.buttonOrange,sprites.dungeon.darkGroundSouth,sprites.dungeon.buttonPinkDepressed,sprites.dungeon.chestClosed,sprites.dungeon.doorOpenNorth,sprites.dungeon.buttonTeal,sprites.dungeon.chestOpen,myTiles.tile9,sprites.dungeon.buttonPink,sprites.dungeon.darkGroundNorthEast0,sprites.dungeon.darkGroundEast,sprites.dungeon.darkGroundSouthEast0,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.purpleOuterNorthWest,sprites.dungeon.purpleOuterWest0,sprites.dungeon.purpleOuterSouthEast,sprites.dungeon.greenOuterNorth0,sprites.dungeon.floorLight2,sprites.dungeon.greenOuterSouth1,sprites.dungeon.purpleOuterNorth0,sprites.dungeon.floorDark2,sprites.dungeon.purpleOuterSouth1,sprites.dungeon.stairNorth,sprites.dungeon.greenSwitchUp,myTiles.tile10,myTiles.tile11,sprites.dungeon.greenOuterSouth2,myTiles.tile12,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenOuterEast2,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.purpleOuterNorthEast,sprites.dungeon.purpleOuterEast1,sprites.dungeon.purpleOuterSouthWest,myTiles.tile13], TileScale.Sixteen);
+            case "caveEntrance":
+            case "trail2":return tiles.createTilemap(hex`100010000101010101010101010101010304010101010101010101010101010103040101010101010101010101010101030401010101050c0601010101010101030201010101070b0801010101010102030201010101070a09010101010101020202010101010202020101010101010202010101010102020201010101010202020101010101020202010101010102020101010101010202020201010102020201010101010102020202010202020201010101010101010202020102020201010101010101010101020202020201010101010101010101010202020202010101010101010101010101020202010101010101010101010101010101010101010101010101`, img`
+2 2 2 2 2 2 2 2 2 2 2 2 . . 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 . . 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 . . 2 2 
+2 2 . . . 2 2 2 2 2 2 2 . . 2 2 
+2 2 . . . 2 2 2 2 2 2 . . . 2 2 
+2 2 . . . 2 2 2 2 2 2 . . . 2 2 
+2 2 . . . 2 2 2 2 2 2 . . 2 2 2 
+2 2 . . . 2 2 2 2 2 . . . 2 2 2 
+2 2 . . . 2 2 2 2 2 . . 2 2 2 2 
+2 2 . . . . 2 2 2 . . . 2 2 2 2 
+2 2 . . . . 2 . . . . 2 2 2 2 2 
+2 2 2 . . . 2 . . . 2 2 2 2 2 2 
+2 2 2 2 . . . . . 2 2 2 2 2 2 2 
+2 2 2 2 . . . . . 2 2 2 2 2 2 2 
+2 2 2 2 2 . . . 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+`, [myTiles.transparency16,myTiles.tile5,sprites.castle.tilePath5,sprites.castle.tilePath4,sprites.castle.tilePath6,sprites.builtin.forestTiles5,sprites.builtin.forestTiles7,sprites.builtin.forestTiles9,sprites.builtin.forestTiles11,sprites.builtin.forestTiles15,sprites.builtin.forestTiles14,sprites.builtin.forestTiles10,sprites.builtin.forestTiles6], TileScale.Sixteen);
         }
         return null;
     })

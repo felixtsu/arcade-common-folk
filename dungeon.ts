@@ -205,17 +205,38 @@ namespace dungeon {
           
             controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 if (this.heroSprite.tileKindAt(TileDirection.Top, sprites.dungeon.greenSwitchUp) || this.heroSprite.tileKindAt(TileDirection.Top, sprites.dungeon.greenSwitchDown)) {
-                    if (game.ask("拨动开关?")) {
-                        toggleLever()
-                    }
+                    story.startCutscene(() => {
+                        controller.moveSprite(this.heroSprite, 0, 0)
+                        story.printCharacterText("墙上有一个拉杆")
+                        story.showPlayerChoices("拉", "还是算了")
+                        if (story.checkLastAnswer("拉")) {
+                            music.thump.play()
+                            toggleLever()
+                        } 
+                        controller.moveSprite(this.heroSprite)
+                        story.cancelAllCutscenes()
+                    })
+                    
                 }
                 if (this.heroSprite.tileKindAt(TileDirection.Center, sprites.dungeon.chestClosed)) {
-                    if (game.ask("打开宝箱？")) {
+                    story.startCutscene(() => {
+                        controller.moveSprite(this.heroSprite, 0, 0)
+                        story.showPlayerChoices("打开宝箱", "还是算了")
+                        if (story.checkLastAnswer("打开宝箱")) {
+                            music.wawawawaa.play()    
+                        } else {
+                            music.spooky.play()
+                            story.printCharacterText("但是宝箱竟然自己打开了")
+                        }
                         tiles.setTileAt(tiles.getTileLocation(7, 1), sprites.dungeon.chestOpen)
-                        game.splash("一股邪恶的诅咒落在你的头上")
-                    } else {
+                        story.printCharacterText("一股邪恶的诅咒落到了" + state.playmateName + "的头上")
+                        music.knock.play()
+                        story.printCharacterText(state.playmateName + "晕了过去")
+                        multilights.toggleLighting(true)
 
-                    }
+                        story.cancelAllCutscenes()
+                        caveEntranceRoom.enterRoom(this.heroSprite, dungeonRoom.getRoomName())                        
+                    })
                 }
             })
       

@@ -217,6 +217,27 @@
         ],
         "displayName": "dungeon"
     },
+    "trail2": {
+        "id": "trail2",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAxMDAwMTAwMDAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAzMDQwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDMwNDAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMzA0MDEwMTAxMDEwNTBjMDYwMTAxMDEwMTAxMDEwMTAzMDIwMTAxMDEwMTA3MGIwODAxMDEwMTAxMDEwMTAyMDMwMjAxMDEwMTAxMDcwYTA5MDEwMTAxMDEwMTAxMDIwMjAyMDEwMTAxMDEwMjAyMDIwMTAxMDEwMTAxMDEwMjAyMDEwMTAxMDEwMTAyMDIwMjAxMDEwMTAxMDEwMjAyMDIwMTAxMDEwMTAxMDIwMjAyMDEwMTAxMDEwMTAyMDIwMTAxMDEwMTAxMDEwMjAyMDIwMjAxMDEwMTAyMDIwMjAxMDEwMTAxMDEwMTAyMDIwMjAyMDEwMjAyMDIwMjAxMDEwMTAxMDEwMTAxMDEwMjAyMDIwMTAyMDIwMjAxMDEwMTAxMDEwMTAxMDEwMTAxMDIwMjAyMDIwMjAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMjAyMDIwMjAyMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDIwMjAyMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMjIyMjIyMjIyMjIyMDAyMjIyMjIyMjIyMjIyMjAwMjIyMjIyMjIyMjIyMjIwMDIyMjIwMDIwMjIyMjIyMDAyMjIyMDAyMDIyMjIwMjAwMjIyMjAwMjAyMjIyMDIwMDIyMjIwMDIwMjIyMjAyMjAyMjIyMDAyMDIyMjIwMDIwMjIyMjAwMjAyMjIyMDAyMjIyMjIwMDAwMjIwMjAwMjIyMjIyMDAwMDAyMDAyMDIyMjIyMjAyMDAwMjAwMjIyMjIyMjIyMjAwMDAyMDIyMjIyMjIyMjIwMDAwMjAyMjIyMjIyMjIyMDIwMDIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMg==",
+        "tileset": [
+            "myTiles.transparency16",
+            "myTiles.tile5",
+            "sprites.castle.tilePath5",
+            "sprites.castle.tilePath4",
+            "sprites.castle.tilePath6",
+            "sprites.builtin.forestTiles5",
+            "sprites.builtin.forestTiles7",
+            "sprites.builtin.forestTiles9",
+            "sprites.builtin.forestTiles11",
+            "sprites.builtin.forestTiles15",
+            "sprites.builtin.forestTiles14",
+            "sprites.builtin.forestTiles10",
+            "sprites.builtin.forestTiles6"
+        ],
+        "displayName": "caveEntrance"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

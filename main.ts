@@ -6,12 +6,15 @@ let caveRoom = new cave.CaveRoom()
 let villageRoom = new village.VillageRoom()
 let trailRoom = new trail.TrailRoom()
 let dungeonRoom = new dungeon.DungeonRoom()
+let caveEntranceRoom = new cave_entrance.CaveEntranceRoom()
 caveRoom.addExit(houseRoom)
 houseRoom.addExit(villageRoom)
 villageRoom.addExit(houseRoom)
 villageRoom.addExitOnLocation(trailRoom, 15, 14)
 trailRoom.addExitOnLocation(villageRoom, 0, 1)
 trailRoom.addExit(houseRoom)
+dungeonRoom.addExit(caveEntranceRoom)
+caveEntranceRoom.addExitOnLocation(caveRoom, 3, 5)
 let heroSprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -32,9 +35,10 @@ let heroSprite = sprites.create(img`
     `, SpriteKind.Player)
 heroSprite.z = scene.HUD_Z - 5
 // caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())
-// state.soulBound = true
-// state.rustySwordGet = true
-// trailRoom.enterTimes = 1
-// trailRoom.enterRoom(heroSprite, villageRoom.getRoomName())
-dungeonRoom.enterRoom(heroSprite, trailRoom.getRoomName())
+// // state.soulBound = true
+// // state.rustySwordGet = true
+// // trailRoom.enterTimes = 1
+// // trailRoom.enterRoom(heroSprite, villageRoom.getRoomName())
+// // dungeonRoom.enterRoom(heroSprite, trailRoom.getRoomName())
+caveEntranceRoom.enterRoom(heroSprite, dungeonRoom.getRoomName())
 

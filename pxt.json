@@ -31,7 +31,9 @@
         "effect.ts",
         "monster.ts",
         "dungeon.ts",
-        "aiming.ts"
+        "aiming.ts",
+        "main.py",
+        "cave_entrance.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -40,7 +42,7 @@
         "branch": "v1.8.20",
         "tag": "v1.8.20",
         "commits": "https://github.com/microsoft/pxt-arcade/commits/dd914bb70406150e2d737c738b763f1145833e1b",
-        "target": "1.8.25",
+        "target": "1.8.26",
         "pxt": "7.4.24",
         "targetId": "arcade"
     },

@@ -115,10 +115,6 @@ namespace village{
                 }
             })
 
-            sprites.onOverlap(SpriteKind.Player, SpriteKind.TrailEntranceFromVillage, (sprite: Sprite, otherSprite: Sprite) => {
-                
-                
-            })
         }
 
         didEnterRoom(entrance?:string) {
@@ -144,8 +140,8 @@ namespace village{
                 controller.moveSprite(this.heroSprite, 0, 0)
 
                 story.startCutscene(() => {
-                    story.printText("马克", 150, 110)
-                    story.printText("马克...", 150, 110)
+                    story.printText(state.playerName, 150, 110)
+                    story.printText(state.playerName + "...", 150, 110)
                     story.printText("你快过来看", 150, 110)
                     controller.moveSprite(this.heroSprite)
                 })
@@ -216,7 +212,7 @@ namespace village{
                             . . . . f f . . f f . . . .
                         `)
                         pause(500)
-                        story.spriteSayText(playmateSprite, "马克,你看")
+                        story.spriteSayText(playmateSprite, state.playerName + ",你看")
                         pause(500)
                         playmateSprite.setImage(img`
                             . f f f . f f f f . f f f .

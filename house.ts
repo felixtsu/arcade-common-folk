@@ -37,7 +37,7 @@ namespace house {
                             story.printCharacterText("都是些不值钱的东西")
                             story.printCharacterText("几件衣服")
                             story.printCharacterText("锈迹斑斑的老剑")
-                            story.printCharacterText("好久没有练习了", "???")
+                            story.printCharacterText("好久没有练习了", state.playerName)
                         } else {
                             story.printCharacterText("剩下的真的没用了")
                         }
@@ -77,13 +77,13 @@ namespace house {
                 `)
                 scene.cameraShake(4, 500)
                 music.knock.playUntilDone()
-                story.printCharacterText("又是这个梦", "???")
+                story.printCharacterText("又是这个梦", state.playerName)
                 if (state.willingToBind) {
-                    story.printCharacterText("每次说了愿意又要我等", "???")
-                    story.printCharacterText("下次就说不愿意好了", "???")
+                    story.printCharacterText("每次说了愿意又要我等", state.playerName)
+                    story.printCharacterText("下次就说不愿意好了", state.playerName)
                 } else {
-                    story.printCharacterText("每次说了不愿意就不说话", "???")
-                    story.printCharacterText("下次就说愿意好了", "???")
+                    story.printCharacterText("每次说了不愿意就不说话", state.playerName)
+                    story.printCharacterText("下次就说愿意好了", state.playerName)
                 }
                 heroSprite.setImage(img`
                     . . . . . . f f f f . . . . . .
@@ -161,9 +161,9 @@ namespace house {
                     . . . . . f f . . f f . . . . .
                 `)
                 story.startCutscene(()=>{
-                    story.spriteSayText(oldmanSprite, "马克...")
+                    story.spriteSayText(oldmanSprite, state.playerName + "...")
                     story.spriteSayText(oldmanSprite, "你还记得你的玩伴叫什么名字吗？")
-                    story.showPlayerChoices("小红", "阿芳", "静宜", "路西")
+                    story.showPlayerChoices("小红", "佩奇", "静宜", "小兰")
                     state.playmateName = story.getLastAnswer()
                     story.spriteSayText(oldmanSprite, "对！就是" + story.getLastAnswer() + "...")
                     story.spriteSayText(oldmanSprite, "她被怪物抓走了...")

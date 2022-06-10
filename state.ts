@@ -9,5 +9,6 @@ namespace state {
     export let doomed = false
 
     export let playmateName = ""
+    export let playerName = ""
 
 }

@@ -294,9 +294,9 @@ namespace monster {
                 story.spriteSayText(wizard, "魔王大人...")
 
 
-                story.printCharacterText("呼呼呼...", "马克")
-                story.printCharacterText("真够危险的...", "马克")
-                story.printCharacterText("刚才是?", "马克")
+                story.printCharacterText("呼呼呼...", state.playerName)
+                story.printCharacterText("真够危险的...", state.playerName)
+                story.printCharacterText("刚才是?", state.playerName)
                 music.knock.playUntilDone()
                 player.setImage(assets.image`playerDown`)
 
@@ -332,9 +332,9 @@ namespace monster {
                     
                 }
                 
-                story.printCharacterText("马克，你怎么倒在这里了...","???")
+                story.printCharacterText(state.playerName+"，你怎么倒在这里了...","???")
                 multilights.toggleLighting(true)
-                story.printCharacterText("村长将马克带回了家")
+                story.printCharacterText("村长将" + state.playerName + "带回了家")
 
                 room.currentRoom().leaveRoom(house.ROOM_NAME)            
             }
