@@ -238,14 +238,14 @@ namespace monster {
 
                 story.printCharacterText("邪恶法师召唤的火球从天而降")
                 story.spriteMoveToLocation(attackSprite, player.x, player.y - 24, 8)
-                story.printCharacterText("马克无法动弹")
+                story.printCharacterText(state.playerName + "无法动弹")
 
                 story.spriteMoveToLocation(attackSprite, player.x, player.y - 16, 8)
 
-                story.printCharacterText("完了...", "马克")
+                story.printCharacterText("完了...", state.playerName)
 
                 multilights.toggleLighting(true)
-                story.printCharacterText("就在马克即将失去意识之际")
+                story.printCharacterText("就在" + state.playerName + "即将失去意识之际")
                 story.printCharacterText("包里的锈剑闪出光芒")
 
                 effect.randomBeamFrom(player, 4, 1, 20, 5000)
