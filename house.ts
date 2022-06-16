@@ -1,6 +1,7 @@
 namespace SpriteKind {
 
     export const Closet = SpriteKind.create()
+    export const OldmanInHouse = SpriteKind.create()
 
 }
 namespace house {
@@ -173,6 +174,24 @@ namespace house {
                     state.doomed = true
                     
                     controller.moveSprite(this.heroSprite)
+                })
+
+                sprites.onOverlap(SpriteKind.Player, SpriteKind.OldmanInHouse, (sprite:Sprite, otherSprite:Sprite) => {
+                    otherSprite.sayText("A", 500)
+                    if (controller.A.isPressed()) {
+                        story.startCutscene(() => {
+                            story.printCharacterText("你还带着那把剑啊", "村长")
+                            story.printCharacterText("那时你才两岁", "村长")
+                            story.showPlayerChoices("什么事？", "这是谁的剑", "当作没听见")
+                            let answer = story.getLastAnswer() 
+                            if (answer == "什么事？") {
+                                story.printCharacterText("现在先把" + state.playmateName + "找回来吧", "村长")
+                            } else if (answer == "这是谁的剑") {
+                                story.printCharacterText("是一个勇者的剑", "村长")
+                            } 
+                            story.cancelAllCutscenes()
+                        })
+                    }
                 })
             }
 

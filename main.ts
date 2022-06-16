@@ -34,7 +34,8 @@ let heroSprite = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
 heroSprite.z = scene.HUD_Z - 5
-caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())
+// caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())
+caveRoom.enterRoom(heroSprite, caveEntranceRoom.getRoomName())
 // state.soulBound = true
 // state.rustySwordGet = true
 // trailRoom.enterTimes = 1

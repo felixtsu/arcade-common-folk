@@ -17,7 +17,7 @@ namespace cave_entrance {
             let result = -1
             story.startCutscene(()=> {
                 controller.moveSprite(this.heroSprite, 0, 0)
-                story.printCharacterText("接下来就是最重决战了")
+                story.printCharacterText("接下来就是最终决战了")
                 story.printCharacterText("一旦开始不能回头")
                 story.showPlayerChoices("准备好了", "还是再看看")
                 if (story.checkLastAnswer("还是再看看")) {

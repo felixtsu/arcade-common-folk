@@ -1,6 +1,7 @@
 // Add your code here
 namespace SpriteKind {
     export const SWORD_IN_STONE_KIND = SpriteKind.create()
+    export const SWORD_CUTSCENE_TRIGGER_SPRITE_KIND = SpriteKind.create()
 }
 namespace cave {
 
@@ -19,28 +20,49 @@ namespace cave {
 
         didEnterRoom(entrance?:string): void {
             if (entrance == cave_entrance.ROOM_NAME) {
+
+                 // 清醒的时候来到山洞里
+                 
                 multilights.addLightSource(this.heroSprite, 6)
                 scene.cameraFollowSprite(this.heroSprite)
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(5, 12))
 
-                this.swordInStone = this.createSprite(img`  
-    c c c c c c c c c 5 b b b c c c 
-    c c c c c c b b b 5 d d d b c c 
-    c c c c c c b d 5 8 5 d d b c c 
-    c c c c b b d d d 1 d b b d c c 
-    c c c c b d d d d 1 d b b d b c 
-    c c c c c d d d d 1 b b d b c c 
-    c c c b c c b b b 1 d d b c c c 
-    c c b b c c c b d 1 b c c c c c 
-    c b b d d d b b b b b b c c c c 
-    c c d d d d d d b d b c c c b c 
-    c c b d d d b b d b c c c b b c 
-    c b c c c c b d d b b b b b c c 
-    c c b b b d d b c c b b b b c c 
-    c c c c c c c c c b b b b c c c 
-    c c c c c b b b b b b b c c c c 
-    c c c c c c c c c c c c c c c c 
-    `, SpriteKind.SWORD_IN_STONE_KIND)
+                controller.moveSprite(this.heroSprite, 0, 0)
+
+                this.swordInStone = this.createSprite(img`
+                    cccccccccccccccccc55bbbbbbcccccc
+                    cccccccccccccccccc55bbbbbbcccccc
+                    ccccccccccccbbbbbb55ddddddbbcccc
+                    ccccccccccccbbbbbb55ddddddbbcccc
+                    ccccccccccccbbdd558855ddddbbcccc
+                    ccccccccccccbbdd558855ddddbbcccc
+                    ccccccccbbbbdddddd11ddbbbbddcccc
+                    ccccccccbbbbdddddd11ddbbbbddcccc
+                    ccccccccbbdddddddd11ddbbbbddbbcc
+                    ccccccccbbdddddddd11ddbbbbddbbcc
+                    ccccccccccdddddddd11bbbbddbbcccc
+                    ccccccccccdddddddd11bbbbddbbcccc
+                    ccccccbbccccbbbbbb11ddddbbcccccc
+                    ccccccbbccccbbbbbb11ddddbbcccccc
+                    ccccbbbbccccccbbdd11bbcccccccccc
+                    ccccbbbbccccccbbdd11bbcccccccccc
+                    ccbbbbddddddbbbbbbbbbbbbcccccccc
+                    ccbbbbddddddbbbbbbbbbbbbcccccccc
+                    ccccddddddddddddbbddbbccccccbbcc
+                    ccccddddddddddddbbddbbccccccbbcc
+                    ccccbbddddddbbbbddbbccccccbbbbcc
+                    ccccbbddddddbbbbddbbccccccbbbbcc
+                    ccbbccccccccbbddddbbbbbbbbbbcccc
+                    ccbbccccccccbbddddbbbbbbbbbbcccc
+                    ccccbbbbbbddddbbccccbbbbbbbbcccc
+                    ccccbbbbbbddddbbccccbbbbbbbbcccc
+                    ccccccccccccccccccbbbbbbbbcccccc
+                    ccccccccccccccccccbbbbbbbbcccccc
+                    ccccccccccbbbbbbbbbbbbbbcccccccc
+                    ccccccccccbbbbbbbbbbbbbbcccccccc
+                    cccccccccccccccccccccccccccccccc
+                    cccccccccccccccccccccccccccccccc
+                `, SpriteKind.SWORD_IN_STONE_KIND)
                 multilights.toggleLighting(true)
                 multilights.addLightSource(this.swordInStone, 16)
                 tiles.placeOnTile(this.swordInStone, tiles.getTileLocation(5, 4))
@@ -51,8 +73,93 @@ namespace cave {
                 story.printText("你当然来过", 80, 80)
                 story.printText("过来吧", 80, 80)
 
-                game.splash("后面还没有做完。。。")
-                game.splash("是不是没想到。。。")
+                controller.moveSprite(this.heroSprite)
+
+                let swordCutSceneTriggerSprite = this.createSprite(img`
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                `, SpriteKind.SWORD_CUTSCENE_TRIGGER_SPRITE_KIND)
+                tiles.placeOnTile(swordCutSceneTriggerSprite, tiles.getTileLocation(5, 7))
+                swordCutSceneTriggerSprite.setFlag(SpriteFlag.Invisible, true)
+
+                sprites.onOverlap(SpriteKind.Player, SpriteKind.SWORD_CUTSCENE_TRIGGER_SPRITE_KIND, (sprite: Sprite, otherSprite: Sprite) => {
+                    otherSprite.destroy()
+                    story.startCutscene(() => {
+                        controller.moveSprite(this.heroSprite, 0, 0)
+                        story.printCharacterText("这是，那个梦...", state.playerName)
+                        story.printCharacterText("这是我们封印魔王的地方", "???")
+                        story.printCharacterText("把我带到封印上去吧", "???")
+                        controller.moveSprite(this.heroSprite)
+                    })
+                })
+
+                sprites.onOverlap(SpriteKind.Player, SpriteKind.SWORD_IN_STONE_KIND, (sprite: Sprite, otherSprite: Sprite) => {
+                    story.startCutscene(() => {
+                        controller.moveSprite(this.heroSprite, 0, 0)
+                        
+                        this.swordInStone.setImage(img`
+                            ccccccccccccccccccbbbbbbbbcccccc
+                            ccccccccccccccccccbbbbbbbbcccccc
+                            ccccccccccccbbbbbbbbddddddbbcccc
+                            ccccccccccccbbbbbbbbddddddbbcccc
+                            ccccccccccccbbddddddddddddbbcccc
+                            ccccccccccccbbddddddddddddbbcccc
+                            ccccccccbbbbddddddddddbbbbddcccc
+                            ccccccccbbbbddddddddddbbbbddcccc
+                            ccccccccbbddddddddddddbbbbddbbcc
+                            ccccccccbbddddddddddddbbbbddbbcc
+                            ccccccccccddddddddbbbbbbddbbcccc
+                            ccccccccccddddddddbbbbbbddbbcccc
+                            ccccccbbccccbbbbbbddddddbbcccccc
+                            ccccccbbccccbbbbbbddddddbbcccccc
+                            ccccbbbbccccccbbddddbbcccccccccc
+                            ccccbbbbccccccbbddddbbcccccccccc
+                            ccbbbbddddddbbbbbbbbbbbbcccccccc
+                            ccbbbbddddddbbbbbbbbbbbbcccccccc
+                            ccccddddddddddddbbddbbccccccbbcc
+                            ccccddddddddddddbbddbbccccccbbcc
+                            ccccbbddddddbbbbddbbccccccbbbbcc
+                            ccccbbddddddbbbbddbbccccccbbbbcc
+                            ccbbccccccccbbddddbbbbbbbbbbcccc
+                            ccbbccccccccbbddddbbbbbbbbbbcccc
+                            ccccbbbbbbddddbbccccbbbbbbbbcccc
+                            ccccbbbbbbddddbbccccbbbbbbbbcccc
+                            ccccccccccccccccccbbbbbbbbcccccc
+                            ccccccccccccccccccbbbbbbbbcccccc
+                            ccccccccccbbbbbbbbbbbbbbcccccccc
+                            ccccccccccbbbbbbbbbbbbbbcccccccc
+                            cccccccccccccccccccccccccccccccc
+                            cccccccccccccccccccccccccccccccc
+                        `)
+                        
+                        this.swordInStone.setFlag(SpriteFlag.Ghost, true)
+                        story.spriteMoveToLocation(this.swordInStone, this.swordInStone.x + 32 , this.swordInStone.y, 32)
+                        
+
+                        story.cancelAllCutscenes()
+                        
+                        controller.moveSprite(this.heroSprite)
+                    })
+                })
+
+                
+
+
+
 
             } else {
                 this.heroSprite.setImage(img`

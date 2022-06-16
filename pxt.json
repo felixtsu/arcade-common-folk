@@ -7,7 +7,6 @@
         "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
         "storyboard": "*",
         "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0",
-        "arcade-premium-life": "github:jwunderl/arcade-premium-life#v0.2.1",
         "pxt-lantern": "github:felixtsu/pxt-lantern#v0.2.1",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
         "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.2.5",
@@ -32,7 +31,6 @@
         "monster.ts",
         "dungeon.ts",
         "aiming.ts",
-        "main.py",
         "cave_entrance.ts"
     ],
     "testFiles": [
