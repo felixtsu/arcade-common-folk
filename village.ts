@@ -147,23 +147,23 @@ namespace village{
                 })
 
                 let playmateSprite = this.createSprite(img`
-                . f f f . f f f f . f f f .
-                f f f f f c c c c f f f f f
-                f f f f b c c c c b f f f f
-                f f f c 3 c c c c 3 c f f f
-                . f 3 3 c c c c c c 3 3 f .
-                . f c c c c c c c c c c f .
-                . f f c c c c c c c c f f .
-                . f f f c c c c c c f f f .
-                . f f f f f f f f f f f f .
-                . . f f f f f f f f f f . .
-                . . e f f f f f f f f e . .
-                . e 4 f f f f f f f f 4 e .
-                . 4 d f 3 3 3 3 3 3 c d 4 .
-                . 4 4 f 6 6 6 6 6 6 f 4 4 .
-                . . . . f f f f f f . . . .
-                . . . . f f . . f f . . . .
-            `, SpriteKind.PlayMate)
+                    . f f f . f f f f . f f f .
+                    f f f f f c c c c f f f f f
+                    f f f f b c c c c b f f f f
+                    f f f c 3 c c c c 3 c f f f
+                    . f 3 3 c c c c c c 3 3 f .
+                    . f c c c c c c c c c c f .
+                    . f f c c c c c c c c f f .
+                    . f f f c c c c c c f f f .
+                    . f f f f f f f f f f f f .
+                    . . f f f f f f f f f f . .
+                    . . e f f f f f f f f e . .
+                    . e 4 f f f f f f f f 4 e .
+                    . 4 d f 3 3 3 3 3 3 c d 4 .
+                    . 4 4 f 6 6 6 6 6 6 f 4 4 .
+                    . . . . f f f f f f . . . .
+                    . . . . f f . . f f . . . .
+                `, SpriteKind.PlayMate)
                 tiles.placeOnTile(playmateSprite, tiles.getTileLocation(13, 6))
 
 

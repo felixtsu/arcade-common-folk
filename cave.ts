@@ -30,24 +30,24 @@ namespace cave {
                 controller.moveSprite(this.heroSprite, 0, 0)
 
                 this.swordInStone = this.createSprite(img`
-                    cccccccccccccccccc55bbbbbbcccccc
-                    cccccccccccccccccc55bbbbbbcccccc
-                    ccccccccccccbbbbbb55ddddddbbcccc
-                    ccccccccccccbbbbbb55ddddddbbcccc
-                    ccccccccccccbbdd558855ddddbbcccc
-                    ccccccccccccbbdd558855ddddbbcccc
-                    ccccccccbbbbdddddd11ddbbbbddcccc
-                    ccccccccbbbbdddddd11ddbbbbddcccc
-                    ccccccccbbdddddddd11ddbbbbddbbcc
-                    ccccccccbbdddddddd11ddbbbbddbbcc
-                    ccccccccccdddddddd11bbbbddbbcccc
-                    ccccccccccdddddddd11bbbbddbbcccc
-                    ccccccbbccccbbbbbb11ddddbbcccccc
-                    ccccccbbccccbbbbbb11ddddbbcccccc
-                    ccccbbbbccccccbbdd11bbcccccccccc
-                    ccccbbbbccccccbbdd11bbcccccccccc
-                    ccbbbbddddddbbbbbbbbbbbbcccccccc
-                    ccbbbbddddddbbbbbbbbbbbbcccccccc
+                    aaaaaaaaaaaaaaaaa444aaaaaaaaaaaa
+                    aaaaaaaaaaaaaaaac454ccaaaaaaaaaa
+                    aaaaaaaaaaaaacccc454ccccccaaaaaa
+                    aaaaaaaaaaccccbbb454ddbbbccccaaa
+                    aaaaaaaccccccbd4444444dddbbbccca
+                    aaaaaaccccccbbd4552554ddddbbcccc
+                    aaaaacccbbbbddddd111ddbbbbddcccc
+                    aaaaacccbbbbddddd1f1ddbbbbddcccc
+                    aaaaccccbbddddddd1f1ddbbbbddbbcc
+                    aaacccccbbddddddd1f1ddbbbbddbbcc
+                    aaccccccccddddddd1f1bbbbddbbcccc
+                    acccccccccddddddd1f1bbbbddbbcccc
+                    acccccbbccccbbbbb1f1ddddbbcccccc
+                    acccccbbccccbbbbb1f1ddddbbcccccc
+                    acccbbbbccccccbbd1f1bbcccccccccc
+                    acccbbbbccccccbbd1f1bbcccccccccc
+                    acbbbbddddddbbbbb1f1bbbbcccccccc
+                    acbbbbddddddbbbbbbbbbbbbcccccccc
                     ccccddddddddddddbbddbbccccccbbcc
                     ccccddddddddddddbbddbbccccccbbcc
                     ccccbbddddddbbbbddbbccccccbbbbcc
@@ -56,16 +56,38 @@ namespace cave {
                     ccbbccccccccbbddddbbbbbbbbbbcccc
                     ccccbbbbbbddddbbccccbbbbbbbbcccc
                     ccccbbbbbbddddbbccccbbbbbbbbcccc
-                    ccccccccccccccccccbbbbbbbbcccccc
-                    ccccccccccccccccccbbbbbbbbcccccc
-                    ccccccccccbbbbbbbbbbbbbbcccccccc
-                    ccccccccccbbbbbbbbbbbbbbcccccccc
-                    cccccccccccccccccccccccccccccccc
-                    cccccccccccccccccccccccccccccccc
+                    acccccccccccccccccbbbbbbbbcccccc
+                    acccccccccccccccccbbbbbbbbccccca
+                    aaccccccccbbbbbbbbbbbbbbccccccca
+                    aaacccccccbbbbbbbbbbbbbbccccccaa
+                    aaaaccccccccccccccccccccccccccaa
+                    aaaaaacccccccccccccccccccccccaaa
                 `, SpriteKind.SWORD_IN_STONE_KIND)
-                multilights.toggleLighting(true)
-                multilights.addLightSource(this.swordInStone, 16)
                 tiles.placeOnTile(this.swordInStone, tiles.getTileLocation(5, 4))
+
+                let lightFromCeilingSprite = this.createSprite(img`
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                `)
+                multilights.toggleLighting(true)
+                lightFromCeilingSprite.x = this.swordInStone.x 
+                lightFromCeilingSprite.y = this.swordInStone.y
+                
+                multilights.addLightSource(lightFromCeilingSprite, 24)
 
 
                 story.printCharacterText("这里...", state.playerName)
@@ -110,13 +132,18 @@ namespace cave {
                 sprites.onOverlap(SpriteKind.Player, SpriteKind.SWORD_IN_STONE_KIND, (sprite: Sprite, otherSprite: Sprite) => {
                     story.startCutscene(() => {
                         controller.moveSprite(this.heroSprite, 0, 0)
+
+
+                        info.setLife(3)
+                        story.printCharacterText(state.playerName + "恢复了全部力量")
+                        
                         
                         this.swordInStone.setImage(img`
-                            ccccccccccccccccccbbbbbbbbcccccc
-                            ccccccccccccccccccbbbbbbbbcccccc
-                            ccccccccccccbbbbbbbbddddddbbcccc
-                            ccccccccccccbbbbbbbbddddddbbcccc
-                            ccccccccccccbbddddddddddddbbcccc
+                            aaaaaaaaccccccccccbbbbbbbbccccaa
+                            aaaaaaccccccccccccbbbbbbbbccccaa
+                            aaaaacccccccbbbbbbbbddddddbbccca
+                            aaccccccccccbbbbbbbbddddddbbccca
+                            acccccccccccbbddddddddddddbbcccc
                             ccccccccccccbbddddddddddddbbcccc
                             ccccccccbbbbddddddddddbbbbddcccc
                             ccccccccbbbbddddddddddbbbbddcccc
@@ -139,20 +166,42 @@ namespace cave {
                             ccccbbbbbbddddbbccccbbbbbbbbcccc
                             ccccbbbbbbddddbbccccbbbbbbbbcccc
                             ccccccccccccccccccbbbbbbbbcccccc
-                            ccccccccccccccccccbbbbbbbbcccccc
-                            ccccccccccbbbbbbbbbbbbbbcccccccc
-                            ccccccccccbbbbbbbbbbbbbbcccccccc
-                            cccccccccccccccccccccccccccccccc
-                            cccccccccccccccccccccccccccccccc
+                            ccccccccccccccccccbbbbbbbbccccca
+                            acccccccccbbbbbbbbbbbbbbccccccaa
+                            aaccccccccbbbbbbbbbbbbbbcccccaaa
+                            aaaccccccccccccccccccccccccccaaa
+                            aaaaaccccccccccccccccccccccaaaaa
                         `)
                         
                         this.swordInStone.setFlag(SpriteFlag.Ghost, true)
+                        scene.cameraShake(4, 500)
+                        for (let i = 0 ; i < 4; i ++) {
+                            story.spriteMoveToLocation(this.swordInStone, this.swordInStone.x - (2), this.swordInStone.y, 10*i + 10)
+                            story.spriteMoveToLocation(this.swordInStone, this.swordInStone.x + (2), this.swordInStone.y, 10*i + 10)
+                        }
                         story.spriteMoveToLocation(this.swordInStone, this.swordInStone.x + 32 , this.swordInStone.y, 32)
-                        
-
-                        story.cancelAllCutscenes()
-                        
+                        this.heroSprite.setImage(img`
+                            . . . . . . f f f f . . . . . .
+                            . . . . f f e e e e f f . . . .
+                            . . . f e e e f f e e e f . . .
+                            . . f f f f f 2 2 f f f f f . .
+                            . . f f e 2 e 2 2 e 2 e f f . .
+                            . . f e 2 f 2 f f 2 f 2 e f . .
+                            . . f f f 2 2 e e 2 2 f f f . .
+                            . f f e f 2 f e e f 2 f e f f .
+                            . f e e f f e e e e f e e e f .
+                            . . f e e e e e e e e e e f . .
+                            . . . f e e e e e e e e f . . .
+                            . . e 4 f f f f f f f f 4 e . .
+                            . . 4 d f 2 2 2 2 2 2 f d 4 . .
+                            . . 4 4 f 4 4 4 4 4 4 f 4 4 . .
+                            . . . . . f f f f f f . . . . .
+                            . . . . . f f . . f f . . . . .
+                        `)
+                        story.spriteMoveToLocation(this.heroSprite, 88, 80, 50)
                         controller.moveSprite(this.heroSprite)
+                        throneChamberRoom.enterRoom(this.heroSprite, this.getRoomName())
+                        story.cancelAllCutscenes()
                     })
                 })
 

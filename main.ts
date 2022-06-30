@@ -1,5 +1,3 @@
-
- 
 let willingToBind = false
 let houseRoom = new house.HouseRoom()
 let caveRoom = new cave.CaveRoom()
@@ -7,7 +5,9 @@ let villageRoom = new village.VillageRoom()
 let trailRoom = new trail.TrailRoom()
 let dungeonRoom = new dungeon.DungeonRoom()
 let caveEntranceRoom = new cave_entrance.CaveEntranceRoom()
+let throneChamberRoom = new throne_chamber.ThroneChamberRoom()
 caveRoom.addExit(houseRoom)
+caveRoom.addExit(throneChamberRoom)
 houseRoom.addExit(villageRoom)
 villageRoom.addExit(houseRoom)
 villageRoom.addExitOnLocation(trailRoom, 15, 14)
@@ -35,7 +35,7 @@ let heroSprite = sprites.create(img`
     `, SpriteKind.Player)
 heroSprite.z = scene.HUD_Z - 5
 // caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())
-caveRoom.enterRoom(heroSprite, caveEntranceRoom.getRoomName())
+throneChamberRoom.enterRoom(heroSprite, caveRoom.getRoomName())
 // state.soulBound = true
 // state.rustySwordGet = true
 // trailRoom.enterTimes = 1

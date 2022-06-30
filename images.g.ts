@@ -291,25 +291,6 @@ e b 5 b f b a e e 5 b b c c . .
 . . . . . . . . . . c c . . . . 
 . . . . . . . . . . . . . . . . 
 `;
-            case "image6":
-            case "wizardMeteoroid":return img`
-. . . . . . . . 2 2 2 2 . . . . 
-. . . . 2 2 2 2 2 2 2 2 2 . . . 
-. . . 2 1 2 2 d d d d 2 d 2 . . 
-. . 2 2 1 1 1 1 d d d 2 d d 2 . 
-. . 2 2 d 1 1 2 d d 1 1 1 d d 2 
-. . 2 2 d d d d 5 2 1 1 1 d d 2 
-. 2 2 2 2 d 2 2 5 2 1 2 d d 2 2 
-2 4 1 1 2 2 2 4 5 5 4 5 5 5 2 2 
-2 4 1 1 1 1 2 2 2 d 5 5 5 4 4 2 
-2 4 4 2 1 1 2 4 d d 5 5 5 4 4 2 
-2 2 b 4 4 4 4 5 d 5 5 4 5 5 4 . 
-. 2 2 5 5 5 5 5 5 5 4 2 2 5 4 . 
-. . 2 2 2 5 2 2 2 5 4 4 b 2 . . 
-. . . . 2 5 4 2 2 5 5 5 2 . . . 
-. . . . 2 5 5 4 4 4 5 2 . . . . 
-. . . . . . 5 4 4 2 2 . . . . . 
-`;
             case "image11":
             case "villageViewDoomed":return img`
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
@@ -471,24 +452,151 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 . . . 6 6 6 7 7 7 7 6 6 6 . . . 
 . . . . 6 6 6 6 6 6 6 6 . . . . 
 `;
+            case "image14":
+            case "playmate_back":return img`
+. . f f f . f f f f . f f f . . 
+. f f f f f c c c c f f f f f . 
+. f f f f b c c c c b f f f f . 
+. f f f c 3 c c c c 3 c f f f . 
+. . f 3 3 c c c c c c 3 3 f . . 
+. . f c c c c c c c c c c f . . 
+. . f f c c c c c c c c f f . . 
+. . f f f c c c c c c f f f . . 
+. . f f f f f f f f f f f f . . 
+. . . f f f f f f f f f f . . . 
+. . . e f f f f f f f f e . . . 
+. . e 4 f f f f f f f f 4 e . . 
+. . 4 d f 3 3 3 3 3 3 c d 4 . . 
+. . 4 4 f 6 6 6 6 6 6 f 4 4 . . 
+. . . . . f f f f f f . . . . . 
+. . . . . f f . . f f . . . . . 
+`;
             case "image13":
-            case "myImage":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
+            case "playmate_front":return img`
+. f f f . f f f f . f f f . 
+f f f f f c c c c f f f f f 
+f f f f b c c c c b f f f f 
+f f f c 3 c c c c 3 c f f f 
+. f 3 3 c c c c c c 3 3 f . 
+. f c c c c 4 4 c c c c f . 
+. f f c c 4 4 4 4 c c f f . 
+. f f f b f 4 4 f b f f f . 
+. f f 4 1 f d d f 1 4 f f . 
+. . f f d d d d d d f f . . 
+. . e f e 4 4 4 4 e f e . . 
+. e 4 f b 3 3 3 3 b f 4 e . 
+. 4 d f 3 3 3 3 3 3 c d 4 . 
+. 4 4 f 6 6 6 6 6 6 f 4 4 . 
+. . . . f f f f f f . . . . 
+. . . . f f . . f f . . . . 
+`;
+            case "image15":
+            case "playmate_front_doomed":return img`
+...11...11..11...11...11
+...1.....1..1....111..1.
+...1...111..1...1.11111.
+.111111111111.111111b11.
+.11b1bb1111b1111111bb11.
+..1bbbb1111bb111111bbb1.
+.11b1111b1111b11b1111b1.
+bbb1111c31111ddd3cc11b1.
+11113333ddddddddd333311.
+...1ddddddd444ddddddd1..
+.111111dd4444444ddd111..
+...1111dd4444444ddd11.11
+...111bdd4444444ddd11.1.
+...11bb1b2244422b111.11.
+..11bb14122ddd22144111..
+...1b111ddddddddd1111.11
+1111eee1e4444444e11ee...
+...e4441b3333333b1144e..
+...e4441b3333333b1144e..
+...e4441b3333333b1144e..
+...4ddd1333333333ccdd4..
+...44441666666666ff444..
+........fffffffff.......
+........fff...fff.......
+`;
+            case "image16":
+            case "playmate_back_doomed":return img`
+........11....11........
+.....1...1....1..11.....
+..1..1..11....1...11....
+...1.111....11....11....
+.11111d1..11111..11dd1..
+.11111d1..11111..11dd1..
+..11bbddddbbddb111dbb111
+...bbb11bbbbddbbbddbbb11
+...1111c33bdbbb33c111b11
+1..11133bbddddbbb331111.
+1...1133bbddddbbb3311111
+111.11bbdddbddbbbbb1111.
+1111111bddbbddbbbb11111.
+....111dbbdbbbdbb111111.
+.111111ddd1111ddddd11.11
+.111111ddd1111ddddd11...
+..1.ddddbbb1111bb1ddd...
+...1ddd111bbbbbbb1e.1d1.
+.111ee4111111111114ee.d.
+....44d11133333331d44.1.
+....44d11133333331d4411.
+....44116666666661144...
+....111.fffffffff.111...
+.11111..fff...fff....11.
+`;
+            case "image17":
+            case "bossFireball":return img`
+...d...d.11.11..2222bb224...55..
+...d...d111d11..2222bb224...55..
+..d....d12211122222bb22242..55..
+..dd..dd112112222222bbb242..55..
+...dd.d2112212ddd22dbbb24d2555..
+...dd.d2112212ddd2dbbd224d255...
+..dd22dd11111111dddddd2244d552..
+..d.222d11111111dddddd2244d552..
+..dd2222dd111122dddd111441555d22
+..d.2222dd111122dddd114411d55d22
+..dd2222dddddddd5522114111555d22
+.dd.2222dddddddd5522114111555d22
+..dd222222dd222255221422dd552222
+..22222222dd222255221422dd552222
+22441111222222445555445555552222
+22441111222222445555445555552222
+224411111111222222dd555555444422
+224411111111222222dd555555444422
+2244442211112244dddd555555444422
+2244442211112244dddd555555444422
+2222bb4444444455dd555544555544..
+2222bb4444444455dd555544555544..
+..2222555555555555554422225544..
+..2222555555555555554422225544..
+....22222255222222554444bb22....
+....22222255222222554444bb22....
+........225544222255555522......
+........225544222255555522......
+........2255554444445522........
+........2255554444445522........
+............5544442222..........
+............5544442222..........
+`;
+            case "image6":
+            case "wizardMeteoroid":return img`
+. . . . . . . . 2 2 2 2 . . . . 
+. . . . 2 2 2 2 2 2 2 2 2 . . . 
+. . . 2 1 2 2 d d d d 2 d 2 . . 
+. . 2 2 1 1 1 1 d d d 2 d d 2 . 
+. . 2 2 d 1 1 2 d d 1 1 1 d d 2 
+. . 2 2 d d d d 5 2 1 1 1 d d 2 
+. 2 2 2 2 d 2 2 5 2 1 2 d d 2 2 
+2 4 1 1 2 2 2 4 5 5 4 5 5 5 2 2 
+2 4 1 1 1 1 2 2 2 d 5 5 5 4 4 2 
+2 4 4 2 1 1 2 4 d d 5 5 5 4 4 2 
+2 2 b 4 4 4 4 5 d 5 5 4 5 5 4 . 
+. 2 2 5 5 5 5 5 5 5 4 2 2 5 4 . 
+. . 2 2 2 5 2 2 2 5 4 4 b 2 . . 
+. . . . 2 5 4 2 2 5 5 5 2 . . . 
+. . . . 2 5 5 4 4 4 5 2 . . . . 
+. . . . . . 5 4 4 2 2 . . . . . 
 `;
         }
         return null;
