@@ -200,8 +200,8 @@ namespace cave {
                         `)
                         story.spriteMoveToLocation(this.heroSprite, 88, 80, 50)
                         controller.moveSprite(this.heroSprite)
-                        throneChamberRoom.enterRoom(this.heroSprite, this.getRoomName())
                         story.cancelAllCutscenes()
+                        throneChamberRoom.enterRoom(this.heroSprite, this.getRoomName())
                     })
                 })
 

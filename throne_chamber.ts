@@ -274,7 +274,7 @@ namespace throne_chamber {
                 story.spriteSayText(this.bossSprite, "没有勇者的血脉")
                 story.spriteSayText(this.bossSprite, "怎么能用封印之剑？！")
 
-                story.printCharacterText("他就是的" + state.papaName() + "的儿子", "封印之剑")
+                story.printCharacterText("他就是" + state.papaName() + "的儿子", "封印之剑")
                 story.printCharacterText("当然能用挥舞我", "封印之剑")
                 story.printCharacterText("还能像以前一样", "封印之剑")
                 story.printCharacterText("封印你", "封印之剑")
