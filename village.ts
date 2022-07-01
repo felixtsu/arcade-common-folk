@@ -132,8 +132,26 @@ namespace village{
 
             if (entrance == house.ROOM_NAME) {
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(2, 8))
-            } else {
+            } else if (entrance == trail.ROOM_NAME) {
                 tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(14, 14))
+            } else if (entrance == throne_chamber.ROOM_NAME) {
+                tiles.placeOnTile(this.heroSprite, tiles.getTileLocation(13, 6))
+
+                let swordSprite = this.createSprite(assets.image`tombstone`)
+                tiles.placeOnTile(swordSprite, tiles.getTileLocation(13, 4))
+
+
+
+                story.spriteSayText(this.heroSprite, ".")
+                story.spriteSayText(this.heroSprite, "..")
+                story.spriteSayText(this.heroSprite, "...")
+
+                story.spriteSayText(this.heroSprite, "雪又融了...")
+
+                story.printCharacterText("这就是一个")
+                story.printCharacterText("普普通通的勇者故事")
+
+                story.printCharacterText("感谢")
             }
 
             if (!state.playmateCapturedByBat) {

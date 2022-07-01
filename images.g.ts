@@ -598,6 +598,130 @@ bbb1111c31111ddd3cc11b1.
 . . . . 2 5 5 4 4 4 5 2 . . . . 
 . . . . . . 5 4 4 2 2 . . . . . 
 `;
+            case "image21":
+            case "tombstone":return img`
+. . . f f b b b b b b f f . . . 
+. . f b b b c c c c b b b f . . 
+. . f b c c c c c c c c b b . . 
+. . b b c c d d d c c c c b f . 
+. . b c c c c c c c c c c b b . 
+. . b c c c c c c d d d c b b . 
+. . b c c c c c c c c c c b f . 
+. . b c c c c d d c c c c b b . 
+. . b c c c c c c c c c c b b . 
+. . b c c c c d d d c c c b b . 
+. . b c c c c c c c c c c b b . 
+. . b c c c c c d d d c c b b . 
+. . b c c c c c c c c c c b b . 
+. . b c c c c d d d d d c b b . 
+f b b b c c c c c c c c c b b f 
+f f f f f f f f f f f f f f f f 
+`;
+            case "image18":
+            case "threeSeal_fade":return img`
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccccc..cc....cc..cccccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccc................cccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+`;
+            case "image19":
+            case "sixSeal_fade":return img`
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccc..cccccccccccccc
+cccccccccccccccc..cccccccccccccc
+cccccccccccccc....cccccccccccccc
+cccccccccccccc....cccccccccccccc
+cccc..........................cc
+cccc..........................cc
+cccc..cccccc..cccc..cccccc..cccc
+cccc..cccccc..cccc..cccccc..cccc
+cccccc..cc..cccccccc..cc..cccccc
+cccccc..cc..cccccccc..cc..cccccc
+cccccccc..cccccccccccc..cccccccc
+cccccccc..cccccccccccc..cccccccc
+cccccccc..cccccccccccc..cccccccc
+cccccccc..cccccccccccc..cccccccc
+cccccc..cc..cccccccc..cc..cccccc
+cccccc..cc..cccccccc..cc..cccccc
+cccc..cccccc..cccc..cccccc..cccc
+cccc..cccccc..cccc..cccccc..cccc
+cc..........................cccc
+cc..........................cccc
+cccccccccccccc....cccccccccccccc
+cccccccccccccc....cccccccccccccc
+cccccccccccccc..cccccccccccccccc
+cccccccccccccc..cccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+`;
+            case "image20":
+            case "eightSeal_fade":return img`
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccc....cccccccccccccc
+cccccccccccccc....cccccccccccccc
+cccccc....cccc....cccc....cccccc
+cccccc....cccc....cccc....cccccc
+cccccc......cc....cc......cccccc
+cccccc......cc....cc......cccccc
+cccccccc......cccc......cccccccc
+cccccccc......cccc......cccccccc
+cccccccccc....cccc....cccccccccc
+cccccccccc....cccc....cccccccccc
+cccc......cccccccccccc......cccc
+cccc......cccccccccccc......cccc
+cccc......cccccccccccc......cccc
+cccc......cccccccccccc......cccc
+cccccccccc....cccc....cccccccccc
+cccccccccc....cccc....cccccccccc
+cccccccc......cccc......cccccccc
+cccccccc......cccc......cccccccc
+cccccc......cc....cc......cccccc
+cccccc......cc....cc......cccccc
+cccccc....cccc....cccc....cccccc
+cccccc....cccc....cccc....cccccc
+cccccccccccccc....cccccccccccccc
+cccccccccccccc....cccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccc
+`;
         }
         return null;
     })

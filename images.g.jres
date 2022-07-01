@@ -84,6 +84,26 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "wizardMeteoroid"
     },
+    "image21": {
+        "data": "hwQQABAAAAAAAAAAAAAA/wAAAAAAAAD78L+7u7u7u/u/u8zMzMzM+7/MzMzMzMz8u8zMzMzMzPzL3MzMzMzM/MvczNzczNz8y9zM3Nzc3PzLzNzM3Nzc/LvM3MzM3Nz8v8zczMzM3Py/y8zMzMzM/PC7u7u7u7v7APC7v7u7u/sAAAAAAAAA/w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "tombstone"
+    },
+    "image18": {
+        "data": "hwQgACAAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMAAAAzMzMzMzMAAAAzMzMzAAAAMzMzMzMzAAAAMzMzMwAAAAAAAAAAAAAAADMzMzMAAAAAAAAAAAAAAAAzMzMzAAAAMzMzMzMzAAAAMzMzMwAAADMzMzMzMwAAADMzMzMAAAAAAAAAAAAAAAAzMzMzAAAAAAAAAAAAAAAAMzMzMwAAAAAAAAAAAAAAADMzMzMAAAAAAAAAAAAAAAAzMzMzAAAAMzMzMzMzAAAAMzMzMwAAADMzMzMzMwAAADMzMzMAAAAAAAAAAAAAAAAzMzMzAAAAAAAAAAAAAAAAMzMzMwAAADMzMzMzMwAAADMzMzMAAAAzMzMzMzMAAAAzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "threeSeal_fade"
+    },
+    "image19": {
+        "data": "hwQgACAAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMAMzMzMzMzMzMzMzMzMzMzADMzMzMzMzMzAAAzMzMzAAAzMzMzMzMzMwAAMzMzMwAAMzMzMzMzMzMAMwAzMwAzADMzMzMzMzMzADMAMzMAMwAzMzMzMzMzMwAzMwAAMzMAMzMzMzMzMzMAMzMAADMzADMzMzMzMzMzADMAMzMAMwAzMzMzMzMzMwAzADMzADMAMzMzMzMzMzMAADMzMzMAADMzMzMzMzMzAAAzMzMzAAAzMzMzMzMzAAAzMzMzMzMAAAAzMzMzMwAAMzMzMzMzAAAAMzMzMwAAADMzMzMzMwAAMzMzMzMAAAAzMzMzMzMAADMzMzMzMzMAADMzMzMAADMzMzMzMzMzAAAzMzMzAAAzMzMzMzMzMwAzADMzADMAMzMzMzMzMzMAMwAzMwAzADMzMzMzMzMzADMzAAAzMwAzMzMzMzMzMwAzMwAAMzMAMzMzMzMzMzMAMwAzMwAzADMzMzMzMzMzADMAMzMAMwAzMzMzMzMzMwAAMzMzMwAAMzMzMzMzMzMAADMzMzMAADMzMzMzMzMzADMzMzMzMzMzMzMzMzMzMwAzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "sixSeal_fade"
+    },
+    "image20": {
+        "data": "hwQgACAAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzAAAzMzMzMzMzMzMzMzMzMwAAMzMzMzMzMzMzMwAAMzMAADMzAAAzMzMzMzMAADMzAAAzMwAAMzMzMzMzAAAAMwAAMwAAADMzMzMzMwAAADMAADMAAAAzMzMzMzMzAAAAMzMAAAAzMzMzMzMzMwAAADMzAAAAMzMzMzMzMzMzAAAzMwAAMzMzMzMzMzMzMwAAMzMAADMzMzMzMzMAAAAzMzMzMzMAAAAzMzMzAAAAMzMzMzMzAAAAMzMzMwAAADMzMzMzMwAAADMzMzMAAAAzMzMzMzMAAAAzMzMzMzMzAAAzMwAAMzMzMzMzMzMzMwAAMzMAADMzMzMzMzMzMwAAADMzAAAAMzMzMzMzMzMAAAAzMwAAADMzMzMzMzMAAAAzAAAzAAAAMzMzMzMzAAAAMwAAMwAAADMzMzMzMwAAMzMAADMzAAAzMzMzMzMAADMzAAAzMwAAMzMzMzMzMzMzMwAAMzMzMzMzMzMzMzMzMzMAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "eightSeal_fade"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
