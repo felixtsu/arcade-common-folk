@@ -152,6 +152,8 @@ namespace village{
                 story.printCharacterText("普普通通的勇者故事")
 
                 story.printCharacterText("感谢")
+
+                game.over(true)
             }
 
             if (!state.playmateCapturedByBat) {
