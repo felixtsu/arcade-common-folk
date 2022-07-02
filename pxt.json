@@ -33,7 +33,8 @@
         "dungeon.ts",
         "aiming.ts",
         "cave_entrance.ts",
-        "throne_chamber.ts"
+        "throne_chamber.ts",
+        "i18n.ts"
     ],
     "testFiles": [
         "test.ts"

@@ -32,7 +32,7 @@ namespace house {
                         controller.moveSprite(this.heroSprite, 0, 0)
                         otherSprite.setImage(assets.image`衣柜打开`)
                         if (state.playmateCapturedByBat && !state.rustySwordGet) {
-                            story.printCharacterText("取得锈剑")
+                            story.printCharacterText(i18n.i18nstr`取得锈剑`)
                             state.rustySwordGet = true
                         } else if (!state.playmateCapturedByBat){
                             story.printCharacterText("都是些不值钱的东西")
@@ -78,13 +78,13 @@ namespace house {
                 `)
                 scene.cameraShake(4, 500)
                 music.knock.playUntilDone()
-                story.printCharacterText("又是这个梦", state.playerName)
+                story.printCharacterText(i18n.i18nstr`又是这个梦`, state.playerName)
                 if (state.willingToBind) {
-                    story.printCharacterText("每次说了愿意又要我等", state.playerName)
-                    story.printCharacterText("下次就说不愿意好了", state.playerName)
+                    story.printCharacterText(i18n.i18nstr`每次说了愿意又要我等`, state.playerName)
+                    story.printCharacterText(i18n.i18nstr`下次就说不愿意好了`, state.playerName)
                 } else {
-                    story.printCharacterText("每次说了不愿意就不说话", state.playerName)
-                    story.printCharacterText("下次就说愿意好了", state.playerName)
+                    story.printCharacterText(i18n.i18nstr`每次说了不愿意就不说话`, state.playerName)
+                    story.printCharacterText(i18n.i18nstr`下次就说愿意好了`, state.playerName)
                 }
                 heroSprite.setImage(img`
                     . . . . . . f f f f . . . . . .

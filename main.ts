@@ -1,4 +1,4 @@
-let willingToBind = false
+let heroSprite:Sprite = null
 let houseRoom = new house.HouseRoom()
 let caveRoom = new cave.CaveRoom()
 let villageRoom = new village.VillageRoom()
@@ -6,16 +6,22 @@ let trailRoom = new trail.TrailRoom()
 let dungeonRoom = new dungeon.DungeonRoom()
 let caveEntranceRoom = new cave_entrance.CaveEntranceRoom()
 let throneChamberRoom = new throne_chamber.ThroneChamberRoom()
-caveRoom.addExit(houseRoom)
-caveRoom.addExit(throneChamberRoom)
-houseRoom.addExit(villageRoom)
-villageRoom.addExit(houseRoom)
-villageRoom.addExitOnLocation(trailRoom, 15, 14)
-trailRoom.addExitOnLocation(villageRoom, 0, 1)
-trailRoom.addExit(houseRoom)
-dungeonRoom.addExit(caveEntranceRoom)
-caveEntranceRoom.addExitOnLocation(caveRoom, 3, 5)
-let heroSprite = sprites.create(img`
+
+story.startCutscene(() => {
+    story.showPlayerChoices("En", "zh-CN")
+    if(story.checkLastAnswer("En")) {
+        i18n.locale = "En"
+    } 
+    caveRoom.addExit(houseRoom)
+    caveRoom.addExit(throneChamberRoom)
+    houseRoom.addExit(villageRoom)
+    villageRoom.addExit(houseRoom)
+    villageRoom.addExitOnLocation(trailRoom, 15, 14)
+    trailRoom.addExitOnLocation(villageRoom, 0, 1)
+    trailRoom.addExit(houseRoom)
+    dungeonRoom.addExit(caveEntranceRoom)
+    caveEntranceRoom.addExitOnLocation(caveRoom, 3, 5)
+    heroSprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
     . . . f f f 2 2 2 2 f f f . . . 
@@ -33,8 +39,8 @@ let heroSprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-heroSprite.z = scene.HUD_Z - 5
-caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())
+    heroSprite.z = scene.HUD_Z - 5
+    caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())
 // throneChamberRoom.enterRoom(heroSprite, caveRoom.getRoomName())
 // state.soulBound = true
 // state.rustySwordGet = true
@@ -42,4 +48,6 @@ caveRoom.enterRoom(heroSprite, houseRoom.getRoomName())
 // trailRoom.enterRoom(heroSprite, villageRoom.getRoomName())
 // dungeonRoom.enterRoom(heroSprite, trailRoom.getRoomName())
 // caveEntranceRoom.enterRoom(heroSprite, dungeonRoom.getRoomName())
+
+})
 

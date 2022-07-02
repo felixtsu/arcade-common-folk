@@ -29,40 +29,7 @@ namespace cave {
 
                 controller.moveSprite(this.heroSprite, 0, 0)
 
-                this.swordInStone = this.createSprite(img`
-                    aaaaaaaaaaaaaaaaa444aaaaaaaaaaaa
-                    aaaaaaaaaaaaaaaac454ccaaaaaaaaaa
-                    aaaaaaaaaaaaacccc454ccccccaaaaaa
-                    aaaaaaaaaaccccbbb454ddbbbccccaaa
-                    aaaaaaaccccccbd4444444dddbbbccca
-                    aaaaaaccccccbbd4552554ddddbbcccc
-                    aaaaacccbbbbddddd111ddbbbbddcccc
-                    aaaaacccbbbbddddd1f1ddbbbbddcccc
-                    aaaaccccbbddddddd1f1ddbbbbddbbcc
-                    aaacccccbbddddddd1f1ddbbbbddbbcc
-                    aaccccccccddddddd1f1bbbbddbbcccc
-                    acccccccccddddddd1f1bbbbddbbcccc
-                    acccccbbccccbbbbb1f1ddddbbcccccc
-                    acccccbbccccbbbbb1f1ddddbbcccccc
-                    acccbbbbccccccbbd1f1bbcccccccccc
-                    acccbbbbccccccbbd1f1bbcccccccccc
-                    acbbbbddddddbbbbb1f1bbbbcccccccc
-                    acbbbbddddddbbbbbbbbbbbbcccccccc
-                    ccccddddddddddddbbddbbccccccbbcc
-                    ccccddddddddddddbbddbbccccccbbcc
-                    ccccbbddddddbbbbddbbccccccbbbbcc
-                    ccccbbddddddbbbbddbbccccccbbbbcc
-                    ccbbccccccccbbddddbbbbbbbbbbcccc
-                    ccbbccccccccbbddddbbbbbbbbbbcccc
-                    ccccbbbbbbddddbbccccbbbbbbbbcccc
-                    ccccbbbbbbddddbbccccbbbbbbbbcccc
-                    acccccccccccccccccbbbbbbbbcccccc
-                    acccccccccccccccccbbbbbbbbccccca
-                    aaccccccccbbbbbbbbbbbbbbccccccca
-                    aaacccccccbbbbbbbbbbbbbbccccccaa
-                    aaaaccccccccccccccccccccccccccaa
-                    aaaaaacccccccccccccccccccccccaaa
-                `, SpriteKind.SWORD_IN_STONE_KIND)
+                this.swordInStone = this.createSprite(assets.image`swordInStone`, SpriteKind.SWORD_IN_STONE_KIND)
                 tiles.placeOnTile(this.swordInStone, tiles.getTileLocation(5, 4))
 
                 let lightFromCeilingSprite = this.createSprite(img`
@@ -232,43 +199,27 @@ namespace cave {
                 multilights.addLightSource(heroSprite, 6)
                 scene.cameraFollowSprite(heroSprite)
                 tiles.placeOnTile(heroSprite, tiles.getTileLocation(5, 12))
-                this.swordInStone = this.createSprite(img`  
-    c c c c c c c c c 5 b b b c c c 
-    c c c c c c b b b 5 d d d b c c 
-    c c c c c c b d 5 8 5 d d b c c 
-    c c c c b b d d d 1 d b b d c c 
-    c c c c b d d d d 1 d b b d b c 
-    c c c c c d d d d 1 b b d b c c 
-    c c c b c c b b b 1 d d b c c c 
-    c c b b c c c b d 1 b c c c c c 
-    c b b d d d b b b b b b c c c c 
-    c c d d d d d d b d b c c c b c 
-    c c b d d d b b d b c c c b b c 
-    c b c c c c b d d b b b b b c c 
-    c c b b b d d b c c b b b b c c 
-    c c c c c c c c c b b b b c c c 
-    c c c c c b b b b b b b c c c c 
-    c c c c c c c c c c c c c c c c 
-    `, SpriteKind.SWORD_IN_STONE_KIND)
+                this.swordInStone = this.createSprite(assets.image`swordInStone`, SpriteKind.SWORD_IN_STONE_KIND)
                 multilights.toggleLighting(true)
                 multilights.addLightSource(this.swordInStone, 16)
                 tiles.placeOnTile(this.swordInStone, tiles.getTileLocation(5, 4))
                 let notFinished = true
+
                 story.startCutscene(function () {
-                    story.printText("勇者.", 80, 80)
-                    story.printText("勇者..", 80, 80)
-                    story.printText("勇者...", 80, 80)
-                    story.printText("到我跟前来...", 80, 80)
+                    story.printText(i18n.i18nstr`勇者` + ".", 80, 80)
+                    story.printText(i18n.i18nstr`勇者` + "..", 80, 80)
+                    story.printText(i18n.i18nstr`勇者` + "...", 80, 80)
+                    story.printText(i18n.i18nstr`到我跟前来...`, 80, 80)
                     story.spriteMoveToLocation(this.heroSprite, 88, 96, 40)
-                    story.printCharacterText("告诉我你的名字", "???")
-                    story.showPlayerChoices("马克", "乔治", "大雄", "柯南")
+                    story.printCharacterText(i18n.i18nstr`告诉我你的名字`, "???")
+                    story.showPlayerChoices(i18n.i18nstr`马克`, i18n.i18nstr`乔治`, i18n.i18nstr`大雄`, i18n.i18nstr`柯南`)
                     state.playerName = story.getLastAnswer()
-                    story.printCharacterText("这世界面临灾难...", "???")
-                    story.printCharacterText("你愿意和我建立灵魂链接吗？", "???")
-                    story.showPlayerChoices("愿意", "不愿意")
-                    if (story.getLastAnswer() == "愿意") {
+                    story.printCharacterText(i18n.i18nstr`这世界面临灾难...`, "???")
+                    story.printCharacterText(i18n.i18nstr`你愿意和我建立灵魂链接吗？`, "???")
+                    story.showPlayerChoices(i18n.i18nstr`愿意`, i18n.i18nstr`不愿意`)
+                    if (story.getLastAnswer() == i18n.i18nstr`愿意`) {
                         state.willingToBind = true
-                        story.printCharacterText("等待合适的时机吧", "???")
+                        story.printCharacterText(i18n.i18nstr`等待合适的时机吧`, "???")
                     } else {
                         story.printCharacterText("...", "???")
                     }

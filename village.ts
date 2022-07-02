@@ -111,7 +111,7 @@ namespace village{
             sprites.onOverlap(SpriteKind.Player, SpriteKind.GuidBoard, (sprite: Sprite, otherSprite: Sprite) => {
                 otherSprite.sayText("A", 500)
                 if (controller.A.isPressed()) {
-                    story.printCharacterText("左:观景台\n右:下山")
+                    story.printCharacterText(i18n.i18nstr`左:观景台\n右:下山`)
                 }
             })
 
@@ -162,7 +162,7 @@ namespace village{
                 story.startCutscene(() => {
                     story.printText(state.playerName, 150, 110)
                     story.printText(state.playerName + "...", 150, 110)
-                    story.printText("你快过来看", 150, 110)
+                    story.printText(i18n.i18nstr`你快过来看`, 150, 110)
                     controller.moveSprite(this.heroSprite)
                 })
 
@@ -232,7 +232,7 @@ namespace village{
                             . . . . f f . . f f . . . .
                         `)
                         pause(500)
-                        story.spriteSayText(playmateSprite, state.playerName + ",你看")
+                        story.spriteSayText(playmateSprite, state.playerName + i18n.i18nstr`,你看`)
                         pause(500)
                         playmateSprite.setImage(img`
                             . f f f . f f f f . f f f .
@@ -252,7 +252,7 @@ namespace village{
                             . . . . f f f f f f . . . .
                             . . . . f f . . f f . . . .
                         `)
-                        story.spriteSayText(playmateSprite, "雪融了")
+                        story.spriteSayText(playmateSprite, i18n.i18nstr`雪融了`)
                         pause(500)
 
                         scene.cameraFollowSprite(playmateSprite)

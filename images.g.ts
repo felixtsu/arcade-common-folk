@@ -722,6 +722,41 @@ cccccccccccccccccccccccccccccccc
 cccccccccccccccccccccccccccccccc
 cccccccccccccccccccccccccccccccc
 `;
+            case "image22":
+            case "swordInStone":return img`
+aaaaaaaaaaaaaaaaa444aaaaaaaaaaaa
+aaaaaaaaaaaaaaaac454ccaaaaaaaaaa
+aaaaaaaaaaaaacccc454ccccccaaaaaa
+aaaaaaaaaaccccbbb454ddbbbccccaaa
+aaaaaaaccccccbd4444444dddbbbccca
+aaaaaaccccccbbd4552554ddddbbcccc
+aaaaacccbbbbddddd111ddbbbbddcccc
+aaaaacccbbbbddddd1f1ddbbbbddcccc
+aaaaccccbbddddddd1f1ddbbbbddbbcc
+aaacccccbbddddddd1f1ddbbbbddbbcc
+aaccccccccddddddd1f1bbbbddbbcccc
+acccccccccddddddd1f1bbbbddbbcccc
+acccccbbccccbbbbb1f1ddddbbcccccc
+acccccbbccccbbbbb1f1ddddbbcccccc
+acccbbbbccccccbbd1f1bbcccccccccc
+acccbbbbccccccbbd1f1bbcccccccccc
+acbbbbddddddbbbbb1f1bbbbcccccccc
+acbbbbddddddbbbbbbbbbbbbcccccccc
+ccccddddddddddddbbddbbccccccbbcc
+ccccddddddddddddbbddbbccccccbbcc
+ccccbbddddddbbbbddbbccccccbbbbcc
+ccccbbddddddbbbbddbbccccccbbbbcc
+ccbbccccccccbbddddbbbbbbbbbbcccc
+ccbbccccccccbbddddbbbbbbbbbbcccc
+ccccbbbbbbddddbbccccbbbbbbbbcccc
+ccccbbbbbbddddbbccccbbbbbbbbcccc
+acccccccccccccccccbbbbbbbbcccccc
+acccccccccccccccccbbbbbbbbccccca
+aaccccccccbbbbbbbbbbbbbbccccccca
+aaacccccccbbbbbbbbbbbbbbccccccaa
+aaaaccccccccccccccccccccccccccaa
+aaaaaacccccccccccccccccccccccaaa
+`;
         }
         return null;
     })

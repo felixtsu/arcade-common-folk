@@ -104,6 +104,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "eightSeal_fade"
     },
+    "image22": {
+        "data": "hwQgACAAAACqqqqqqqqqqqrMzMzMqqqqqqqqqqrKzMzMzMzMzMyqqqqqqqqqzMzMu8zMu8zMrKqqqqqqyszMzLvMzLvMzMyqqqqqqszMzLu73bvMu8zMrKqqqszMzMy7u927zLvMzKyqqsrMzMy7u93d3cy7zMzMqqrMzMzMu7vd3d3Mu8zMzKqqzLu7zMzM3d3dzLvMzMyqqsy7u8zMzN3d3cy7zMzMqsrMu93dzMzd3d3M3cy7zKrKzLvd3czM3d3dzN3Mu8yqyrzd3d27zLvdu7vdzLvMqsy73d3du8y73bu73cy7zKq83d3d3bu7u9273bvMu8yqvETd3d27u7vdu927zLvMyrxU3d3du927u93dzMy7zEREVBERERERsbvd3czMu8xUVSTx/////7/du7vMu7vMRERUERERERGx3bu7zLu7zMrcVN3du927u7vMu7u7u8zK3ETd3bvdu7u7zLu7u7vMqrzdu7u73cy7zMy7u7u7zKq83bu7u93Mu8zMu7u7u8yqvN27u927zMzMzLu7u8zMqszbu7vdu8zMzMy7u7vMzKrKu93du8zMzMy7u7vMzMyqyrvd3bvMzMzMu7u7zMzMqsrMzLvMzMzMu7vMzMzMzKqqzMy7zMzMzLu7zMzMzKyqqszMzMzMzMzMzMzMzKyqqqrKzMzMzMzMzMzMzKyqqg==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "swordInStone"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
