@@ -246,7 +246,7 @@ namespace monster {
                 story.printCharacterText(i18n.i18nstr`完了...`, state.playerName)
 
                 multilights.toggleLighting(true)
-                story.printCharacterText(i18n.i18nstr`就在` + state.playerName + "即将失去意识之际")
+                story.printCharacterText(i18n.i18nstr`就在` + state.playerName + i18n.i18nstr`即将失去意识之际`)
                 story.printCharacterText(i18n.i18nstr`包里的锈剑闪出光芒`)
 
                 effect.randomBeamFrom(player, 4, 1, 20, 5000)
