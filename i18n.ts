@@ -37,7 +37,7 @@ namespace i18n {
             case "愿意":return "Yes"
             case "不愿意":return "No"
             case "等待合适的时机吧": return "Wait for the right time."
-            case "取得锈剑": return "Rusty sword found"
+            case "取得锈剑": return "Found a rusty sword"
             case "又是这个梦": return "This dream again"
             case "每次说了愿意又要我等":return "Everytime I said yes, it asked me to wait"
             case "下次就说不愿意好了": return "I shall try NO next time"
@@ -47,9 +47,13 @@ namespace i18n {
             case ",你看": return ", look"
             case "雪融了": return "Snow is melted"
             case "左:观景台\n右:下山": return "L:View point\nR:Downhill"
+            case "把衣柜里的武器带上吧": return "should take the sword in wardrobe.."
+            case "啊" : return "Ah"
+            case "现在还是先别下山吧" : return "Not now."
+            case "魔王大人...": return "The lord..."
 
         }
-        return null;
+        return name;
     })
 
     }

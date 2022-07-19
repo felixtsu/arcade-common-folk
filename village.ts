@@ -27,7 +27,7 @@ namespace village{
                     let backToLocation = tiles.getTileLocation(13, 14)
                     story.startCutscene(() => {
                         controller.moveSprite(this.heroSprite, 0, 0)
-                        story.spriteSayText(this.heroSprite, "现在还是先别下山吧")
+                        story.spriteSayText(this.heroSprite, i18n.i18nstr`现在还是先别下山吧`)
                         story.spriteMoveToLocation(this.heroSprite, backToLocation.x, backToLocation.y, 32)
                         controller.moveSprite(this.heroSprite)
                         story.cancelAllCutscenes()
@@ -37,7 +37,7 @@ namespace village{
                     let backToLocation = tiles.getTileLocation(13, 14)
                     story.startCutscene(() => {
                         controller.moveSprite(this.heroSprite, 0, 0)
-                        story.spriteSayText(this.heroSprite, "把衣柜里的武器带上吧")
+                        story.spriteSayText(this.heroSprite, i18n.i18nstr`把衣柜里的武器带上吧`)
                         story.spriteMoveToLocation(this.heroSprite, backToLocation.x, backToLocation.y, 32)
                         controller.moveSprite(this.heroSprite)
                         story.cancelAllCutscenes()
@@ -260,7 +260,7 @@ namespace village{
                         story.spriteMoveToLocation(playmateSprite, edgeLoaction.x, edgeLoaction.y, 16)
 
                         pause(500)
-                        story.spriteSayText(playmateSprite, "啊!!!!!!!!!!!")
+                        story.spriteSayText(playmateSprite, i18n.i18nstr`啊` + "!!!!!!!!!!!")
 
                         playmateSprite.vy = 16
 

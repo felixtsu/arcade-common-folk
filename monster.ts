@@ -179,7 +179,7 @@ namespace monster {
                     monsterHpbar.value -= 34
                     if (monsterHpbar.value <=0) {
                         story.startCutscene(()=>{
-                            story.spriteSayText(monster, "魔王大人...")
+                            story.spriteSayText(monster, i18n.i18nstr`魔王大人...`)
                             monster.destroy()  
                             story.printText("+1 exp", monster.x, monster.y)
                             state.exp += 1
