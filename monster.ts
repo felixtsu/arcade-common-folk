@@ -6,6 +6,7 @@ namespace SpriteKind {
 
 namespace monster {
 
+    import i18nstr = i18n.i18nstr;
     const WIZARD_SPRITE_IMAGE = assets.image`wizard`
     const WIZARD_DOWN_SPRITE_IMAGE = assets.image`wizardDown`
 
@@ -59,7 +60,7 @@ namespace monster {
         createdMonster.onDestroyed(() => {
             triggerSprites.forEach((s) => s.destroy())
         })
-        
+
 
         if (!_init) {
 
@@ -73,7 +74,7 @@ namespace monster {
                         triggerSprite.destroy()
                     }
                 })
-                
+
                 if (WIZARD == monsterType) {
                     wizardEncounter(player, triggerTarget)
                 }
@@ -88,7 +89,7 @@ namespace monster {
     }
 
 
-    
+
 
 
     export function createWizard(location:tiles.Location, triggerLocations:tiles.Location[]) :Sprite {
@@ -110,7 +111,7 @@ namespace monster {
             return ;
         }
 
-        let wizardHpBar = statusbars.create(20, 4, StatusBarKind.EnemyHealth) 
+        let wizardHpBar = statusbars.create(20, 4, StatusBarKind.EnemyHealth)
         wizardHpBar.attachToSprite(wizard)
         wizardHpBar.max = 100
 
@@ -123,7 +124,7 @@ namespace monster {
             let attackSprite = room.currentRoom().createSprite(assets.image`wizardMeteoroid`, SpriteKind.EnemyProjectile)
             makeSpriteAboveOf(attackSprite, heroSprite)
             sprites.setDataSprite(attackSprite, FROM_MONSTER, wizard)
-            meteoroid.launchMeteoroidToPosition(attackSprite, player.x, player.y, 32, 2000, 16)       
+            meteoroid.launchMeteoroidToPosition(attackSprite, player.x, player.y, 32, 2000, 16)
 
             wizard.onDestroyed(()=>{
                 clearInterval(attackInterval)
@@ -147,7 +148,7 @@ namespace monster {
 
                 enemyProjectile.vx = 0
                 enemyProjectile.vy = 0
-                
+
                 info.startCountdown(1)
                 info.onCountdownEnd(() => {
                 })
@@ -180,7 +181,7 @@ namespace monster {
                     if (monsterHpbar.value <=0) {
                         story.startCutscene(()=>{
                             story.spriteSayText(monster, i18n.i18nstr`魔王大人...`)
-                            monster.destroy()  
+                            monster.destroy()
                             story.printText("+1 exp", monster.x, monster.y)
                             state.exp += 1
                             story.cancelAllCutscenes()
@@ -191,7 +192,7 @@ namespace monster {
 
             _wizardAttackInit = true
         }
-        
+
 
     }
 
@@ -203,8 +204,8 @@ namespace monster {
         story.startCutscene(() => {
             controller.moveSprite(player, 0, 0)
 
-            story.spriteSayText(wizard, "手无寸铁的小子")
-            story.spriteSayText(wizard, "去死吧")
+            story.spriteSayText(wizard, i18n.i18nstr`手无寸铁的小子`)
+            story.spriteSayText(wizard, i18n.i18nstr`去死吧`)
             story.spriteSayText(wizard, "suli.wada")
             story.spriteSayText(wizard, "vodowofu.walala")
             story.spriteSayText(wizard, "kan!!!")
@@ -224,35 +225,35 @@ namespace monster {
 
             if (!state.willingToBind) {
                 story.spriteMoveToLocation(attackSprite, player.x, player.y, 32)
-                
-                story.spriteSayText(player, "啊...")
-                story.printCharacterText("谁让你那时候说不愿意", "???")
-                story.printCharacterText("你有能力对抗魔王吗", "???")
-                story.printCharacterText("不自量力的家伙", "???")
-                story.printCharacterText("只能等待下一个天选之人了", "???")
+
+                story.spriteSayText(player, i18n.i18nstr`啊...`)
+                story.printCharacterText(i18n.i18nstr`谁让你那时候说不愿意`, "???")
+                story.printCharacterText(i18n.i18nstr`你有能力对抗魔王吗`, "???")
+                story.printCharacterText(i18n.i18nstr`不自量力的家伙`, "???")
+                story.printCharacterText(i18n.i18nstr`只能等待下一个天选之人了`, "???")
                 pause(2000)
                 game.reset()
             } else {
 
                 story.spriteMoveToLocation(attackSprite, player.x, player.y - 32, 32)
 
-                story.printCharacterText("邪恶法师召唤的火球从天而降")
+                story.printCharacterText(i18n.i18nstr`邪恶法师召唤的火球从天而降`)
                 story.spriteMoveToLocation(attackSprite, player.x, player.y - 24, 8)
-                story.printCharacterText(state.playerName + "无法动弹")
+                story.printCharacterText(state.playerName + i18n.i18nstr`无法动弹`)
 
                 story.spriteMoveToLocation(attackSprite, player.x, player.y - 16, 8)
 
-                story.printCharacterText("完了...", state.playerName)
+                story.printCharacterText(i18n.i18nstr`完了...`, state.playerName)
 
                 multilights.toggleLighting(true)
-                story.printCharacterText("就在" + state.playerName + "即将失去意识之际")
-                story.printCharacterText("包里的锈剑闪出光芒")
+                story.printCharacterText(i18n.i18nstr`就在` + state.playerName + "即将失去意识之际")
+                story.printCharacterText(i18n.i18nstr`包里的锈剑闪出光芒`)
 
                 effect.randomBeamFrom(player, 4, 1, 20, 5000)
                 pause(5000)
 
-                story.printCharacterText("时候到了...", "???")
-                story.printCharacterText("和我建立连接吧...", "???")
+                story.printCharacterText(i18n.i18nstr`时候到了...`, "???")
+                story.printCharacterText(i18n.i18nstr`和我建立连接吧...`, "???")
 
                 state.soulBound = true
 
@@ -260,11 +261,11 @@ namespace monster {
 
                 multilights.toggleLighting(false)
 
-                story.printCharacterText("到了生死关头", "???")
-                story.printCharacterText("按A就可以使用我的力量", "???")
-                story.printCharacterText("试一下吧", "???")
+                story.printCharacterText(i18n.i18nstr`到了生死关头`, "???")
+                story.printCharacterText(i18n.i18nstr`按A就可以使用我的力量`, "???")
+                story.printCharacterText(i18n.i18nstr`试一下吧`, "???")
 
-                info.onCountdownEnd(()=>{  
+                info.onCountdownEnd(()=>{
                 })
                 info.startCountdown(1)
 
@@ -286,17 +287,17 @@ namespace monster {
                 info.stopCountdown()
 
                 story.spriteMoveToLocation(attackSprite, wizard.x, wizard.y, 16)
-                
-                story.spriteSayText(wizard, "不可能...")
+
+                story.spriteSayText(wizard, i18n.i18nstr`不可能...`)
                 attackSprite.destroy()
-                story.spriteSayText(wizard, "要告诉...")
+                story.spriteSayText(wizard, i18n.i18nstr`要告诉...`)
                 wizard.setImage(WIZARD_DOWN_SPRITE_IMAGE)
-                story.spriteSayText(wizard, "魔王大人...")
+                story.spriteSayText(wizard, i18n.i18nstr`魔王大人...`)
 
 
-                story.printCharacterText("呼呼呼...", state.playerName)
-                story.printCharacterText("真够危险的...", state.playerName)
-                story.printCharacterText("刚才是?", state.playerName)
+                story.printCharacterText(i18n.i18nstr`呼呼呼...`, state.playerName)
+                story.printCharacterText(i18n.i18nstr`真够危险的...`, state.playerName)
+                story.printCharacterText(i18n.i18nstr`刚才是?`, state.playerName)
                 music.knock.playUntilDone()
                 player.setImage(assets.image`playerDown`)
 
@@ -329,14 +330,14 @@ namespace monster {
                     }
                     multilights.toggleLighting(false)
                     pause(500)
-                    
+
                 }
-                
+
                 story.printCharacterText(state.playerName+"，你怎么倒在这里了...","???")
                 multilights.toggleLighting(true)
                 story.printCharacterText("村长将" + state.playerName + "带回了家")
 
-                room.currentRoom().leaveRoom(house.ROOM_NAME)            
+                room.currentRoom().leaveRoom(house.ROOM_NAME)
             }
         })
     }

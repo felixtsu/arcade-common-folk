@@ -51,10 +51,31 @@ namespace i18n {
             case "啊" : return "Ah"
             case "现在还是先别下山吧" : return "Not now."
             case "魔王大人...": return "The lord..."
-
+            case "手无寸铁的小子": return "an empty-handed kid..."
+            case "去死吧": return "DIE"
+            case "啊...": return "Ahhhhhh"
+            case "谁让你那时候说不愿意" : return "Said you are not willing to bind, "
+            case "你有能力对抗魔王吗" : return "So face the evil by yourself. "
+            case "不自量力的家伙": return "..."
+            case "只能等待下一个天选之人了": return "Have to wait for the next one."
+            case "邪恶法师召唤的火球从天而降": return "Evil wizard summons a fireball"
+            case "无法动弹": return " can not move"
+            case "完了...": return "I'm done."
+            case "就在": return "Just about "
+            case "即将失去意识之际": return " to pass out."
+            case "包里的锈剑闪出光芒": return "Dazzling light bursts out from the rusty sword."
+            case "时候到了..." : return "Time has come."
+            case "和我建立连接吧..." : return "Bind your soul with me."
+            case "到了生死关头": return "At critical moment,"
+            case "按A就可以使用我的力量": return "Press A to use my power."
+            case "试一下吧":return "give it a try"
+            case "不可能...":return "no way..."
+            case "要告诉...": return "must inform..."
+            case "呼呼呼...": return "phew..."
+            case "真够危险的...": return "so close..."
+            case "刚才是?": return "that was?"
         }
         return name;
     })
 
     }
-    
