@@ -333,9 +333,9 @@ namespace monster {
 
                 }
 
-                story.printCharacterText(state.playerName+"，你怎么倒在这里了...","???")
+                story.printCharacterText(state.playerName + i18n.i18nstr`，你怎么倒在这里了...`,"???")
                 multilights.toggleLighting(true)
-                story.printCharacterText("村长将" + state.playerName + "带回了家")
+                story.printCharacterText(i18n.i18nstr`村长将` + state.playerName + i18n.i18nstr`带回了家`)
 
                 room.currentRoom().leaveRoom(house.ROOM_NAME)
             }

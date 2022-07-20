@@ -74,6 +74,9 @@ namespace i18n {
             case "呼呼呼...": return "phew..."
             case "真够危险的...": return "so close..."
             case "刚才是?": return "that was?"
+            case "，你怎么倒在这里了...":return ", what happened?"
+            case "村长将" : return "The chief carries "
+            case "带回了家" : return " home."
         }
         return name;
     })
