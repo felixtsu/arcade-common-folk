@@ -35,12 +35,12 @@ namespace house {
                             story.printCharacterText(i18n.i18nstr`取得锈剑`)
                             state.rustySwordGet = true
                         } else if (!state.playmateCapturedByBat){
-                            story.printCharacterText("都是些不值钱的东西")
-                            story.printCharacterText("几件衣服")
-                            story.printCharacterText("锈迹斑斑的老剑")
-                            story.printCharacterText("好久没有练习了", state.playerName)
+                            story.printCharacterText(i18n.i18nstr`都是些不值钱的东西`)
+                            story.printCharacterText(i18n.i18nstr`几件衣服`)
+                            story.printCharacterText(i18n.i18nstr`锈迹斑斑的老剑`)
+                            story.printCharacterText(i18n.i18nstr`好久没有练习了`, state.playerName)
                         } else {
-                            story.printCharacterText("剩下的真的没用了")
+                            story.printCharacterText(i18n.i18nstr`剩下的真的没用了`)
                         }
                         otherSprite.setImage(assets.image`衣柜`)
                         controller.moveSprite(this.heroSprite)
@@ -163,8 +163,8 @@ namespace house {
                 `)
                 story.startCutscene(()=>{
                     story.spriteSayText(oldmanSprite, state.playerName + "...")
-                    story.spriteSayText(oldmanSprite, "你还记得你的玩伴叫什么名字吗？")
-                    story.showPlayerChoices("小红", "佩奇", "静宜", "小兰")
+                    story.spriteSayText(oldmanSprite, i18n.i18nstr`你还记得你的玩伴叫什么名字吗？`)
+                    story.showPlayerChoices(i18n.i18nstr`小红`, i18n.i18nstr`佩奇`, i18n.i18nstr`静宜`, i18n.i18nstr`小兰`)
                     state.playmateName = story.getLastAnswer()
                     story.spriteSayText(oldmanSprite, "对！就是" + story.getLastAnswer() + "...")
                     story.spriteSayText(oldmanSprite, "她被怪物抓走了...")

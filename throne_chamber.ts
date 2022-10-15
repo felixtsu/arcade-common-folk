@@ -23,7 +23,7 @@ namespace throne_chamber {
             sealSprite.x = this.playmateSprite.x
             sealSprite.y = this.bossSprite.y - 32 
 
-            story.showPlayerChoices("橙色", "青色", "粉色")
+            story.showPlayerChoices(i18n.i18nstr`橙色`, i18n.i18nstr`青色`, i18n.i18nstr`粉色`)
             let selectedColor = this.handleColor(story.getLastAnswer())
 
             sealSprite.image.replace(0, selectedColor)
@@ -34,11 +34,11 @@ namespace throne_chamber {
         }
 
         private handleColor(color:String) :number {
-            if(color == "橙色") {
+            if (color == i18n.i18nstr`橙色`) {
                 return 4
-            } else if (color == "粉色") {
+            } else if (color == i18n.i18nstr`粉色`) {
                 return 3
-            } else if (color == "青色") {
+        } else if(color == i18n.i18nstr`青色`) {
                 return 6
             } else {
                 return 0
@@ -65,43 +65,43 @@ namespace throne_chamber {
                     sprites.destroyAllSpritesOfKind(SpriteKind.Fireball)
                     bossFightBegin = false
 
-                    story.spriteSayText(this.heroSprite, "啊啊啊啊啊啊啊啊啊")
-                    story.printCharacterText("完了...", "封印之剑")
+                    story.spriteSayText(this.heroSprite, i18n.i18nstr`啊啊啊啊啊啊啊啊啊`)
+                    story.printCharacterText(i18n.i18nstr`完了...`, i18n.i18nstr`封印之剑`)
                     this.heroSprite.setFlag(SpriteFlag.Invisible, true)
                     this.heroSprite.setFlag(SpriteFlag.Ghost, true)
-                    story.printCharacterText(state.playerName + "掉了下去")
-                    story.printCharacterText("一同掉落的")
-                    story.printCharacterText("还有世界的希望")
-                    story.printCharacterText("封印之剑")
+                    story.printCharacterText(state.playerName + i18n.i18nstr`掉了下去`)
+                    story.printCharacterText(i18n.i18nstr`一同掉落的`)
+                    story.printCharacterText(i18n.i18nstr`还有世界的希望`)
+                    story.printCharacterText(i18n.i18nstr`封印之剑`)
 
                     scene.cameraFollowSprite(this.bossSprite)
 
-                    story.spriteSayText(this.bossSprite, "哈哈")
-                    story.spriteSayText(this.bossSprite, "哈哈哈哈")
-                    story.spriteSayText(this.bossSprite, "哈哈哈哈哈哈")
+                    story.spriteSayText(this.bossSprite, i18n.i18nstr`哈哈`)
+                    story.spriteSayText(this.bossSprite, i18n.i18nstr`哈哈哈哈`)
+                    story.spriteSayText(this.bossSprite, i18n.i18nstr`哈哈哈哈哈哈`)
 
-                    story.printCharacterText("不!!!!!!", "???")
+                    story.printCharacterText(i18n.i18nstr`不!!!!!!`, "???")
                     story.printCharacterText(state.playerName + "!!!!", "???")
 
-                    story.spriteSayText(this.bossSprite, "是谁？！")
+                    story.spriteSayText(this.bossSprite, i18n.i18nstr`是谁？！`)
                     scene.cameraShake(4, 500)
 
                     this.playmateSprite = this.createSprite(assets.image`playmate_front`, SpriteKind.PlayMate)
                     this.playmateSprite.x = this.bossSprite.x 
                     this.playmateSprite.y = this.bossSprite.y + 48
 
-                    story.spriteSayText(this.playmateSprite,  "把" + state.playerName + "还回来!!")
+                    story.spriteSayText(this.playmateSprite, i18n.i18nstr`把` + state.playerName + i18n.i18nstr`还回来!!`)
 
-                    story.spriteSayText(this.bossSprite, "哈哈哈，就凭你")
-                    story.spriteSayText(this.bossSprite, "你能做得了什么？")
+                    story.spriteSayText(this.bossSprite, i18n.i18nstr`哈哈哈，就凭你`)
+                    story.spriteSayText(this.bossSprite, i18n.i18nstr`你能做得了什么？`)
 
-                    story.spriteSayText(this.playmateSprite, "你忘了")
-                    story.spriteSayText(this.playmateSprite, "我见过你的封印符文")
-                    story.spriteSayText(this.playmateSprite, "只要把褪色的符文")
-                    story.spriteSayText(this.playmateSprite, "重新上色")
+                    story.spriteSayText(this.playmateSprite, i18n.i18nstr`你忘了`)
+                    story.spriteSayText(this.playmateSprite, i18n.i18nstr`我见过你的封印符文`)
+                    story.spriteSayText(this.playmateSprite, i18n.i18nstr`只要把褪色的符文`)
+                    story.spriteSayText(this.playmateSprite, i18n.i18nstr`重新上色`)
 
 
-                    story.spriteSayText(this.bossSprite, "不!!!!!!!!!!!")
+                    story.spriteSayText(this.bossSprite, i18n.i18nstr`不!!!!!!`)
                     scene.cameraShake(4, 500)
 
                     let threeSeal = this.colorSeal(assets.image`threeSeal_fade`, -48)
@@ -110,7 +110,7 @@ namespace throne_chamber {
 
                     if (threeSeal.color == 3 && sixSeal.color == 6 && eightSeal.color == 4) {
                         story.spriteMoveToLocation(threeSeal.sprite, this.bossSprite.x, this.bossSprite.y, 50)
-                        story.spriteSayText(this.bossSprite, "不!!!!!!")
+                        story.spriteSayText(this.bossSprite, i18n.i18nstr`不!!!!!!`)
                         scene.cameraShake(4, 500)
                         story.spriteMoveToLocation(sixSeal.sprite, this.bossSprite.x, this.bossSprite.y, 80)
                         scene.cameraShake(4, 500)
@@ -128,9 +128,9 @@ namespace throne_chamber {
 
                         villageRoom.enterRoom(this.playmateSprite, throne_chamber.ROOM_NAME)
                     } else {
-                        story.spriteSayText(this.bossSprite, "你错了")
-                        story.spriteSayText(this.bossSprite, "这不是封印的颜色")
-                        story.spriteSayText(this.bossSprite, "给我消失吧")
+                        story.spriteSayText(this.bossSprite, i18n.i18nstr`你错了`)
+                        story.spriteSayText(this.bossSprite, i18n.i18nstr`这不是封印的颜色`)
+                        story.spriteSayText(this.bossSprite, i18n.i18nstr`给我消失吧`)
 
                         threeSeal.sprite.destroy(effects.rings, 1000)
                         pause(1000)
@@ -139,13 +139,13 @@ namespace throne_chamber {
                         eightSeal.sprite.destroy(effects.rings, 1000)
                         pause(1000)
 
-                        story.printCharacterText("这就是一个")
-                        story.printCharacterText("普普通通的勇者故事")
-                        story.printCharacterText("的结局")
+                        story.printCharacterText(i18n.i18nstr`这就是一个`)
+                        story.printCharacterText(i18n.i18nstr`普普通通的勇者故事`)
+                        story.printCharacterText(i18n.i18nstr`的结局`)
                         
-                        story.printCharacterText("很遗憾")
-                        story.printCharacterText("普普通通的勇者")
-                        story.printCharacterText("未能拯救世界")
+                        story.printCharacterText(i18n.i18nstr`很遗憾`)
+                        story.printCharacterText(i18n.i18nstr`普普通通的勇者`)
+                        story.printCharacterText(i18n.i18nstr`未能拯救世界`)
 
                         game.over(false)
                     }
@@ -182,9 +182,9 @@ namespace throne_chamber {
 
                 story.startCutscene(()=>{
 
-                    story.printCharacterText(state.playerName + "醒醒", "封印之剑")
-                    story.printCharacterText("她已经不是你认识的" + state.playmateName, "封印之剑")
-                    story.printCharacterText("一起打倒她吧", "封印之剑")
+                    story.printCharacterText(state.playerName + i18n.i18nstr`醒醒`, i18n.i18nstr`封印之剑`)
+                    story.printCharacterText(i18n.i18nstr`她已经不是你认识的` + state.playmateName, i18n.i18nstr`封印之剑`)
+                    story.printCharacterText(i18n.i18nstr`一起打倒她吧`, i18n.i18nstr`封印之剑`)
 
                     let isApressed = false
 
@@ -196,8 +196,8 @@ namespace throne_chamber {
                             info.changeLifeBy(-1)
                             scene.cameraShake(4, 500)
                             story.startCutscene(()=>{
-                                story.printCharacterText("这样下去，", "封印之剑")
-                                story.printCharacterText("没有人能阻止魔王了", "封印之剑")
+                                story.printCharacterText(i18n.i18nstr`这样下去，`, i18n.i18nstr`封印之剑`)
+                                story.printCharacterText(i18n.i18nstr`没有人能阻止魔王了`, i18n.i18nstr`封印之剑`)
 
                                 let fireballSprite = this.createSprite(assets.image`bossFireball`, SpriteKind.FirstFireball)
                                 fireballSprite.x = this.heroSprite.x + 32
@@ -221,9 +221,9 @@ namespace throne_chamber {
                             this.bossSprite.setImage(assets.image`playmate_front_doomed`)
                             this.bossSprite.x -= 5
                             this.bossSprite.y -= 4
-                            story.spriteSayText(this.bossSprite, "可恶!")
-                            story.spriteSayText(this.bossSprite, "居然能对青梅竹马")
-                            story.spriteSayText(this.bossSprite, "挥刀相向")
+                            story.spriteSayText(this.bossSprite, i18n.i18nstr`可恶!`)
+                            story.spriteSayText(this.bossSprite, i18n.i18nstr`居然能对青梅竹马`)
+                            story.spriteSayText(this.bossSprite, i18n.i18nstr`挥刀相向`)
 
                             bossFightBegin = true
                             controller.moveSprite(this.heroSprite)
@@ -244,11 +244,11 @@ namespace throne_chamber {
                 scene.cameraFollowSprite(this.heroSprite)
 
                 story.printText(state.playerName, 120, 120)
-                story.printText("你来了", 120, 120)
-                story.printText("你为什么不早点来!!!", 120, 120)
+                story.printText(i18n.i18nstr`你来了`, 120, 120)
+                story.printText(i18n.i18nstr`你为什么不早点来!!!`, 120, 120)
                 scene.cameraShake(6, 500)
                 story.printText(state.playerName, 120, 120)
-                story.printText("你还认得我吗？", 120, 120)
+                story.printText(i18n.i18nstr`你还认得我吗？`, 120, 120)
 
                 story.spriteMoveToLocation(this.heroSprite, 120, 168, 50)
 
@@ -256,41 +256,41 @@ namespace throne_chamber {
 
                 pause(500)
 
-                story.spriteSayText(this.bossSprite, "停!")
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`停!`)
                 scene.cameraShake(8, 500)
-                story.spriteSayText(this.bossSprite, "不要再过来了")
-                story.spriteSayText(this.bossSprite, "我不想你看到我这个样子")
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`不要再过来了`)
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`我不想你看到我这个样子`)
 
-                story.printCharacterText("看来我们还是来晚了", "???")
-                story.printCharacterText("封印已经解除了", "???")
+                story.printCharacterText(i18n.i18nstr`看来我们还是来晚了`, "???")
+                story.printCharacterText(i18n.i18nstr`封印已经解除了`, "???")
 
                 this.bossSprite.setImage(assets.image`playmate_front_doomed`)
 
-                story.spriteSayText(this.bossSprite, "你拿着的是什么？")
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`你拿着的是什么？`)
                 story.spriteSayText(this.bossSprite, "!!!!!!!!")
                 scene.cameraShake(8, 500)
 
-                story.spriteSayText(this.bossSprite, "是封印之剑？")
-                story.spriteSayText(this.bossSprite, "没有勇者的血脉")
-                story.spriteSayText(this.bossSprite, "怎么能用封印之剑？！")
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`是封印之剑？`)
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`没有勇者的血脉`)
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`怎么能用封印之剑？！`)
 
-                story.printCharacterText("他就是" + state.papaName() + "的儿子", "封印之剑")
-                story.printCharacterText("当然能用挥舞我", "封印之剑")
-                story.printCharacterText("还能像以前一样", "封印之剑")
-                story.printCharacterText("封印你", "封印之剑")
+                story.printCharacterText(i18n.i18nstr`他就是` + state.papaName() + i18n.i18nstr`的儿子`, i18n.i18nstr`封印之剑`)
+                story.printCharacterText(i18n.i18nstr`当然能用挥舞我`, i18n.i18nstr`封印之剑`)
+                story.printCharacterText(i18n.i18nstr`还能像以前一样`, i18n.i18nstr`封印之剑`)
+                story.printCharacterText(i18n.i18nstr`封印你`, i18n.i18nstr`封印之剑`)
 
-                story.spriteSayText(this.bossSprite, "哈")
-                story.spriteSayText(this.bossSprite, "哈哈")
-                story.spriteSayText(this.bossSprite, "哈哈哈哈")
-                story.spriteSayText(this.bossSprite, "他办得到吗？！")
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`哈哈`)
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`哈哈哈哈`)
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`哈哈哈哈哈哈`)
+                story.spriteSayText(this.bossSprite, i18n.i18nstr`他办得到吗？！`)
 
                 this.bossSprite.setImage(assets.image`playmate_front`)
                 this.bossSprite.x += 5
                 this.bossSprite.y += 4
                 
-                story.spriteSayText(this.bossSprite, state.playerName + ",是我")
-                story.spriteSayText(this.bossSprite, state.playerName + ",放下手里的剑")
-                story.spriteSayText(this.bossSprite, state.playerName + ",我是你的青梅竹马")
+                story.spriteSayText(this.bossSprite, state.playerName + i18n.i18nstr`,是我`)
+                story.spriteSayText(this.bossSprite, state.playerName + i18n.i18nstr`,放下手里的剑`)
+                story.spriteSayText(this.bossSprite, state.playerName + i18n.i18nstr`,我是你的青梅竹马`)
 
                 let fireballSprite = this.createSprite(assets.image`bossFireball`, SpriteKind.FirstFireball)
                 fireballSprite.x = this.heroSprite.x + 32

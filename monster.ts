@@ -277,10 +277,10 @@ namespace monster {
                     }, 1000)
                     if(!ret) {
                         music.bigCrash.playUntilDone()
-                        story.printCharacterText("这届勇者好难带", "???")
-                        story.printCharacterText("不是说了按A吗？", "???")
-                        story.printCharacterText("按啊!!!", "???")
-                        story.printCharacterText("按了你就无敌了", "???")
+                        story.printCharacterText(i18n.i18nstr`这届勇者好难带`, "???")
+                        story.printCharacterText(i18n.i18nstr`不是说了按A吗？`, "???")
+                        story.printCharacterText(i18n.i18nstr`按啊!!!`, "???")
+                        story.printCharacterText(i18n.i18nstr`按了你就无敌了`, "???")
                         info.startCountdown(1)
                     }
                 }

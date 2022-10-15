@@ -57,10 +57,10 @@ namespace cave {
                 multilights.addLightSource(lightFromCeilingSprite, 24)
 
 
-                story.printCharacterText("这里...", state.playerName)
-                story.printCharacterText("我来过...", state.playerName)
-                story.printText("你当然来过", 80, 80)
-                story.printText("过来吧", 80, 80)
+                story.printCharacterText(i18n.i18nstr`这里...`, state.playerName)
+                story.printCharacterText(i18n.i18nstr`我来过...`, state.playerName)
+                story.printText(i18n.i18nstr`你当然来过`, 80, 80)
+                story.printText(i18n.i18nstr`过来吧`, 80, 80)
 
                 controller.moveSprite(this.heroSprite)
 
@@ -89,9 +89,9 @@ namespace cave {
                     otherSprite.destroy()
                     story.startCutscene(() => {
                         controller.moveSprite(this.heroSprite, 0, 0)
-                        story.printCharacterText("这是，那个梦...", state.playerName)
-                        story.printCharacterText("这是我们封印魔王的地方", "???")
-                        story.printCharacterText("把我带到封印上去吧", "???")
+                        story.printCharacterText(i18n.i18nstr`这是，那个梦...`, state.playerName)
+                        story.printCharacterText(i18n.i18nstr`这是我们封印魔王的地方`, "???")
+                        story.printCharacterText(i18n.i18nstr`把我带到封印上去吧`, "???")
                         controller.moveSprite(this.heroSprite)
                     })
                 })
@@ -102,7 +102,7 @@ namespace cave {
 
 
                         info.setLife(3)
-                        story.printCharacterText(state.playerName + "恢复了全部力量")
+                        story.printCharacterText(state.playerName + i18n.i18nstr`恢复了全部力量`)
                         
                         
                         this.swordInStone.setImage(img`

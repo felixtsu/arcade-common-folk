@@ -6,7 +6,7 @@ namespace cave_entrance {
 
     export const ROOM_NAME = "CAVE_ENTRANCE"
 
-    const WORSHIPPER_DIALOGS = ["新王要来了", "大人苏醒了", "魔族的大日子", "来吧，黑暗"]
+    const WORSHIPPER_DIALOGS = [i18n.i18nstr`新王要来了`, i18n.i18nstr`大人苏醒了`, i18n.i18nstr`魔族的大日子`, i18n.i18nstr`来吧，黑暗`]
 
     export class CaveEntranceRoom extends room.AbstractRoom {
         protected roomTilemap(): tiles.TileMapData {
@@ -17,10 +17,10 @@ namespace cave_entrance {
             let result = -1
             story.startCutscene(()=> {
                 controller.moveSprite(this.heroSprite, 0, 0)
-                story.printCharacterText("接下来就是最终决战了")
-                story.printCharacterText("一旦开始不能回头")
-                story.showPlayerChoices("准备好了", "还是再看看")
-                if (story.checkLastAnswer("还是再看看")) {
+                story.printCharacterText(i18n.i18nstr`接下来就是最终决战了`)
+                story.printCharacterText(i18n.i18nstr`一旦开始不能回头`)
+                story.showPlayerChoices(i18n.i18nstr`准备好了`, i18n.i18nstr`还是再看看`)
+                if (story.checkLastAnswer(i18n.i18nstr`还是再看看`)) {
                     story.spriteMoveToLocation(this.heroSprite, 48, 128, 50)
                     result = 0
                 } else {
