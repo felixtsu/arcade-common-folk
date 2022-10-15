@@ -200,6 +200,27 @@ namespace i18n {
             case "是一个勇者的剑" : return "It's the ONE's sword."
             case "村长": return "Chief"
 
+            case "旁白": return "Narrator"
+            case "与此同时...": return "In the meanwhile..."
+            case "被带走的": return "The taken "
+
+
+            case "啊！！！！！！": return "Ouch!"
+            case "这是哪里？": return "What is this place?"
+
+            case "点燃柴火？": return "light the firwood?"
+
+            case "墙上有一个拉杆": return "There's a lever on wall."
+            case "拉": return "Pull"
+            case "还是算了" : return "Do nothing"
+
+            case "打开宝箱": return "Open the chest"
+            case "但是宝箱竟然自己打开了": return "But the chest opens suddenly, it's a trap!"
+            case "一股邪恶的诅咒落到了": return "An evil curse is put on "
+            case "的头上": return ""
+            case "晕了过去": return " passed out."
+
+            case "B使用火把": return "Pressed B to use torch."
         }
 
         return name;

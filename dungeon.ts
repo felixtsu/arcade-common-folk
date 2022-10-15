@@ -105,8 +105,8 @@ namespace dungeon {
         didEnterRoom(entrance?: string): void {
             story.startCutscene(()=> {
                 pause(500)
-                story.printCharacterText("与此同时...", '旁白')
-                story.printCharacterText("被带走的" + state.playmateName, '旁白')
+                story.printCharacterText(i18n.i18nstr`与此同时...`, i18n.i18nstr`旁白`)
+                story.printCharacterText(i18n.i18nstr`被带走的` + state.playmateName, i18n.i18nstr`旁白`)
                 let batSprite = this.createSprite(img`
                             . . f f f . . . . . . . . f f f
                             . f f c c . . . . . . f c b b c
@@ -157,12 +157,12 @@ namespace dungeon {
                 scene.cameraShake(4, 500)
                 music.knock.playUntilDone()
                 
-                this.heroSprite.sayText("啊！！！！！！", 2000, true)
+                this.heroSprite.sayText(i18n.i18nstr`啊！！！！！！`, 2000, true)
 
                 story.spriteMoveToLocation(batSprite, 172, 24, 50)
                 batSprite.destroy()
 
-                story.printCharacterText("这是哪里？", state.playmateName)
+                story.printCharacterText(i18n.i18nstr`这是哪里？`, state.playmateName)
                 controller.moveSprite(this.heroSprite)
             })
 
@@ -185,7 +185,7 @@ namespace dungeon {
             sprites.onOverlap(SpriteKind.Player, SpriteKind.Firewood, function (sprite, otherSprite) {
                 otherSprite.sayText("A", 500, false)
                 if (controller.A.isPressed()) {
-                    if (lightFirewoodShown || game.ask("点燃柴火？")) {
+                    if (lightFirewoodShown || game.ask(i18n.i18nstr`点燃柴火？`)) {
                         lightFirewoodShown = true
                         otherSprite.destroy(effects.fire, 2000)
                         multilights.addLightSource(otherSprite, 6)
@@ -207,9 +207,9 @@ namespace dungeon {
                 if (this.heroSprite.tileKindAt(TileDirection.Top, sprites.dungeon.greenSwitchUp) || this.heroSprite.tileKindAt(TileDirection.Top, sprites.dungeon.greenSwitchDown)) {
                     story.startCutscene(() => {
                         controller.moveSprite(this.heroSprite, 0, 0)
-                        story.printCharacterText("墙上有一个拉杆")
-                        story.showPlayerChoices("拉", "还是算了")
-                        if (story.checkLastAnswer("拉")) {
+                        story.printCharacterText(i18n.i18nstr`墙上有一个拉杆`)
+                        story.showPlayerChoices(i18n.i18nstr`拉`, i18n.i18nstr`还是算了`)
+                        if (story.checkLastAnswer(i18n.i18nstr`拉`)) {
                             music.thump.play()
                             toggleLever()
                         } 
@@ -221,17 +221,17 @@ namespace dungeon {
                 if (this.heroSprite.tileKindAt(TileDirection.Center, sprites.dungeon.chestClosed)) {
                     story.startCutscene(() => {
                         controller.moveSprite(this.heroSprite, 0, 0)
-                        story.showPlayerChoices("打开宝箱", "还是算了")
-                        if (story.checkLastAnswer("打开宝箱")) {
+                        story.showPlayerChoices(i18n.i18nstr`打开宝箱`, i18n.i18nstr`还是算了`)
+                        if (story.checkLastAnswer(i18n.i18nstr`打开宝箱`)) {
                             music.wawawawaa.play()    
                         } else {
                             music.spooky.play()
-                            story.printCharacterText("但是宝箱竟然自己打开了")
+                            story.printCharacterText(i18n.i18nstr`但是宝箱竟然自己打开了`)
                         }
                         tiles.setTileAt(tiles.getTileLocation(7, 1), sprites.dungeon.chestOpen)
-                        story.printCharacterText("一股邪恶的诅咒落到了" + state.playmateName + "的头上")
+                        story.printCharacterText(i18n.i18nstr`一股邪恶的诅咒落到了` + state.playmateName + i18n.i18nstr`的头上`)
                         music.knock.play()
-                        story.printCharacterText(state.playmateName + "晕了过去")
+                        story.printCharacterText(state.playmateName + i18n.i18nstr`晕了过去`)
                         multilights.toggleLighting(true)
 
                         story.cancelAllCutscenes()
@@ -392,7 +392,7 @@ namespace dungeon {
             game.onUpdateInterval(2000, function () {
                 if (currentRoomNumber != 1 && !(torchOn)) {
                     if (!(torchIndicatorShown)) {
-                        game.splash("B使用火把")
+                        game.splash(i18n.i18nstr`B使用火把`)
                     }
                 }
             })
