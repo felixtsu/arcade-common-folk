@@ -184,7 +184,7 @@ namespace i18n {
             case "小红": return "Pinky"
             case "佩奇": return "Peppa"
             case "静宜": return "Shizuka"
-            case "小兰": return "Mori"
+            case "小兰": return "Ran"
             case "对！就是": return "Yes, it's "
             case "她被怪物抓走了...": return "She's been taken away by that monster..."
             case "一直都没有回来...": return "and not return..."
