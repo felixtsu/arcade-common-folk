@@ -1,5 +1,6 @@
 {
     "name": "普普通通的勇者故事",
+    "version": "0.0.1",
     "description": "",
     "dependencies": {
         "device": "*",
