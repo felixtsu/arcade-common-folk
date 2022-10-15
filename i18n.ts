@@ -190,6 +190,16 @@ namespace i18n {
             case "一直都没有回来...": return "and not return..."
             case "你去救救她吧...": return "please go and find her..."
 
+            case "你还带着那把剑啊": return "Still carrying that sword..."
+            case "那时你才两岁": return "You are just a baby then."
+            case "什么事？": return "What happened?"
+            case "这是谁的剑": return "Whose sword is this?"
+            case "当作没听见": return "Take no notice"
+            case "现在先把": return "Bring "
+            case "找回来吧": return " back first"
+            case "是一个勇者的剑" : return "It's the ONE's sword."
+            case "村长": return "Chief"
+
         }
 
         return name;

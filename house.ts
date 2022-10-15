@@ -166,10 +166,10 @@ namespace house {
                     story.spriteSayText(oldmanSprite, i18n.i18nstr`你还记得你的玩伴叫什么名字吗？`)
                     story.showPlayerChoices(i18n.i18nstr`小红`, i18n.i18nstr`佩奇`, i18n.i18nstr`静宜`, i18n.i18nstr`小兰`)
                     state.playmateName = story.getLastAnswer()
-                    story.spriteSayText(oldmanSprite, "对！就是" + story.getLastAnswer() + "...")
-                    story.spriteSayText(oldmanSprite, "她被怪物抓走了...")
-                    story.spriteSayText(oldmanSprite, "一直都没有回来...")
-                    story.spriteSayText(oldmanSprite, "你去救救她吧...")
+                    story.spriteSayText(oldmanSprite, i18n.i18nstr`对！就是` + story.getLastAnswer() + "...")
+                    story.spriteSayText(oldmanSprite, i18n.i18nstr`她被怪物抓走了...`)
+                    story.spriteSayText(oldmanSprite, i18n.i18nstr`一直都没有回来...`)
+                    story.spriteSayText(oldmanSprite, i18n.i18nstr`你去救救她吧...`)
 
                     state.doomed = true
                     
@@ -180,14 +180,14 @@ namespace house {
                     otherSprite.sayText("A", 500)
                     if (controller.A.isPressed()) {
                         story.startCutscene(() => {
-                            story.printCharacterText("你还带着那把剑啊", "村长")
-                            story.printCharacterText("那时你才两岁", "村长")
-                            story.showPlayerChoices("什么事？", "这是谁的剑", "当作没听见")
+                            story.printCharacterText(i18n.i18nstr`你还带着那把剑啊`, "村长")
+                            story.printCharacterText(i18n.i18nstr`那时你才两岁`, "村长")
+                            story.showPlayerChoices(i18n.i18nstr`什么事？`, i18n.i18nstr`这是谁的剑`, i18n.i18nstr`当作没听见`)
                             let answer = story.getLastAnswer() 
-                            if (answer == "什么事？") {
-                                story.printCharacterText("现在先把" + state.playmateName + "找回来吧", "村长")
-                            } else if (answer == "这是谁的剑") {
-                                story.printCharacterText("是一个勇者的剑", "村长")
+                            if (answer == i18n.i18nstr`什么事？`) {
+                                story.printCharacterText(i18n.i18nstr`现在先把` + state.playmateName + i18n.i18nstr`找回来吧`, "村长")
+                    } else if (answer == i18n.i18nstr`这是谁的剑`) {
+                                story.printCharacterText(i18n.i18nstr`是一个勇者的剑`, "村长")
                             } 
                             story.cancelAllCutscenes()
                         })
