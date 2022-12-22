@@ -105,7 +105,7 @@ namespace i18n {
             case "封印之剑": return "Sword of seal"
             case "掉了下去": return " fell down"
             case "一同掉落的": return " also fell "
-            case "还有世界的希望": return " the wolrd's hope "
+            case "还有世界的希望": return " the world's hope "
             case "哈哈" : return "Haha"
             case "哈哈哈哈": return "Hahahaha"
             case "哈哈哈哈哈哈": return "Hahahahahahahah"
@@ -129,7 +129,7 @@ namespace i18n {
             case "给我消失吧": return "Vanish..."
             case "这就是一个": return "This is the end "
             case "普普通通的勇者故事": return "of a tale "
-            case "的结局": return "of a common folk."
+            case "的结局": return "of a common folk "
             case "很遗憾": return "that the common folk "
             case "普普通通的勇者": return "failed "
             case "未能拯救世界": return "saving the world."
@@ -163,10 +163,11 @@ namespace i18n {
             case "怎么能用封印之剑？！": return "without bloodline of the ONE."
 
             case "他就是": return "He's the son of "
-            case "的儿子": return ""
+            case "的儿子": return " "
             case "当然能用挥舞我": return "Of course he CAN wield me"
             case "还能像以前一样": return "and also "
             case "封印你": return "SEAL you "
+            case "他办得到吗？！": return "Can he?"
 
             case ",是我": return ", it's me"
             case ",放下手里的剑": return ", put down your sword"
@@ -221,6 +222,14 @@ namespace i18n {
             case "晕了过去": return " passed out."
 
             case "B使用火把": return "Pressed B to use torch."
+
+
+
+            case "雪又融了..." : return "Snow 's melted again."
+
+            case "这就是一个": return "This is a tale of "
+            case "普普通通的勇者故事": return "a common folk "
+            case "感谢": return "that no one knows"
         }
 
         return name;

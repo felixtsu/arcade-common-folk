@@ -147,7 +147,9 @@ namespace throne_chamber {
                         story.printCharacterText(i18n.i18nstr`普普通通的勇者`)
                         story.printCharacterText(i18n.i18nstr`未能拯救世界`)
 
-                        game.over(false)
+                        story.printCharacterText("Try again.")
+
+                        game.reset()
                     }
                     
 
@@ -221,7 +223,7 @@ namespace throne_chamber {
                             this.bossSprite.setImage(assets.image`playmate_front_doomed`)
                             this.bossSprite.x -= 5
                             this.bossSprite.y -= 4
-                            story.spriteSayText(this.bossSprite, i18n.i18nstr`可恶!`)
+                            story.spriteSayText(this.bossSprite, i18n.i18nstr`可恶！`)
                             story.spriteSayText(this.bossSprite, i18n.i18nstr`居然能对青梅竹马`)
                             story.spriteSayText(this.bossSprite, i18n.i18nstr`挥刀相向`)
 

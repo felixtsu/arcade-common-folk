@@ -20,8 +20,16 @@ namespace state {
             return "工藤优作"
         } else if (playerName == "马克") {
             return "上一任勇者"
+        } else if (playerName == "George") {
+            return "Daddy Pig"
+        } else if (playerName == "Nobita") {
+            return "Nobisuke Nobi"
+        } else if (playerName == "Conan") {
+            return "Yusaku Kudo"
+        } else if (playerName == "Mark") {
+            return "the last Mark"
         }
-        return ""
+        return " the last One."
     }
 
 }

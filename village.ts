@@ -146,14 +146,15 @@ namespace village{
                 story.spriteSayText(this.heroSprite, "..")
                 story.spriteSayText(this.heroSprite, "...")
 
-                story.spriteSayText(this.heroSprite, "雪又融了...")
+                story.spriteSayText(this.heroSprite, i18n.i18nstr`雪又融了...`)
 
-                story.printCharacterText("这就是一个")
-                story.printCharacterText("普普通通的勇者故事")
+                story.printCharacterText(i18n.i18nstr`这就是一个`)
+                story.printCharacterText(i18n.i18nstr`普普通通的勇者故事`)
 
-                story.printCharacterText("感谢")
+                story.printCharacterText(i18n.i18nstr`感谢`)
 
-                game.over(true)
+                story.printCharacterText("Thanks for playing.")
+                
             }
 
             if (!state.playmateCapturedByBat) {
