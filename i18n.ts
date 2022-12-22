@@ -217,7 +217,7 @@ namespace i18n {
             case "打开宝箱": return "Open the chest"
             case "但是宝箱竟然自己打开了": return "But the chest opens suddenly, it's a trap!"
             case "一股邪恶的诅咒落到了": return "An evil curse is put on "
-            case "的头上": return ""
+            case "的头上": return " "
             case "晕了过去": return " passed out."
 
             case "B使用火把": return "Pressed B to use torch."

@@ -6,8 +6,6 @@ namespace cave_entrance {
 
     export const ROOM_NAME = "CAVE_ENTRANCE"
 
-    const WORSHIPPER_DIALOGS = [i18n.i18nstr`新王要来了`, i18n.i18nstr`大人苏醒了`, i18n.i18nstr`魔族的大日子`, i18n.i18nstr`来吧，黑暗`]
-
     export class CaveEntranceRoom extends room.AbstractRoom {
         protected roomTilemap(): tiles.TileMapData {
             return tilemap`caveEntrance`
@@ -45,6 +43,8 @@ namespace cave_entrance {
             candidates = candidates.concat(tiles.getTilesByType(sprites.castle.tilePath7))
             candidates = candidates.concat(tiles.getTilesByType(sprites.castle.tilePath8))
             candidates = candidates.concat(tiles.getTilesByType(sprites.castle.tilePath9))
+
+            
             
             this.heroSprite.setImage(img`
                 . . . . . . f f f f . . . . . .
@@ -74,6 +74,7 @@ namespace cave_entrance {
                 tiles.placeOnTile(this.createSprite(assets.image`wizard`, SpriteKind.EvilWorshipper), candidates[randint(0, candidates.length - 1)])
             }
 
+            let WORSHIPPER_DIALOGS = [i18n.i18nstr`新王要来了`, i18n.i18nstr`大人苏醒了`, i18n.i18nstr`魔族的大日子`, i18n.i18nstr`来吧，黑暗`]
             sprites.onOverlap(SpriteKind.Player, SpriteKind.EvilWorshipper, (sprite:Sprite, otherSprite:Sprite)=> {
                 story.spriteSayText(otherSprite, WORSHIPPER_DIALOGS[randint(0, WORSHIPPER_DIALOGS.length - 1)])
             })
