@@ -177,7 +177,6 @@ f f 2 2 2 2 f b b b b f c c . .
 
                 let roomFinished = false
                 game.onUpdateInterval(1000, () => {
-                    console.log(monster.currentMonsters().length)
                     if (!roomFinished && monster.currentMonsters().length == 0) {
                         roomFinished = true
                         this.createExitInRoom(dungeonRoom, 13, 19)
